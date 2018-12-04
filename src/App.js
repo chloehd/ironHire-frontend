@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Switch, Route, NavLink } from "react-router-dom";
+import axios from "axios"; 
+
+import HomePage from "./components/HomePage.js";
 import './App.css';
 
 class App extends Component {
