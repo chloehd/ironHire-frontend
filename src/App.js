@@ -14,6 +14,9 @@ import AddCv from "./components/AddCv.js";
 
 import "./App.css";
 
+console.log("hello2")
+
+
 class App extends Component {
 
   render() {

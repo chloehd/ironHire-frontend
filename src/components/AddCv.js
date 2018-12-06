@@ -23,16 +23,31 @@ class AddCv extends Component {
   }
 
   genericSync(event) {
-    const {name, value} = event.target;
+    const { name, value } = event.target;
     this.setState({ [name]: value });
   }
 
   handleFormSubmit(event) {
     event.preventDefault();
-    const {onSubmit} = this.state;
-    onSubmit(this.state);   
-    this.setState(this.getInitialState())  
+    const { onSubmit } = this.state;
+    onSubmit(this.state);
+    this.setState(this.getInitialState())
   }
+
+  syncExp(event, index) {
+    const { experience } = this.state;
+    experience[index] = event.target.value;
+    this.setState({ experience });
+  }
+
+  syncEdu(event, index) {
+    const { education } = this.state;
+    education[index] = event.target.value;
+    this.setState({ education });
+  }
+
+
+
 
 
   render() {
@@ -82,25 +97,69 @@ class AddCv extends Component {
               type="number" name="telNumber" placeholder="07 28 63 86 20" />
           </label>
 
-          <label>
-            Experience:
-              {experience.map((oneExp, index) => {
+          <div>
+            <h4>Experience:</h4>
+
+            {experience.map((oneExp, index) => {
               return (
-                <input key={index} type="text" value={oneExp}
-                  onChange={event => this.syncExp(event, index)} />)
+                <div>
+                  <label>
+                    Company:
+                    <input type="text" value={oneExp.companyName}
+                      name="companyName"
+                      onChange={event => this.syncExp(event, index)} />
+                  </label>
+
+                  <label>
+                    Duration (months):
+                    <input type="text" value={oneExp.duration}
+                      name="duration"
+                      onChange={event => this.syncExp(event, index)} />
+                  </label>
+
+                  <label>
+                    Tasks:
+                    <input type="text" value={oneExp.tasks}
+                      name="tasks"
+                      onChange={event => this.syncExp(event, index)} />
+                  </label>
+                </div>
+              )
             })}
 
-          </label>
+          </div>
 
-          <label>
-            Education:
+          <div>
+            <h4>Education:</h4>
+
             {education.map((oneEd, index) => {
               return (
-                <input key={index} type="text" value={oneEd}
-                  onChange={event => this.syncExp(event, index)} />)
+                <div>
+                  <label>
+                    Subject:
+                      <input key={index} type="text" value={oneEd.studyName}
+                        name="studyName"
+                         onChange={event => this.syncEdu(event, index)} />
+                  </label>
+
+                  <label>
+                    Institution:
+                    <input key={index} type="text" value={oneEd.schoolName}
+                      name="schoolName"
+                      onChange={event => this.syncEdu(event, index)} />
+                  </label>
+
+                  <label>
+                    Dates:
+                    <input key={index} type="text" value={oneEd.duration}
+                      name="duration"
+                      onChange={event => this.syncEdu(event, index)} />
+                  </label>
+                </div>
+              )
             })}
 
-          </label>
+          </div>
 
           <label>
             Skills:
