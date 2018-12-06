@@ -11,10 +11,9 @@ import Signup from "./components/Signup.js";
 import AddJob from "./components/AddJob.js";
 import Candidates from "./components/Candidates.js";
 import AddCv from "./components/AddCv.js";
+import AddAssoProfile from "./components/AddAssoProfile.js";
 
 import "./App.css";
-
-console.log("hello2")
 
 
 class App extends Component {
@@ -34,12 +33,13 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/addcv" component={AddCv} />
+          <Route path="/association-profile-change" component={AddAssoProfile} />
+          <Route path="/add-cv" component={AddCv} />
           <Route path="/associations" component={Associations} />
           <Route path="/recruiters" component={Recruiters} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route path="/addjob" component={AddJob} />
+          <Route path="/add-job" component={AddJob} />
           <Route path="/candidates" component={Candidates} />
           <Route component={NotFound} />
         </Switch>

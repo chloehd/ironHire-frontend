@@ -31,7 +31,7 @@ class AddCv extends Component {
     event.preventDefault();
     const { onSubmit } = this.state;
     onSubmit(this.state);
-    this.setState(this.getInitialState())
+    this.setState(this.getInitialState());
   }
 
   syncExp(event, index) {
@@ -84,7 +84,7 @@ class AddCv extends Component {
             Email address:
             <input value={email}
               onChange={event => this.genericSync(event)}
-              type="text" name="email" placeholder="jon.snow@stark.com" />
+              type="email" name="email" placeholder="jon.snow@stark.com" />
           </label>
 
           <label>
