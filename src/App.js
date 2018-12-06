@@ -29,7 +29,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/associations" component={Associations} />
           <Route path="/candidates" component={Candidates} />
-          <Route path="/companies" component={Companies} />
+          <Route path="/recruiters" component={Recruiters} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/addjob" component={AddJob} />
