@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-class Comapnies extends Component {
+class Companies extends Component {
   render() {
     return (
-      <section className="comapnies">
+      <section className="companies">
       
       </section>
     )
   }
 }
 
-export default Comapnies;
+export default Companies;
