@@ -12,6 +12,8 @@ const eventSchema = new Schema({
       ref: "Association",
       required: true },
   postingTime: { type: Date },
+  location: { type: String, required: true },
+  link: { type: String }
       
 }, {
   timestamps: true,
