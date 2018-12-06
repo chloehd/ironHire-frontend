@@ -4,11 +4,12 @@ import { Switch, Route, NavLink } from "react-router-dom";
 
 import HomePage from "./components/HomePage.js";
 import Associations from "./components/Associations.js";
-import NotFound from "./components/NotFound.js"
-import Recruiters from "./components/Recruiters.js"
+import NotFound from "./components/NotFound.js";
+import Recruiters from "./components/Recruiters.js";
 import Login from "./components/Login.js";
 import Signup from "./components/Signup.js";
 import AddJob from "./components/AddJob.js";
+import Candidates from "./components/Candidates.js";
 import AddCv from "./components/AddCv.js";
 
 import "./App.css";
@@ -22,8 +23,9 @@ class App extends Component {
           <h1>Iron Hire</h1>
           <nav>
             <NavLink exact to="/">Home</NavLink>
-            <NavLink to="/signup">Signup</NavLink>
-            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/recruiters">Recruiter</NavLink>
+            <NavLink to="/associations">Associations</NavLink>
+            <NavLink to="/candidates">Candidates</NavLink>
           </nav>
         </header>
 
@@ -35,6 +37,7 @@ class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/addjob" component={AddJob} />
+          <Route path="/candidates" component={Candidates} />
           <Route component={NotFound} />
         </Switch>
 
