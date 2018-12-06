@@ -1,0 +1,8 @@
+.AddCv {
+  display: block;
+}
+
+.App nav {
+  display: flex;
+  justify-content: space-evenly;
+}

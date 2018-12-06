@@ -5,7 +5,7 @@ class HomePage extends Component {
     return ( 
       <section className="homepage">
         <h2>ironHire</h2>
-        <p>Find a job where you live!</p>
+        <p>Find a job!</p>
       </section>
      );
   }
