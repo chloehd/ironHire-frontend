@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Switch, Route, NavLink } from "react-router-dom";
+import axios from "axios";
+
 import HomePage from "./components/HomePage.js";
 import Associations from "./components/Associations.js";
 import NotFound from "./components/NotFound.js"
 import Candidates from "./components/Candidates.js";
-import Companies from "./components/Companies.js"
+import Recruiters from "./components/Recruiters.js"
 import Login from "./components/Login.js";
 import Signup from "./components/Signup.js";
 import AddJob from "./components/AddJob.js";
-import axios from "axios";
 
 import "./App.css";
 
@@ -31,7 +32,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/associations" component={Associations} />
           <Route path="/candidates" component={Candidates} />
-          <Route path="/companies" component={Companies} />
+          <Route path="/recruiters" component={Recruiters} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/addjob" component={AddJob} />
