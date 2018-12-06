@@ -47,9 +47,6 @@ class AddCv extends Component {
   }
 
 
-
-
-
   render() {
     const {
       firstName, lastName, candidatePic, email, telNumber,
@@ -189,7 +186,7 @@ class AddCv extends Component {
             Employment status:
             <input value={employmentStatus}
               onChange={event => this.genericSync(event)}
-              type="enum" name="image" placeholder="www.example.com" />
+              type="enum" name="employmentStatus" placeholder="Searching, open to offers or employed" />
 
           </label>
 
