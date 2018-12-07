@@ -7,17 +7,34 @@ import Associations from "./components/Associations.js";
 import NotFound from "./components/NotFound.js";
 import Recruiters from "./components/Recruiters.js";
 import Login from "./components/Login.js";
-import Signup from "./components/Signup.js";
+import Signup from "./components/AssociationsSignup.js";
 import AddJob from "./components/AddJob.js";
 import Candidates from "./components/Candidates.js";
 import AddCv from "./components/AddCv.js";
 import AddAssoProfile from "./components/AddAssoProfile.js";
+import axios from "axios";
 
 import "./App.css";
 
 
 class App extends Component {
 
+  componentDidMount() {
+
+    axios.get(
+      "http://localhost:5555/api/checkuser", 
+      { withCredentials: true } 
+      )
+      .then(response => {
+        const { userDoc } = response.data;
+        this.syncCurrentUser(userDoc);
+      })
+      .catch(err => {
+        alert("Sorry! Something went wrong.");
+      });
+  }
+
+ 
   render() {
     return (
       <div className="App">
