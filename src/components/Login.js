@@ -17,12 +17,11 @@ class Login extends Component {
     this.setState({ [name]: value });
   }
 
-
   handleSubmit(event) {
     event.preventDefault();
 
     axios.post(
-      "http://localhost:5555/api/login", 
+      "http://localhost:5555/api/login",
       this.state,
       { withCredentials: true }
       )
@@ -33,7 +32,7 @@ class Login extends Component {
         })
       .catch(err => {
         console.log("Login Page ERROR.", err);
-        alert("Sorry! Something went wrong.");
+        alert("Sorry! Something went wrong. Login35");
       });
   }
 

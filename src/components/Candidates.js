@@ -29,7 +29,7 @@ class Candidates extends Component {
       
       <ul>
         <li>View Jobs</li>
-        <li>Add a Job</li>
+        <li>Add a CV</li>
       </ul>
 
 
