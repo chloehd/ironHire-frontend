@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import 
 
 class Candidates extends Component {
   constructor(props) {
   super (props);
 
-  }
-
   this.state = {
     itmes: [ ' ' ],
     isLoaded: false,
   }
+
+
+  }
+
+  
 
   ComponentDidMount() {
     fetch()
