@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
-import axios from "axios";
+import 
 
 class Candidates extends Component {
+  constructor(props) {
+  super (props);
 
+  }
+
+  this.state = {
+    itmes: [ ' ' ],
+    isLoaded: false,
+  }
+
+  ComponentDidMount() {
+    fetch()
+    .then(res => res.json())
+
+  }
 
   render() {
     return (
       <section className="candidates">
+
       <h1>Welcome, candidates!</h1>
 
 
