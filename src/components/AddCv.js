@@ -11,7 +11,7 @@ class AddCv extends Component {
       firstName: "",
       lastName: "",
       email: "",
-      telNumber: "",
+      telephoneNumber: "",
       employmentStatus: "",
       experience: [{}],
       education: [{}],
