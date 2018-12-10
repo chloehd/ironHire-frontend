@@ -5,11 +5,9 @@ class Signup extends Component {
     constructor(props) {
       super(props);
 
-    // trouver un moyen de se connecter à recruiter ou candidats ici
       this.state = {
-        name: "",
-        createdOn: "",
-        description: "",
+        firstName: "",
+        lastName: "",
         email: "",
         originalPassword:"",
       }
@@ -23,9 +21,8 @@ class Signup extends Component {
     handleSubmit(event) {
       event.preventDefault();
   
-      // trouver un moyen de se connecter à recruiter ou candidats ici
       axios.post(
-        "http://localhost:5555/api/asso/signup",
+        "http://localhost:5555/api/candidate/signup",
         this.state,
         { withCredentials: true }
         )
@@ -36,7 +33,7 @@ class Signup extends Component {
           })
         .catch(err => {
           console.log("Login Page ERROR.", err);
-          alert("Sorry! Something went wrong.");
+          alert("Sorry! Something went wrong. CANDIDATE36");
         });
     }
   
@@ -45,25 +42,19 @@ class Signup extends Component {
       <section className="signup">
         <form onSubmit={(event) => {this.handleSubmit(event)}}>
           <label>
-            Name of the association:
-            <input value={this.state.name}
+            First Name:
+            <input value={this.state.firstName}
                 onChange={event => this.genericSync(event)}
-                type="text" name="name" placeholder="SuperOrganisation..." />
-          </label>
-            
-          <label>
-            Date of creation:
-            <input value={this.state.createdOn}
-                onChange={event => this.genericSync(event)}
-                type="date" name="createdOn" /> 
+                type="text" name="firstName" placeholder="John" />
           </label>
 
-          <label>
-            What are the actions of your association linked with this website?
-            <input value={this.state.description}
+              <label>
+            Last Name:
+            <input value={this.state.lastName}
                 onChange={event => this.genericSync(event)}
-                type="text" name="description" placeholder="In our association, we help refugees to find a job..."/> 
+                type="text" name="lastName" placeholder="Smith" />
           </label>
+            
 
           <label>
             Email:
@@ -78,8 +69,6 @@ class Signup extends Component {
                 onChange={event => this.genericSync(event)}
                 type="password" name="originalPassword" placeholder="****" />
           </label>
-
-
 
           <button>Sign Up!</button>
         </form>

@@ -26,7 +26,6 @@ class AddAssoProfile extends Component {
   handleFormSubmit(event) {
     event.preventDefault();
 
-    // faire le lien avec le backend !!!
     axios.post(
       "http://localhost:5555/api/associations",
       this.state,
