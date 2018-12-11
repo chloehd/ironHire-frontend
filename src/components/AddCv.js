@@ -49,7 +49,7 @@ class AddCv extends Component {
 
   render() {
     const {
-      firstName, lastName, candidatePic, email, telNumber,
+      firstName, lastName, candidatePic, email, telephoneNumber,
       experience, education, skills, languages, addAchievements,
       employmentStatus
     } = this.state;
@@ -89,7 +89,7 @@ class AddCv extends Component {
 
           <label>
             Telephone Number:
-            <input value={telNumber}
+            <input value={telephoneNumber}
               onChange={event => this.genericSync(event)}
               type="number" name="telNumber" placeholder="07 28 63 86 20" />
           </label>
