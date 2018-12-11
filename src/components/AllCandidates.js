@@ -10,7 +10,7 @@ class AllCandidates extends Component {
     constructor(props) {
     super(props);
 
-    this.state = { candidateData: []
+    this.state = { candidateArray: []
         };
 
 }
@@ -18,10 +18,11 @@ class AllCandidates extends Component {
 componentDidMount() {
 
 axios.get(
-    "http://localhost:5555/api/canadidatedata",
+    "http://localhost:5555/api/candidate/candidatedata",
     { withCredentials: true }
 )
 .then(response => {
+  this.setState({candidateArray: response.data})
     console.log("Candidate Data", response.data);
 })
 
@@ -30,6 +31,8 @@ axios.get(
     alert("Sorry! Candidate data not loading");
 });
 }
+
+
 
 
 render() {
@@ -42,21 +45,24 @@ render() {
           {candidateArray.map(oneCandidate => {
           return (
             <div className="AllCandidatesDiv">
-              <li key={oneCandidate._id}>
+            <li>{oneCandidate.first_name}</li>
+            <li>
+              </li>
+              {/* <li >
               <h3>
               <Link to={getCandidateUrl(oneCandidate)}>
-              {oneCandidate.firstName} {oneCandidate.lastName}
+              {oneCandidate.firstName} {oneCandidate.last_name}
               </Link>
               </h3>
               </li>
-              <img src={oneCandidate.candidatePic} />
+              <img src={oneCandidate.candidatePic} alt="" />
               <li>{oneCandidate.email}</li>
               <li>{oneCandidate.telephoneNumber}</li>
               <li>{oneCandidate.employmentStatus}</li>
               <li>{oneCandidate.skills}</li>
               <li>{oneCandidate.experience}</li>
               <li>{oneCandidate.languages}</li>
-              <li>{oneCandidate.education}</li>
+              <li>{oneCandidate.education}</li> */}
 
               </div>
               );
