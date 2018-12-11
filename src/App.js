@@ -11,13 +11,15 @@ import AssoSignup from "./components/AssociationsSignup.js";
 import RecruitSignup from "./components/RecruitSignup.js";
 import CandidateSignup from "./components/CandidatesSignup.js";
 import AddJob from "./components/AddJob.js";
-import Candidates from "./components/Candidates.js";
+// import Candidates from "./components/Candidates.js";
 import AddCv from "./components/AddCv.js";
 import AddAssoProfile from "./components/AddAssoProfile.js";
 import axios from "axios";
 import NewsPage from "./components/NewsPage.js";
 
 import "./App.css";
+import OneCandidate from "./components/OneCandidate.js";
+import AllCandidates from "./components/AllCandidates.js";
 
 class App extends Component {
 
@@ -86,6 +88,8 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/candidates" component={AllCandidates} />
+          <Route exact path="/candidates/:nameofthecandidate" component={OneCandidate} />
           <Route path="/change-profile" component={AddAssoProfile} />
           <Route path="/add-cv" component={AddCv} />
           <Route path="/asso/news" component={Associations} />
@@ -107,7 +111,7 @@ class App extends Component {
               onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           }} />
           <Route path="/add-job" component={AddJob} />
-          <Route path="/candidates" component={Candidates} />
+          {/* <Route path="/candidates" component={Candidates} /> */}
           <Route path="/news" component={NewsPage} />
           <Route component={NotFound} />
         </Switch>
