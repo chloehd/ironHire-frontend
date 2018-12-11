@@ -32,7 +32,7 @@ class App extends Component {
   componentDidMount() {
 
     axios.get(
-      "http://localhost:5555/api/checkuser",
+      process.env.REACT_APP_SERVER_URL + "/api/checkuser",
       { withCredentials: true }
     )
       .then(response => {
@@ -53,7 +53,7 @@ class App extends Component {
 
   logoutClick() {
     axios.delete(
-      "http://localhost:5555/api/logout",
+      process.env.REACT_APP_SERVER_URL + "/api/logout",
       { withCredentials: true } // force axios to send cookies accross domains
     )
       .then(() => {
@@ -75,7 +75,7 @@ class App extends Component {
           <nav>
             <NavLink exact to="/">Home</NavLink>
             <NavLink to="/recruiters">Recruiter</NavLink>
-            <NavLink to="/associations">Associations</NavLink>
+            <NavLink to="/asso/news">Associations</NavLink>
             <NavLink to="/candidates">Candidates</NavLink>
 
             {currentUser && (
@@ -86,7 +86,7 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/association-profile-change" component={AddAssoProfile} />
+          <Route path="/change-profile" component={AddAssoProfile} />
           <Route path="/add-cv" component={AddCv} />
           <Route path="/asso/news" component={Associations} />
           <Route path="/recruiters" component={Recruiters} />

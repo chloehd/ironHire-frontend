@@ -23,8 +23,14 @@ class AddNews extends Component {
     event.preventDefault();
 
     axios.post(
-      "http://localhost:5555/api/associations", 
-      this.state,
+      process.env.REACT_APP_SERVER_URL + "/api/asso/news", 
+      {
+        name: this.state.owner.name,
+        date: this.state.date,
+        message: this.state.message,
+        image: this.state.image,
+        link: this.state.link,
+      },
       { withCredentials: true } 
       )
       .then(response => {
@@ -40,11 +46,11 @@ class AddNews extends Component {
 
   render() { 
     if (this.state.isSubmitSuccessful) {
-      return <Redirect to="/associations" />
+      return <Redirect to="/asso/news" />
     }
     return ( 
       <section className="AddNews">
-        <h2>Add your message</h2>
+        <h2>Share information</h2>
 
         <form onSubmit={event => this.handleSubmit(event)}>
           
@@ -69,7 +75,7 @@ class AddNews extends Component {
                   type="url" name="link" placeholder="www.example.com"/>
           </label>
 
-          <button>Save this News</button>
+          <button>Add News</button>
         </form>
       </section>
      );

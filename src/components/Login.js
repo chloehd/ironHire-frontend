@@ -23,7 +23,7 @@ class Login extends Component {
     event.preventDefault();
 
     axios.post(
-      "http://localhost:5555/api/login",
+      process.env.REACT_APP_SERVER_URL + "/api/login",
       this.state,
       { withCredentials: true }
       )

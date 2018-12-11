@@ -22,7 +22,7 @@ class Signup extends Component {
       event.preventDefault();
   
       axios.post(
-        "http://localhost:5555/api/candidate/signup",
+        process.env.REACT_APP_SERVER_URL + "/api/candidate/signup",
         this.state,
         { withCredentials: true }
         )

@@ -8,9 +8,9 @@ class Associations extends Component {
     return (
       <section className="associations">
         <nav>
-          <a href="#0">All Associations</a>
+          <a href="/asso/all">All Associations</a>
           <a href="#0">Events</a>
-          <a href="#0">Your Profile</a>
+          <a href="/change-profile">Your Profile</a>
         </nav>
 
         <AddNews/>

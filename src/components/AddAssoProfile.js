@@ -18,6 +18,30 @@ class AddAssoProfile extends Component {
     }
   }
 
+  uploadImage(event) {
+    const { files } = event.target;
+    console.log("File SELECTED", files[0]);
+
+    // the "FormData" class will format the files for sending to our API
+    const uploadData = new FormData();
+    // the name "fileSubmission" is the one your backend route defined
+    uploadData.append("fileSubmission", files[0]);
+
+    axios.post(
+      process.env.REACT_APP_SERVER_URL + "api/upload-file",
+      uploadData,
+      { withCredentials: true }
+      )
+      .then(response => {
+        console.log("Upload image", response.data);
+        this.setState({ image: response.data.fileUrl });
+      })
+      .catch(err => {
+        console.log("Upload Image Error", err);
+        alert("Sorry! Something went wrong. ADDASSOProfile34");
+      });
+  }
+
   genericSync(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -27,7 +51,7 @@ class AddAssoProfile extends Component {
     event.preventDefault();
 
     axios.post(
-      "http://localhost:5555/api/associations",
+      process.env.REACT_APP_SERVER_URL + "/api/associations",
       this.state,
       { withCredentials: true }
     )
@@ -101,10 +125,9 @@ class AddAssoProfile extends Component {
 
           <label>
             Logo:
-              <input value={associationLogo}
-              onChange={event => this.genericSync(event)}
-              type="url" name="associationLogo" placeholder="www.image.com/img.jpg" />
+              <input type="file" onChange={event => this.uploadImage(event)}  />
           </label>
+          <img src={this.state.image} />
 
 
           <button>Submit your profile</button>

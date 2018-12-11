@@ -14,7 +14,7 @@ class NewsPage extends Component {
 
   componentDidMount() {
     axios.get(
-      "http://localhost:5555/api/asso/news",
+      process.env.REACT_APP_SERVER_URL + "/api/asso/news",
       { withCredentials: true } 
       )
       .then(response => {
