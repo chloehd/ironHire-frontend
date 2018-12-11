@@ -15,6 +15,7 @@ import Candidates from "./components/Candidates.js";
 import AddCv from "./components/AddCv.js";
 import AddAssoProfile from "./components/AddAssoProfile.js";
 import axios from "axios";
+import NewsPage from "./components/NewsPage.js";
 
 import "./App.css";
 
@@ -87,7 +88,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/association-profile-change" component={AddAssoProfile} />
           <Route path="/add-cv" component={AddCv} />
-          <Route path="/associations" component={Associations} />
+          <Route path="/asso/news" component={Associations} />
           <Route path="/recruiters" component={Recruiters} />
           <Route path="/login" render={() => {
             return <Login currentUser={this.state.currentUser}
@@ -107,6 +108,7 @@ class App extends Component {
           }} />
           <Route path="/add-job" component={AddJob} />
           <Route path="/candidates" component={Candidates} />
+          <Route path="/news" component={NewsPage} />
           <Route component={NotFound} />
         </Switch>
 

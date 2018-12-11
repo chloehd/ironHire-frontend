@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { Redirect } from "react-router-dom";
+
 
 class Login extends Component {
 
@@ -36,7 +38,15 @@ class Login extends Component {
       });
   }
 
+  getPhoneUrl(role) {
+    return `/${role}s`;
+  }
+
   render() {
+    if(this.props.currentUser) {
+      return <Redirect to={this.getPhoneUrl(this.props.currentUser.role)} /> 
+    } 
+
     return (
       <section className="Login">
         <form onSubmit={(event) => this.handleSubmit(event)}>

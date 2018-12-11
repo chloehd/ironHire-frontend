@@ -6,3 +6,7 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+label {
+  display: block;
+}

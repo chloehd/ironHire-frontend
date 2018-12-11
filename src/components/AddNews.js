@@ -1,0 +1,79 @@
+import React, { Component } from "react";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
+
+class AddNews extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      message: "",
+      image: "",
+      link: "",
+      isSubmitSuccessful: false,
+    };
+  }
+
+  genericSync(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    axios.post(
+      "http://localhost:5555/api/associations", 
+      this.state,
+      { withCredentials: true } 
+      )
+      .then(response => {
+        console.log("Add News", response.data);
+        this.setState({ isSubmitSuccessful: true });
+      })
+      .catch(err => {
+        console.log("Add News ERROR", err);
+        alert("Sorry! Something went wrong. AddNews48")
+      });
+  }
+
+
+  render() { 
+    if (this.state.isSubmitSuccessful) {
+      return <Redirect to="/associations" />
+    }
+    return ( 
+      <section className="AddNews">
+        <h2>Add your message</h2>
+
+        <form onSubmit={event => this.handleSubmit(event)}>
+          
+          <label>
+            Message: 
+            <input value={this.state.message}
+                  onChange={event => this.genericSync(event)}
+                  type="text" name="message" placeholder="Today, we've met... "/>
+          </label>
+
+          <label>
+            Image: 
+            <input value={this.state.image}
+                  onChange={event => this.genericSync(event)}
+                  type="url" name="image" placeholder="www.image.com/img.jpg"/>
+          </label>
+
+          <label>
+            Link: 
+            <input value={this.state.link}
+                  onChange={event => this.genericSync(event)}
+                  type="url" name="link" placeholder="www.example.com"/>
+          </label>
+
+          <button>Save this News</button>
+        </form>
+      </section>
+     );
+  }
+}
+ 
+export default AddNews;
