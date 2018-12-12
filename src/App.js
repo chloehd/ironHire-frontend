@@ -11,16 +11,16 @@ import AssoSignup from "./components/AssociationsSignup.js";
 import RecruitSignup from "./components/RecruitSignup.js";
 import CandidateSignup from "./components/CandidatesSignup.js";
 import AddJob from "./components/AddJob.js";
-// import Candidates from "./components/Candidates.js";
 import AddCv from "./components/AddCv.js";
 import AddAssoProfile from "./components/AddAssoProfile.js";
 import axios from "axios";
 import NewsPage from "./components/NewsPage.js";
-
-import "./App.css";
 import OneCandidate from "./components/OneCandidate.js";
 import AllCandidates from "./components/AllCandidates.js";
 import AllAssociations from "./components/AllAssociations.js";
+import OneAsso from "./components/OneAssociation.js";
+
+import "./App.css";
 
 class App extends Component {
 
@@ -75,26 +75,27 @@ class App extends Component {
       <div className="App">
         <header>
           <h1>Iron Hire</h1>
+            {currentUser ? (
+              <button onClick={() => this.logoutClick()} >LogOut</button>
+            ) : 
           <nav>
             <NavLink exact to="/">Home</NavLink>
             <NavLink to="/recruiters">Recruiter</NavLink>
             <NavLink to="/asso/news">Associations</NavLink>
             <NavLink to="/candidates">Candidates</NavLink>
 
-            {currentUser && (
-              <button onClick={() => this.logoutClick()} >LogOut</button>
-            )}
-          </nav>
+          </nav>}
         </header>
 
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/candidates" component={AllCandidates} />
           <Route exact path="/candidates/:nameofthecandidate" component={OneCandidate} />
-          <Route path="/change-profile" component={AddAssoProfile} />
           <Route path="/add-cv" component={AddCv} />
           <Route path="/asso/news" component={Associations} />
-          <Route path="/asso/all" component={AllAssociations} />
+          <Route exact path="/asso/all" component={AllAssociations} />
+          <Route path="/asso/all/:id" component={OneAsso} />
+          <Route path="/asso/change-profile" component={AddAssoProfile} />
           <Route path="/recruiters" component={Recruiters} />
           <Route path="/login" render={() => {
             return <Login currentUser={this.state.currentUser}

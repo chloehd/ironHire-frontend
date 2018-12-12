@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from "axios"; 
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 function getCandidateUrl(oneCandidate) {
@@ -7,48 +7,49 @@ function getCandidateUrl(oneCandidate) {
 }
 
 class AllCandidates extends Component {
-    constructor(props) {
+  constructor(props) {
     super(props);
 
-    this.state = { candidateArray: []
-        };
+    this.state = {
+      candidateArray: []
+    };
 
-}
+  }
 
-componentDidMount() {
+  componentDidMount() {
 
-axios.get(
-    "http://localhost:5555/api/candidate/candidatedata",
-    { withCredentials: true }
-)
-.then(response => {
-  this.setState({candidateArray: response.data})
-    console.log("Candidate Data", response.data);
-})
+    axios.get(
+      process.env.REACT_APP_SERVER_URL + "/api/candidate/candidatedata",
+      { withCredentials: true }
+    )
+      .then(response => {
+        this.setState({ candidateArray: response.data })
+        console.log("Candidate Data", response.data);
+      })
 
-.catch(err => {
-    console.log("candidate data ERROR", err);
-    alert("Sorry! Candidate data not loading");
-});
-}
-
-
+      .catch(err => {
+        console.log("candidate data ERROR", err);
+        alert("Sorry! Candidate data not loading");
+      });
+  }
 
 
-render() {
-  const { candidateArray } = this.state;
+
+
+  render() {
+    const { candidateArray } = this.state;
     return (
-      <section className="AllCandidatesSection"> 
-      <h2>All Candidates</h2>
-      
+      <section className="AllCandidatesSection">
+        <h2>All Candidates</h2>
+
         <ul>
           {candidateArray.map(oneCandidate => {
-          return (
-            <div className="AllCandidatesDiv">
-            <li>{oneCandidate.first_name}</li>
-            <li>
-              </li>
-              {/* <li >
+            return (
+              <div className="AllCandidatesDiv">
+                <li>{oneCandidate.first_name}</li>
+                <li>
+                </li>
+                {/* <li >
               <h3>
               <Link to={getCandidateUrl(oneCandidate)}>
               {oneCandidate.firstName} {oneCandidate.last_name}
@@ -65,12 +66,12 @@ render() {
               <li>{oneCandidate.education}</li> */}
 
               </div>
-              );
-              })}
+            );
+          })}
         </ul>
       </section>
-    
-            );
-            }
-          }
-  export default AllCandidates;
+
+    );
+  }
+}
+export default AllCandidates;

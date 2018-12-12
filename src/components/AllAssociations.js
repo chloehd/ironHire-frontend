@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function getAssoUrl(oneAsso) {
-  return `/asso/${oneAsso._id}`;
+  return `/asso/all/${oneAsso._id}`;
 }
 
 
@@ -47,7 +47,8 @@ class AllAssociations extends Component {
                   </Link>
                 </h3>
                 <p>{oneAsso.createdOn}</p>
-                <img src={oneAsso.associationLogo} alt={oneAsso.name} />
+                { oneAsso.associationLogo && <img src={oneAsso.associationLogo} alt={oneAsso.name} />}
+
               </li>
             )
           })}
