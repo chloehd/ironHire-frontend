@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route, NavLink } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 
 import HomePage from "./components/HomePage.js";
 import Associations from "./components/Associations.js";
@@ -13,7 +13,6 @@ import CandidateSignup from "./components/CandidatesSignup.js";
 import AddJob from "./components/AddJob.js";
 import AddCv from "./components/AddCv.js";
 import AddAssoProfile from "./components/AddAssoProfile.js";
-import axios from "axios";
 import NewsPage from "./components/NewsPage.js";
 import OneCandidate from "./components/OneCandidate.js";
 import AllCandidates from "./components/AllCandidates.js";
@@ -33,7 +32,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // console.log("🐹🐹🐹🐹🐹🐹 "+ process.env.REACT_APP_SERVER_URL);
     axios.get(
       process.env.REACT_APP_SERVER_URL + "/api/checkuser",
       { withCredentials: true }
@@ -45,7 +43,6 @@ class App extends Component {
       })
       .catch(err => {
         console.log("Check User ERROR", err);
-        // alert("Sorry! Something went wrong. APP76");
       });
   }
 
@@ -57,15 +54,13 @@ class App extends Component {
   logoutClick() {
     axios.delete(
       process.env.REACT_APP_SERVER_URL + "/api/logout",
-      { withCredentials: true } // force axios to send cookies accross domains
+      { withCredentials: true } 
     )
       .then(() => {
-        // make currentUser empty again like it was at the start
         this.syncCurrentUser(null);
       })
       .catch(err => {
         console.log("Logout ERROR", err);
-        // alert("Sorry! Something went wrong.")
       });
   }
 
@@ -80,23 +75,23 @@ class App extends Component {
             ) : 
           <nav>
             <NavLink exact to="/">Home</NavLink>
-            <NavLink to="/recruiters">Recruiter</NavLink>
+            <NavLink to="/recruiter">Recruiter</NavLink>
             <NavLink to="/asso/news">Associations</NavLink>
-            <NavLink to="/candidates">Candidates</NavLink>
+            <NavLink to="/candidate">Candidates</NavLink>
 
           </nav>}
         </header>
 
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/candidates" component={AllCandidates} />
-          <Route exact path="/candidates/:nameofthecandidate" component={OneCandidate} />
+          <Route exact path="/recruiter/allcandidates" component={AllCandidates} />
+          <Route path="/candidate/:nameofthecandidate" component={OneCandidate} />
           <Route path="/add-cv" component={AddCv} />
           <Route path="/asso/news" component={Associations} />
           <Route exact path="/asso/all" component={AllAssociations} />
           <Route path="/asso/all/:id" component={OneAsso} />
           <Route path="/asso/change-profile" component={AddAssoProfile} />
-          <Route path="/recruiters" component={Recruiters} />
+          <Route path="/recruiter" component={Recruiters} />
           <Route path="/login" render={() => {
             return <Login currentUser={this.state.currentUser}
               onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
@@ -114,12 +109,11 @@ class App extends Component {
               onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           }} />
           <Route path="/add-job" component={AddJob} />
-          {/* <Route path="/candidates" component={Candidates} /> */}
           <Route path="/news" component={NewsPage} />
           <Route component={NotFound} />
         </Switch>
 
-        <footer>Fait avec  par Chloé et Hélène</footer>
+        <footer>Nous contacter</footer>
       </div>
     );
   }
