@@ -43,9 +43,7 @@ class AddNews extends Component {
 
 
   render() { 
-    // if (this.state.isSubmitSuccessful) {
-    //   return <Redirect to="/asso/news" />
-    // }
+
     return ( 
       <section className="AddNews">
         <h2>Share information</h2>

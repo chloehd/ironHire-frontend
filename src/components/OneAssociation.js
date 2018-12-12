@@ -14,7 +14,7 @@ class OneAssociation extends Component {
     const { params } = this.props.match;
 
     axios.get(
-      `http://localhost:5555/api/asso/${params.assoId}`,
+      process.env.REACT_APP_SERVER_URL + `/api/asso/all/${params.id}`,
       { withCredentials: true } 
       )
       .then(response => {
@@ -28,15 +28,18 @@ class OneAssociation extends Component {
   }
 
   render() { 
-    const { _id, name, description, associationLogo } = this.state;
+    const { name, description, associationLogo, createdOn, addInformation, email, telNumber } = this.state;
 
     return ( 
       <section className="OneAsso">
         <h2>{name}</h2>
+        {associationLogo && <img src={associationLogo} alt=""/>}
+        <p>{createdOn}</p>
+        {addInformation && <p>{addInformation}</p>}
+        <p>{email}</p>
+        {telNumber && <p>{telNumber}</p>}
 
         <p>{description}</p>
-
-        <img src={associationLogo} alt="" />
       </section>
      );
   }

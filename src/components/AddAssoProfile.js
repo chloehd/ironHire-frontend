@@ -51,7 +51,7 @@ class AddAssoProfile extends Component {
     event.preventDefault();
 
     axios.post(
-      process.env.REACT_APP_SERVER_URL + "/api/associations",
+      process.env.REACT_APP_SERVER_URL + "/api/asso",
       this.state,
       { withCredentials: true }
     )
@@ -125,9 +125,10 @@ class AddAssoProfile extends Component {
 
           <label>
             Logo:
-              <input type="file" onChange={event => this.uploadImage(event)}  />
+              <input value={associationLogo}
+              type="file" onChange={event => this.uploadImage(event)}  />
           </label>
-          <img src={this.state.image} />
+          <img src={this.state.associationLogo} />
 
 
           <button>Submit your profile</button>

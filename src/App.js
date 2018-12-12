@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route, NavLink } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 
 import HomePage from "./components/HomePage.js";
 import Associations from "./components/Associations.js";
@@ -11,16 +11,15 @@ import AssoSignup from "./components/AssociationsSignup.js";
 import RecruitSignup from "./components/RecruitSignup.js";
 import CandidateSignup from "./components/CandidatesSignup.js";
 import AddJob from "./components/AddJob.js";
-// import Candidates from "./components/Candidates.js";
 import AddCv from "./components/AddCv.js";
 import AddAssoProfile from "./components/AddAssoProfile.js";
-import axios from "axios";
 import NewsPage from "./components/NewsPage.js";
-
-import "./App.css";
 import OneCandidate from "./components/OneCandidate.js";
+import OneAsso from "./components/OneAssociation.js";
 import AllCandidates from "./components/AllCandidates.js";
 import AllAssociations from "./components/AllAssociations.js";
+
+import "./App.css";
 
 class App extends Component {
 
@@ -77,9 +76,9 @@ class App extends Component {
           <h1>Iron Hire</h1>
           <nav>
             <NavLink exact to="/">Home</NavLink>
-            <NavLink to="/recruiters">Recruiter</NavLink>
+            <NavLink to="/recruiter">Recruiter</NavLink>
             <NavLink to="/asso/news">Associations</NavLink>
-            <NavLink to="/candidates">Candidates</NavLink>
+            <NavLink to="/candidate">Candidates</NavLink>
 
             {currentUser && (
               <button onClick={() => this.logoutClick()} >LogOut</button>
@@ -89,13 +88,14 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/candidates" component={AllCandidates} />
-          <Route exact path="/candidates/:nameofthecandidate" component={OneCandidate} />
+          <Route exact path="/candidate" component={AllCandidates} />
+          <Route exact path="/candidate/:nameofthecandidate" component={OneCandidate} />
           <Route path="/change-profile" component={AddAssoProfile} />
           <Route path="/add-cv" component={AddCv} />
           <Route path="/asso/news" component={Associations} />
+          <Route path="/asso/all/:id" component={OneAsso} />
           <Route path="/asso/all" component={AllAssociations} />
-          <Route path="/recruiters" component={Recruiters} />
+          <Route path="/recruiter" component={Recruiters} />
           <Route path="/login" render={() => {
             return <Login currentUser={this.state.currentUser}
               onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
@@ -118,7 +118,7 @@ class App extends Component {
           <Route component={NotFound} />
         </Switch>
 
-        <footer>Fait avec  par Chloé et Hélène</footer>
+        <footer>Contact Us</footer>
       </div>
     );
   }

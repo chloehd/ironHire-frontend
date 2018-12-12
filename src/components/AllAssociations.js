@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function getAssoUrl(oneAsso) {
-  return `/asso/${oneAsso._id}`;
+  return `/asso/all/${oneAsso._id}`;
 }
 
 
@@ -33,9 +33,11 @@ class AllAssociations extends Component {
 
   render() {
     const { assoArray } = this.state;
+    console.log(assoArray)
     return (
       <section className="AssoList">
-        <h2>All Associations</h2>
+        <h2>All Associations Tests
+        </h2>
 
         <ul>
           {assoArray.map(oneAsso => {
@@ -47,7 +49,10 @@ class AllAssociations extends Component {
                   </Link>
                 </h3>
                 <p>{oneAsso.createdOn}</p>
-                <img src={oneAsso.associationLogo} alt={oneAsso.name} />
+                { oneAsso.associationLogo && (<img src={oneAsso.associationLogo} alt="test" />)
+                
+              }
+            
               </li>
             )
           })}
