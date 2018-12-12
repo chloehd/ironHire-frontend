@@ -35,12 +35,9 @@ axios.get(
       });
   }
 
-<<<<<<< HEAD
-=======
         <li>
           <Link to="/recruiter/allcandidates">View Candidates</Link> 
           </li>
->>>>>>> 9f463b70766260127a0f67b1cd113d2e08d16c86
 
 
 

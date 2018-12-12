@@ -54,4 +54,4 @@ import axios from "axios";
 //     );
 //   }
 // }
-// export default AllCandidates;
+export default AllCandidates;
