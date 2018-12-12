@@ -14,15 +14,9 @@ class OneAssociation extends Component {
     const { params } = this.props.match;
 
     axios.get(
-<<<<<<< HEAD
-      process.env.REACT_APP_SERVER_URL + `/api/asso/${params.assoId}`,
-      { withCredentials: true } 
-      )
-=======
       process.env.REACT_APP_SERVER_URL + `/api/asso/all/${params.id}`,
       { withCredentials: true }
     )
->>>>>>> 73e2681ad83d501260476fe53a75e4fa0c9464cb
       .then(response => {
         console.log("Association Details", response.data);
         this.setState(response.data);
