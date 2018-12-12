@@ -28,7 +28,7 @@ class AddAssoProfile extends Component {
     uploadData.append("fileSubmission", files[0]);
 
     axios.post(
-      process.env.REACT_APP_SERVER_URL + "api/upload-file",
+      process.env.REACT_APP_SERVER_URL + "/api/upload-file",
       uploadData,
       { withCredentials: true }
       )

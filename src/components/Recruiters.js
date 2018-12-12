@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class Recruiters extends Component {
 
@@ -9,11 +10,16 @@ class Recruiters extends Component {
       <h1>Welcome, recruiter!</h1>
       
       <ul>
-        <li>View Candidates</li>
-        <li>Add a Job</li>
+
+        <li>
+          <Link to="/all-candidates">View Candidates</Link> 
+          </li>
+
+        <li>
+        <Link to="/add-job">Add a Job</Link> 
+        </li>
+
       </ul>
-
-
 
       </section>
     )

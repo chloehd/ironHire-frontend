@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-
+    // console.log("🐹🐹🐹🐹🐹🐹 "+ process.env.REACT_APP_SERVER_URL);
     axios.get(
       process.env.REACT_APP_SERVER_URL + "/api/checkuser",
       { withCredentials: true }
