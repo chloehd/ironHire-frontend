@@ -49,10 +49,8 @@ class AllAssociations extends Component {
                   </Link>
                 </h3>
                 <p>{oneAsso.createdOn}</p>
-                { oneAsso.associationLogo && (<img src={oneAsso.associationLogo} alt="test" />)
-                
-              }
-            
+                { oneAsso.associationLogo && <img src={oneAsso.associationLogo} alt={oneAsso.name} />}
+
               </li>
             )
           })}

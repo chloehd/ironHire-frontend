@@ -27,22 +27,22 @@ class OneAssociation extends Component {
       });
   }
 
-  render() { 
-    const { name, description, associationLogo, createdOn, addInformation, email, telNumber } = this.state;
-
-    return ( 
+  render() {
+    const { name, description, associationLogo, createdOn, 
+      addInformation, email, telNumber } = this.state;
+    return (
       <section className="OneAsso">
+  
         <h2>{name}</h2>
-        {associationLogo && <img src={associationLogo} alt=""/>}
+        {associationLogo && <img src={associationLogo} alt="" /> }
         <p>{createdOn}</p>
-        {addInformation && <p>{addInformation}</p>}
+        { addInformation && <p>{addInformation}</p> }
         <p>{email}</p>
-        {telNumber && <p>{telNumber}</p>}
-
+        { telNumber && <p>{telNumber}</p> }
         <p>{description}</p>
       </section>
-     );
+    );
   }
 }
- 
+
 export default OneAssociation;

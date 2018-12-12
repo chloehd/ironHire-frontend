@@ -14,6 +14,7 @@ class Associations extends Component {
   componentDidMount() {
     axios.get(
       process.env.REACT_APP_SERVER_URL + "/api/asso/news",
+      // process.env.REACT_APP_SERVER_URL + "/api/asso/news",
       { withCredentials: true } 
       )
       .then(response => {

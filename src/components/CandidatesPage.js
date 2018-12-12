@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import AllCandidates from "./AllCandidates.js";
 
 class Candidates extends Component {
   constructor(props) {
@@ -33,7 +34,6 @@ class Candidates extends Component {
         <li>View Jobs</li>
         <li>Add a CV</li>
       </ul>
-
 
       </section>
     )
