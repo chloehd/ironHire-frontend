@@ -20,7 +20,7 @@ class AllCandidates extends Component {
   componentDidMount() {
 
     axios.get(
-      process.env.REACT_APP_SERVER_URL + "/api/candidate/candidatedata",
+      process.env.REACT_APP_SERVER_URL + "/api/candidate/all",
       { withCredentials: true }
     )
       .then(response => {

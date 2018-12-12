@@ -12,7 +12,7 @@ class Recruiters extends Component {
       <ul>
 
         <li>
-          <Link to="/all-candidates">View Candidates</Link> 
+          <Link to="/recruiter/allcandidates">View Candidates</Link> 
           </li>
 
         <li>
