@@ -1,20 +1,48 @@
 import React, { Component } from 'react';
 import NewsPage from "./NewsPage.js";
 import AddNews from "./AddNews.js";
+import axios from "axios";
 
 class Associations extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      newsArray: [],
+    }
+  }
+
+  componentDidMount() {
+    axios.get(
+      process.env.REACT_APP_SERVER_URL + "/api/asso/news",
+      { withCredentials: true } 
+      )
+      .then(response => {
+        console.log("News List", response.data);
+        this.setState({ newsArray: response.data });
+      })
+      .catch(err => {
+        console.log("News List ERROR", err);
+        alert("Sorry! Something went wrong. NewsP30");
+      });
+  }
+
+    updateNewsArray(oneNews) {
+      const newsArrayCopy = [...this.state.newsArray];
+      newsArrayCopy.push(oneNews);
+      this.setState({newsArray: newsArrayCopy});
+    }
+
 
   render() {
     return (
       <section className="associations">
         <nav>
           <a href="/asso/all">All Associations</a>
-          <a href="#0">Events</a>
           <a href="/change-profile">Your Profile</a>
         </nav>
 
-        <AddNews/>
-        <NewsPage/>
+        <AddNews updateNewsArray={(oneNews) => this.updateNewsArray(oneNews)}/>
+        <NewsPage newsArray={this.state.newsArray}/>
 
       </section>
     )

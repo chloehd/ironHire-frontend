@@ -20,6 +20,7 @@ import NewsPage from "./components/NewsPage.js";
 import "./App.css";
 import OneCandidate from "./components/OneCandidate.js";
 import AllCandidates from "./components/AllCandidates.js";
+import AllAssociations from "./components/AllAssociations.js";
 
 class App extends Component {
 
@@ -93,6 +94,7 @@ class App extends Component {
           <Route path="/change-profile" component={AddAssoProfile} />
           <Route path="/add-cv" component={AddCv} />
           <Route path="/asso/news" component={Associations} />
+          <Route path="/asso/all" component={AllAssociations} />
           <Route path="/recruiters" component={Recruiters} />
           <Route path="/login" render={() => {
             return <Login currentUser={this.state.currentUser}
