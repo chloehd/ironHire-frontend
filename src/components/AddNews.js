@@ -25,8 +25,6 @@ class AddNews extends Component {
     axios.post(
       process.env.REACT_APP_SERVER_URL + "/api/asso/news", 
       {
-        name: this.state.owner.name,
-        date: this.state.date,
         message: this.state.message,
         image: this.state.image,
         link: this.state.link,
@@ -35,7 +33,7 @@ class AddNews extends Component {
       )
       .then(response => {
         console.log("Add News", response.data);
-        this.setState({ isSubmitSuccessful: true });
+        this.props.updateNewsArray(response.data);
       })
       .catch(err => {
         console.log("Add News ERROR", err);
@@ -45,9 +43,9 @@ class AddNews extends Component {
 
 
   render() { 
-    if (this.state.isSubmitSuccessful) {
-      return <Redirect to="/asso/news" />
-    }
+    // if (this.state.isSubmitSuccessful) {
+    //   return <Redirect to="/asso/news" />
+    // }
     return ( 
       <section className="AddNews">
         <h2>Share information</h2>

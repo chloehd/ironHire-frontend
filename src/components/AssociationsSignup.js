@@ -79,8 +79,6 @@ class Signup extends Component {
                 type="password" name="originalPassword" placeholder="****" />
           </label>
 
-
-
           <button>Sign Up!</button>
         </form>
       </section>
