@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 
@@ -35,28 +34,22 @@ axios.get(
       });
   }
 
-<<<<<<< HEAD
-=======
-        <li>
-          <Link to="/recruiter/allcandidates">View Candidates</Link> 
-          </li>
->>>>>>> 9f463b70766260127a0f67b1cd113d2e08d16c86
-
-
-
 render() {
   const { candidateArray } = this.state;
-  
     return (
       <section className="AllCandidatesSection">
-        <h2>All Candidates</h2>
+        <h2>Welcome, Recruiter!</h2>
+
+         <li>
+          <Link to="/recruiter/allcandidates">View Candidates</Link> 
+          </li>
 
         <ul>
           {candidateArray.map(oneCandidate => {
-          return (
-            <div className="AllCandidatesDiv">
-            <li>{oneCandidate.first_name}</li>
-{/*       
+            return (
+              <div className="AllCandidatesDiv">
+                <li>{oneCandidate.first_name}</li>
+                      
               <li >
               <h3>
               <Link to={getCandidateUrl(oneCandidate)}>
@@ -71,7 +64,7 @@ render() {
               <li>{oneCandidate.skills}</li>
               <li>{oneCandidate.experience}</li>
               <li>{oneCandidate.languages}</li>
-              <li>{oneCandidate.education}</li> */}
+              <li>{oneCandidate.education}</li>
 
               </div>
             );
