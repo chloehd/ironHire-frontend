@@ -43,7 +43,7 @@ class App extends Component {
       .then(response => {
         console.log("Check User", response.data);
         const { userDoc } = response.data;
-          this.syncCurrentUser(userDoc);
+        this.syncCurrentUser(userDoc);
       })
       .catch(err => {
         console.log("Check User ERROR", err);
@@ -58,7 +58,7 @@ class App extends Component {
   logoutClick() {
     axios.delete(
       process.env.REACT_APP_SERVER_URL + "/api/logout",
-      { withCredentials: true } 
+      { withCredentials: true }
     )
       .then(() => {
         this.syncCurrentUser(null);
@@ -69,7 +69,7 @@ class App extends Component {
   }
 
   render() {
-    const {currentUser} = this.state;
+    const { currentUser } = this.state;
     const additionalNav = () => (<nav>
       <a className="linkHome" href="/association/all">ALL ASSOCIATIONS</a>
       <a className="linkHome" href="/association/change-profile">YOUR PROFILE</a>
@@ -79,20 +79,21 @@ class App extends Component {
       <div className="App">
         <header>
 
-          <Switch>
-            <Route path='/association' component={additionalNav} />
-          </Switch>
+          {currentUser ? (
+            <div>
+            <Switch>
+              <Route path='/association' component={additionalNav} />
+            </Switch>
+            <button className="logoutButton" onClick={() => this.logoutClick()} >Log Out</button>
+            </div>
+            ) :
+            <nav>
+              <NavLink className="linkHome" exact to="/">IRONHIRE</NavLink>
+              <NavLink className="linkHome" to="/candidate">CANDIDATES</NavLink>
+              <NavLink className="linkHome" to="/recruiter">RECRUITERS</NavLink>
+              <NavLink className="linkHome" to="/association">ASSOCIATIONS</NavLink>
 
-            {currentUser ? (
-              <button className="logoutButton" onClick={() => this.logoutClick()} >Log Out</button>
-            ) : 
-          <nav>
-            <NavLink className="linkHome" exact to="/">IRONHIRE</NavLink>
-            <NavLink className="linkHome" to="/candidate">CANDIDATES</NavLink>
-            <NavLink className="linkHome" to="/recruiter">RECRUITERS</NavLink>
-            <NavLink className="linkHome" to="/association">ASSOCIATIONS</NavLink>
-
-          </nav>}
+            </nav>}
 
 
         </header>
@@ -108,8 +109,8 @@ class App extends Component {
           <Route path="/association/change-profile" render={() =>
             <AddAssoProfile currentUser={this.state.currentUser} />
           } />
-          <Route path="/association" render={() => 
-            <Associations currentUser={this.state.currentUser}/> 
+          <Route path="/association" render={() =>
+            <Associations currentUser={this.state.currentUser} />
           } />
           <Route path="/recruiter" component={Recruiters} />
           <Route path="/alljobs" component={AllJobs} />

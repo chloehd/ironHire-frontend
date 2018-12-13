@@ -42,26 +42,14 @@ class Associations extends Component {
     return (
       <section className="associations">
         {!this.props.currentUser && 
-        <div>
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
-        <div id="modal1" class="modal">
-          <div class="modal-content">
-            <h4>Sign Up</h4>
-           </div>
-          <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-          </div>
-          
-          <button data-target="modal1" class="btn modal-trigger">Modal</button>
-
-        </div>
-        </div>
-
+            <Login onUserChange={userDoc => this.props.onUserChange(userDoc)}/>
         }
-
+        {this.props.currentUser && 
+        <div>
         <AddNews updateNewsArray={(oneNews) => this.updateNewsArray(oneNews)} />
         <NewsPage newsArray={this.state.newsArray} />
+        </div>
+      }
 
       </section>
     )

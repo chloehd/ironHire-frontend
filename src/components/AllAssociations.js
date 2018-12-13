@@ -36,21 +36,22 @@ class AllAssociations extends Component {
 
     return (
       <section className="AssoList">
-        <h2>All Associations</h2>
+        <h3>All Associations</h3>
 
         <ul>
           {assoArray.map(oneAsso => {
             return (
+              <div className="AllList">
               <li key={oneAsso._id}>
-                <h3>
+                <h5>
                   <Link to={getAssoUrl(oneAsso)}>
                     {oneAsso.name}
                   </Link>
-                </h3>
+                </h5>
                 <p>{oneAsso.createdOn}</p>
                 { oneAsso.associationLogo && <img src={oneAsso.associationLogo} alt={oneAsso.name} />}
-
               </li>
+              </div>
             )
           })}
         </ul>

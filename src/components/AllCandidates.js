@@ -35,35 +35,38 @@ class AllCandidates extends Component {
     return (
       <section className="AllCandidatesSection">
         <h2>Welcome, Recruiter!</h2>
-      
 
-      
-          {candidateArray.map(oneCandidate => {
-            return (
-                <div className="AllCandidatesDiv">
+
+
+        {candidateArray.map(oneCandidate => {
+          return (
+            <div className="AllCandidatesDiv" key={oneCandidate._id}>
+              <div>
+                <img src={oneCandidate.candidate_pic} alt="" />
+
               
-              <p>
-              {oneCandidate.first_name} {oneCandidate.last_name}
-              </p>
-              
-              <ul>
-              <li>{oneCandidate.email}</li>
-              <li>{[oneCandidate.employment_status]}</li>
-              <li>{[oneCandidate.languages]}</li>
-            <li>{oneCandidate.skills}</li>
-               <li>{oneCandidate.experience}</li>
-               {
-                oneCandidate.education ? 
-                 <li> {oneCandidate.education}</li> : 
-                 null 
-               }
-              </ul>
+
+                <ul>
+                  <li><h5>{oneCandidate.first_name} {oneCandidate.last_name}</h5></li>
+                  <li>{oneCandidate.email}</li>
+                  <li>{[oneCandidate.employment_status]}</li>
+                  <li>{[oneCandidate.languages]}</li>
+                  <li>{oneCandidate.skills}</li>
+                  <li>{oneCandidate.experience}</li>
+                  {
+                    oneCandidate.education ?
+                      <li> {oneCandidate.education}</li> :
+                      null
+                  }
+                </ul>
               </div>
-            );
-    })}
-       </section>
-  );
- }
+
+            </div>
+          );
+        })}
+      </section>
+    );
+  }
 }
 
 export default AllCandidates;
