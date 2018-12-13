@@ -32,14 +32,15 @@ class OneAssociation extends Component {
       addInformation, email, telNumber } = this.state;
     return (
       <section className="OneAsso">
-  
-        <h2>{name}</h2>
+      <div>
+        <h3>{name}</h3>
         {associationLogo && <img src={associationLogo} alt="" /> }
         <p>{createdOn}</p>
         { addInformation && <p>{addInformation}</p> }
         <p>{email}</p>
         { telNumber && <p>{telNumber}</p> }
         <p>{description}</p>
+        </div>
       </section>
     );
   }

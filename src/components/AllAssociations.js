@@ -36,7 +36,8 @@ class AllAssociations extends Component {
 
     return (
       <section className="AssoList">
-        <h3>All Associations</h3>
+      <div>
+        <h3>List of all Associations</h3>
 
         <ul>
           {assoArray.map(oneAsso => {
@@ -55,6 +56,7 @@ class AllAssociations extends Component {
             )
           })}
         </ul>
+        </div>
 
       </section>
     );

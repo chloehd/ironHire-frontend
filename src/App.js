@@ -16,7 +16,7 @@ import AddAssoProfile from "./components/AddAssoProfile.js";
 import NewsPage from "./components/NewsPage.js";
 import OneCandidate from "./components/OneCandidate.js";
 import OneAsso from "./components/OneAssociation.js";
-import AllCandidates from "./components/AllCandidates.js";
+//import AllCandidates from "./components/AllCandidates.js";
 import AllAssociations from "./components/AllAssociations.js";
 import AllJobs from "./components/AllJobs.js";
 import CandidatesPage from "./components/CandidatesPage.js"
@@ -84,7 +84,7 @@ class App extends Component {
             <Switch>
               <Route path='/association' component={additionalNav} />
             </Switch>
-            <button className="logoutButton" onClick={() => this.logoutClick()} >Log Out</button>
+            <button className="LogoutButton" onClick={() => this.logoutClick()} >Log Out</button>
             </div>
             ) :
             <nav>
@@ -101,7 +101,6 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/candidate" component={CandidatesPage} />
-          <Route path="/recruiter/allcandidates" component={AllCandidates} />
           <Route path="/candidate/:nameofthecandidate" component={OneCandidate} />
           <Route path="/add-cv" component={AddCv} />
           <Route exact path="/association/all" component={AllAssociations} />

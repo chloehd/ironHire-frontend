@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
-// function getCandidateUrl(oneCandidate) {
-//   return `/onecandidate/${oneCandidate._id}`;
-// }
+function getCandidateUrl(oneCandidate) {
+  return `/recruiter/allcandidates/${oneCandidate._id}`;
+}
 
 class AllCandidates extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class AllCandidates extends Component {
 
   componentDidMount() {
     axios
-      .get(process.env.REACT_APP_SERVER_URL + "/api/recruiter/allcandidates", {
+      .get(process.env.REACT_APP_SERVER_URL + "/api/recruiter", {
         withCredentials: true
       })
       .then(response => {
@@ -34,12 +34,10 @@ class AllCandidates extends Component {
     const { candidateArray } = this.state;
     return (
       <section className="AllCandidatesSection">
-        <h2>Welcome, Recruiter!</h2>
-
-
 
         {candidateArray.map(oneCandidate => {
           return (
+            <Link to={getCandidateUrl(oneCandidate)}>
             <div className="AllCandidatesDiv" key={oneCandidate._id}>
               <div>
                 <img src={oneCandidate.candidate_pic} alt="" />
@@ -62,6 +60,7 @@ class AllCandidates extends Component {
               </div>
 
             </div>
+            </Link>
           );
         })}
       </section>

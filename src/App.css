@@ -6,6 +6,7 @@ body {
   color: #4A4A4A;
 }
 
+
 header {
   font-size: 12px;
   background-color: white;
@@ -48,13 +49,15 @@ label {
 
 }
 
-.logoutButton {
+.LogoutButton {
   padding: 10px 30px;
   border-radius: 3px;
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.19);
   background-color: #192231;
   color: white;
   font-weight: bold;
+  position: absolute;
+  right: 0px;
 
 }
 
@@ -155,15 +158,22 @@ form button {
   max-width: 200px;
 }
 
-.AssoList div {
+.AllList {
   display: block;
   margin: 2% 30%;
-  border: 0.5px solid #111111; 
+  border: 0.5px solid #222222; 
   border-radius: 3px;
   padding: 2%;
  
 }
 
-.AssoList  {
-  color: #111111;
+.AssoList,
+.OneAsso  {
+  color: #222222;
+  margin-top: 10%;
+}
+
+.OneAsso div {
+  margin: 1.9466666667rem 0 1.168rem 10rem;
+ 
 }
