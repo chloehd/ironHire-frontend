@@ -18,6 +18,7 @@ import OneCandidate from "./components/OneCandidate.js";
 import AllCandidates from "./components/AllCandidates.js";
 import AllAssociations from "./components/AllAssociations.js";
 import OneAsso from "./components/OneAssociation.js";
+import AllJobs from "./components/AllJobs.js";
 
 import "./App.css";
 
@@ -84,14 +85,15 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/recruiter/allcandidates" component={AllCandidates} />
+          <Route path="/recruiter/allcandidates" component={AllCandidates} />
           <Route path="/candidate/:nameofthecandidate" component={OneCandidate} />
           <Route path="/add-cv" component={AddCv} />
           <Route path="/asso/news" component={Associations} />
-          <Route exact path="/asso/all" component={AllAssociations} />
+          <Route path="/asso/all" component={AllAssociations} />
           <Route path="/asso/all/:id" component={OneAsso} />
           <Route path="/asso/change-profile" component={AddAssoProfile} />
           <Route path="/recruiter" component={Recruiters} />
+          <Route path="/all-jobs" component={AllJobs} />
           <Route path="/login" render={() => {
             return <Login currentUser={this.state.currentUser}
               onUserChange={userDoc => this.syncCurrentUser(userDoc)} />

@@ -1,38 +1,20 @@
 import React, { Component } from 'react';
-// import AllCandidates from "./AllCandidates.js";
+import { Link } from "react-router-dom";
 
-class Candidates extends Component {
-  constructor(props) {
-  super (props);
+// THIS PAGE NEEDS TO BE IMPORTED IN APP JS ONCE CHLOE CHOSES A NAME
 
-  this.state = {
-    itmes: [ ' ' ],
-    isLoaded: false,
-  }
-
-
-  }
+class CandidatesPage extends Component {
 
   
-
-  ComponentDidMount() {
-    fetch()
-    .then(res => res.json())
-
-  }
-
   render() {
     return (
       <section className="candidates">
 
       <h1>Welcome, candidates!</h1>
-
-
-
       
       <ul>
-        <li>View Jobs</li>
-        <li>Add a CV</li>
+        <li> <Link to="/alljobs">View Jobs</Link> </li>
+        <li> Add a CV </li>
       </ul>
 
       </section>
@@ -40,4 +22,4 @@ class Candidates extends Component {
   }
 }
 
-export default Candidates;
+export default CandidatesPage;

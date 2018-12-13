@@ -11,3 +11,24 @@ label {
   display: block;
 }
 
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  background-color: #F8F8F8;
+  color: #4A4A4A;
+}
+
+header {
+  font-size: 12px;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+}
+
+
+
