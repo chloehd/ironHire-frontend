@@ -35,6 +35,7 @@ class AllCandidates extends Component {
     return (
       <section className="AllCandidatesSection">
         <h2>Welcome, Recruiter!</h2>
+      
 
       
           {candidateArray.map(oneCandidate => {
@@ -50,8 +51,7 @@ class AllCandidates extends Component {
               <li>{[oneCandidate.employment_status]}</li>
               <li>{[oneCandidate.languages]}</li>
             <li>{oneCandidate.skills}</li>
-               <li>{oneCandidate.experience}</li> 
-
+               <li>{oneCandidate.experience}</li>
                {
                 oneCandidate.education ? 
                  <li> {oneCandidate.education}</li> : 

@@ -11,7 +11,7 @@ class AllJobs extends Component {
   }
 
   componentDidMount() {
-    axios.get(process.env.REACT_APP_SERVER_URL + "/api/alljobs", {
+    axios.get(process.env.REACT_APP_SERVER_URL + "/api/candidate", {
         withCredentials: true
       })
       .then(response => {
@@ -36,7 +36,7 @@ class AllJobs extends Component {
             return (
                 <div key={oneJob._id} className="AllJobsDiv">
               <ul>
-              <li>Role: {oneJob.role}</li>
+              <li>Name: {oneJob.name}</li>
               <li>Description: {oneJob.description}</li>
               <li>Contract Type: {oneJob.contractType}</li>
               <li>Location: {oneJob.location}</li>

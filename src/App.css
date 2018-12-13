@@ -7,7 +7,13 @@ body {
 }
 
 header {
-
+  font-size: 12px;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
 }
 
 .AddCv {
@@ -106,4 +112,3 @@ form button {
     height: 120px;
     text-align: center;
   }
-
