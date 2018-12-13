@@ -13,32 +13,38 @@ class OneCandidate extends Component {
 
   render() {
     const {
-      candidatePic,
-      firstName,
-      lastName,
+      candidate_pic,
+      first_name,
+      last_name,
       email,
-      telephoneNumber,
-      employmentStatus,
+      telephone_number,
+      employment_status,
       skills,
-      experience,
-      languages,
-      education
+      // experience,
+      // languages,
+      // education
     } = this.state;
     return (
-<section className="oneCandidate">
-        <h2>Candidates</h2>
+      <section className="oneCandidate">
         <h3>
-          {firstName} {lastName}
+          {first_name} {last_name}
         </h3>
         <ul>
-        <img src={candidatePic} alt="" />
-          <li>{email}</li>
-          <li>{telephoneNumber}</li>
-          <li>{employmentStatus}</li>
-          <li>{skills}</li>
-          <li>{experience}</li>
-          <li>{languages}</li>
-          <li>{education}</li>
+          <img src={candidate_pic} alt="" />
+          <p>{email}</p>
+          <p>{telephone_number}</p>
+          <p>{employment_status}</p>
+          <p>{skills}</p>
+          {/* {telephone_number && <p>Telephone Number: {telephone_number}</p>}
+          {experience.map((oneExp, index) => {
+            return <p key={index}>{oneExp[0]}</p>
+          })}
+          {languages.map((oneLanguage, index) => {
+            return <p key={index}>{oneLanguage}</p>
+          })}
+          {education.map((oneEdu, index) => {
+            return <p key={index}>{oneEdu[0]}</p>
+          })} */}
         </ul>
       </section>
     );

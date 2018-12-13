@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function getAssoUrl(oneAsso) {
-  return `/asso/all/${oneAsso._id}`;
+  return `/association/all/${oneAsso._id}`;
 }
 
 
@@ -18,7 +18,7 @@ class AllAssociations extends Component {
 
   componentDidMount() {
     axios.get(
-      process.env.REACT_APP_SERVER_URL + "/api/asso/all",
+      process.env.REACT_APP_SERVER_URL + "/api/association/all",
       { withCredentials: true } 
       )
       .then(response => {
@@ -33,11 +33,10 @@ class AllAssociations extends Component {
 
   render() {
     const { assoArray } = this.state;
-    console.log(assoArray)
+
     return (
       <section className="AssoList">
-        <h2>All Associations Tests
-        </h2>
+        <h2>All Associations</h2>
 
         <ul>
           {assoArray.map(oneAsso => {

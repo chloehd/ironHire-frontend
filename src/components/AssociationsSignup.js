@@ -25,7 +25,7 @@ class Signup extends Component {
   
       // trouver un moyen de se connecter à recruiter ou candidats ici
       axios.post(
-        process.env.REACT_APP_SERVER_URL + "/api/asso/signup",
+        process.env.REACT_APP_SERVER_URL + "/api/association/signup",
         this.state,
         { withCredentials: true }
         )

@@ -18,7 +18,6 @@ import OneCandidate from "./components/OneCandidate.js";
 import OneAsso from "./components/OneAssociation.js";
 import AllCandidates from "./components/AllCandidates.js";
 import AllAssociations from "./components/AllAssociations.js";
-import OneAsso from "./components/OneAssociation.js";
 
 import "./App.css";
 
@@ -69,20 +68,31 @@ class App extends Component {
 
   render() {
     const {currentUser} = this.state;
+    const additionalNav = () => (<nav>
+      <a className="linkHome" href="/association/all">ALL ASSOCIATIONS</a>
+      <a className="linkHome" href="/association/change-profile">YOUR PROFILE</a>
+    </nav>)
+
     return (
       <div className="App">
         <header>
-          <h1>Iron Hire</h1>
+
+          <Switch>
+            <Route path='/association' component={additionalNav} />
+          </Switch>
+
             {currentUser ? (
-              <button onClick={() => this.logoutClick()} >LogOut</button>
+              <button className="logoutButton" onClick={() => this.logoutClick()} >Log Out</button>
             ) : 
           <nav>
-            <NavLink exact to="/">Home</NavLink>
-            <NavLink to="/recruiter">Recruiter</NavLink>
-            <NavLink to="/asso/news">Associations</NavLink>
-            <NavLink to="/candidate">Candidates</NavLink>
+            <NavLink className="linkHome" exact to="/">IRONHIRE</NavLink>
+            <NavLink className="linkHome" to="/candidate">CANDIDATES</NavLink>
+            <NavLink className="linkHome" to="/recruiter">RECRUITERS</NavLink>
+            <NavLink className="linkHome" to="/association">ASSOCIATIONS</NavLink>
 
           </nav>}
+
+
         </header>
 
         <Switch>
@@ -90,16 +100,18 @@ class App extends Component {
           <Route exact path="/recruiter/allcandidates" component={AllCandidates} />
           <Route path="/candidate/:nameofthecandidate" component={OneCandidate} />
           <Route path="/add-cv" component={AddCv} />
-          <Route path="/asso/news" component={Associations} />
-          <Route exact path="/asso/all" component={AllAssociations} />
-          <Route path="/asso/all/:id" component={OneAsso} />
-          <Route path="/asso/change-profile" component={AddAssoProfile} />
+          <Route exact path="/association/all" component={AllAssociations} />
+          <Route path="/association/all/:id" component={OneAsso} />
+          <Route path="/association/change-profile" render={() =>
+            <AddAssoProfile currentUser={this.state.currentUser} />
+          } />
+          <Route path="/association" component={Associations} />
           <Route path="/recruiter" component={Recruiters} />
           <Route path="/login" render={() => {
             return <Login currentUser={this.state.currentUser}
               onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           }} />
-          <Route path="/asso/signup" render={() => {
+          <Route path="/association/signup" render={() => {
             return <AssoSignup currentUser={this.state.currentUser}
               onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           }} />

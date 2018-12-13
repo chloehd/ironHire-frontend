@@ -16,7 +16,7 @@ class NewsPage extends Component {
                 <h4>{oneNews.owner.name}</h4>
                 <p>{oneNews.createdAt}</p>
                 <p>{oneNews.message}</p>
-                <img src={oneNews.image} alt = ""/>
+                {oneNews.image && <img src={oneNews.image} alt = ""/>}
                 {oneNews.Link && <Link to={oneNews.link}>Click me</Link>}
               </li>
             )

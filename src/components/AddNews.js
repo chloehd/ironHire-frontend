@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 
 class AddNews extends Component {
   constructor(props){
@@ -23,7 +22,7 @@ class AddNews extends Component {
     event.preventDefault();
 
     axios.post(
-      process.env.REACT_APP_SERVER_URL + "/api/asso/news", 
+      process.env.REACT_APP_SERVER_URL + "/api/association", 
       {
         message: this.state.message,
         image: this.state.image,
@@ -72,6 +71,7 @@ class AddNews extends Component {
           </label>
 
           <button>Add News</button>
+      
         </form>
       </section>
      );

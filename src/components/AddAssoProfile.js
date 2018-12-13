@@ -8,13 +8,21 @@ class AddAssoProfile extends Component {
 
     this.state = {
       associationLogo: "",
-      name: "",
+      name: props.currentUser
+        ? props.currentUser.name
+        : "",
       createdOn: "",
       description: "",
       addInformation: "",
       telNumber: "",
       email: "",
       role: "association",
+    }
+  }
+
+  componentDidUpdate(oldProps) {
+    if (!oldProps.currentUser && this.props.currentUser) {
+      this.setState({ name: this.props.currentUser.name });
     }
   }
 
@@ -51,7 +59,7 @@ class AddAssoProfile extends Component {
     event.preventDefault();
 
     axios.post(
-      process.env.REACT_APP_SERVER_URL + "/api/asso",
+      process.env.REACT_APP_SERVER_URL + "/api/association",
       this.state,
       { withCredentials: true }
     )
@@ -125,16 +133,10 @@ class AddAssoProfile extends Component {
 
           <label>
             Logo:
-<<<<<<< HEAD
               <input value={associationLogo}
               type="file" onChange={event => this.uploadImage(event)}  />
           </label>
-          <img src={this.state.associationLogo} />
-=======
-              <input value={associationLogo} type="file" onChange={event => this.uploadImage(event)}  />
-          </label>
-          <img src={this.state.associationLogo} alt=""/>
->>>>>>> 84472444a28e5009b582c543b53ba7c295931ab7
+          <img src={this.state.associationLogo} alt="" />
 
 
           <button>Update your profile</button>

@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 import axios from "axios";
+import AllCandidates from './AllCandidates';
 
 
-function getCandidateUrl(oneCandidate) {
-  return `/one-candidate/${oneCandidate._id}`;
-}
 
 class Recruiters extends Component {
   constructor(props) {
@@ -25,7 +22,7 @@ axios.get(
 )
 .then(response => {
   console.log("Candidates", response.data);
-  this.setState({candidateArray: response.data})
+  this.setState({candidateArray: response.data});
 })
 
       .catch(err => {
@@ -38,38 +35,9 @@ render() {
   const { candidateArray } = this.state;
     return (
       <section className="AllCandidatesSection">
-        <h2>Welcome, Recruiter!</h2>
+        <h2>Welcome</h2>
 
-         <li>
-          <Link to="/recruiter/allcandidates">View Candidates</Link> 
-          </li>
-
-        <ul>
-          {candidateArray.map(oneCandidate => {
-            return (
-              <div className="AllCandidatesDiv">
-                <li>{oneCandidate.first_name}</li>
-                      
-              <li >
-              <h3>
-              <Link to={getCandidateUrl(oneCandidate)}>
-              {oneCandidate.firstName} {oneCandidate.last_name}
-              </Link>
-              </h3>
-              </li>
-              <img src={oneCandidate.candidatePic} alt="" />
-              <li>{oneCandidate.email}</li>
-              <li>{oneCandidate.telephoneNumber}</li>
-              <li>{oneCandidate.employmentStatus}</li>
-              <li>{oneCandidate.skills}</li>
-              <li>{oneCandidate.experience}</li>
-              <li>{oneCandidate.languages}</li>
-              <li>{oneCandidate.education}</li>
-
-              </div>
-            );
-          })}
-        </ul>
+       <AllCandidates candidateArray={candidateArray} />
       </section>
 
     );

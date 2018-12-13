@@ -1,14 +1,53 @@
 import React, { Component } from 'react';
 
 class HomePage extends Component {
-  render() { 
-    return ( 
+  render() {
+    return (
       <section className="homepage">
-        <h2>ironHire</h2>
-        <p>Find a job!</p>
+        
+        <div className="homepageDiv">
+        <div className="divSession">
+          <img src="https://images.unsplash.com/photo-1535103361068-aceb3935647a?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80" alt="" />
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Suspendisse quis elit risus. Proin tincidunt accumsan ante id blandit.
+             Aenean nec est congue, consequat massa quis, dignissim dui. 
+             Etiam libero eros, pulvinar id ultrices non, cursus at enim. 
+             Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; 
+             Duis faucibus blandit metus non elementum. Aenean venenatis justo erat, eu feugiat turpis volutpat sed. 
+             Proin vehicula finibus ornare.</p>
+        </div>
+
+        <div className="divSession">
+          <img src="https://images.unsplash.com/photo-1535103361068-aceb3935647a?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80" alt="" />
+          <p>Duis feugiat ligula at arcu pharetra aliquet. Nullam vehicula id tortor ac luctus. 
+            Fusce blandit lacus ligula, ac facilisis sapien pretium eu. 
+            Maecenas euismod, nisl et facilisis fringilla, sapien velit mattis enim, non porta lectus eros eget sapien. 
+            Sed euismod, tellus a egestas vehicula, augue justo auctor leo, non iaculis lectus libero vel orci. 
+            </p>
+        </div>
+
+        <div className="divSession">
+          <img src="https://images.unsplash.com/photo-1535103361068-aceb3935647a?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80" alt="" />
+          <p>Duis feugiat ligula at arcu pharetra aliquet. Nullam vehicula id tortor ac luctus. 
+            Fusce blandit lacus ligula, ac facilisis sapien pretium eu. 
+            Maecenas euismod, nisl et facilisis fringilla, sapien velit mattis enim, non porta lectus eros eget sapien. 
+            Sed euismod, tellus a egestas vehicula, augue justo auctor leo, non iaculis lectus libero vel orci.
+            </p>
+        </div>
+
+        <div className="divSession">
+          <img src="https://images.unsplash.com/photo-1535103361068-aceb3935647a?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80" alt="" />
+          <p>Duis feugiat ligula at arcu pharetra aliquet. Nullam vehicula id tortor ac luctus. 
+            Fusce blandit lacus ligula, ac facilisis sapien pretium eu. 
+            Maecenas euismod, nisl et facilisis fringilla, sapien velit mattis enim, non porta lectus eros eget sapien. 
+            Sed euismod, tellus a egestas vehicula, augue justo auctor leo, non iaculis lectus libero vel orci.
+            </p>
+        </div>
+        </div>
+
       </section>
-     );
+    );
   }
 }
- 
+
 export default HomePage;

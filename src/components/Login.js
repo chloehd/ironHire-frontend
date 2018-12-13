@@ -38,13 +38,13 @@ class Login extends Component {
       });
   }
 
-  getPhoneUrl(role) {
-    return `/${role}s`;
+  getUrl(role) {
+    return `/${role}`;
   }
 
   render() {
     if(this.props.currentUser) {
-      return <Redirect to={this.getPhoneUrl(this.props.currentUser.role)} /> 
+      return <Redirect to={this.getUrl(this.props.currentUser.role)} /> 
     } 
 
     return (

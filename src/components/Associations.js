@@ -13,8 +13,7 @@ class Associations extends Component {
 
   componentDidMount() {
     axios.get(
-      process.env.REACT_APP_SERVER_URL + "/api/asso/news",
-      // process.env.REACT_APP_SERVER_URL + "/api/asso/news",
+      process.env.REACT_APP_SERVER_URL + "/api/association",
       { withCredentials: true } 
       )
       .then(response => {
@@ -29,19 +28,18 @@ class Associations extends Component {
 
     updateNewsArray(oneNews) {
       const newsArrayCopy = [...this.state.newsArray];
-      newsArrayCopy.push(oneNews);
+      newsArrayCopy.unshift(oneNews);
       this.setState({newsArray: newsArrayCopy});
     }
 
 
   render() {
+
+    
+
     return (
       <section className="associations">
-        <nav>
-          <a href="/asso/all">All Associations</a>
-          <a href="/change-profile">Your Profile</a>
-        </nav>
-
+      
         <AddNews updateNewsArray={(oneNews) => this.updateNewsArray(oneNews)}/>
         <NewsPage newsArray={this.state.newsArray}/>
 
