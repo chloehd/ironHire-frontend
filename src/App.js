@@ -18,10 +18,11 @@ import OneCandidate from "./components/OneCandidate.js";
 import OneAsso from "./components/OneAssociation.js";
 import AllCandidates from "./components/AllCandidates.js";
 import AllAssociations from "./components/AllAssociations.js";
+import AllJobs from "./components/AllJobs.js";
+import CandidatePage from "./components/CandidatesPage.js"
 
 import "./App.css";
 
-import "./App.css";
 
 class App extends Component {
 
@@ -97,7 +98,8 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/recruiter/allcandidates" component={AllCandidates} />
+          <Route path="/candidatepage" component={CandidatePage} />
+          <Route path="/recruiter/allcandidates" component={AllCandidates} />
           <Route path="/candidate/:nameofthecandidate" component={OneCandidate} />
           <Route path="/add-cv" component={AddCv} />
           <Route exact path="/association/all" component={AllAssociations} />
@@ -107,6 +109,7 @@ class App extends Component {
           } />
           <Route path="/association" component={Associations} />
           <Route path="/recruiter" component={Recruiters} />
+          <Route path="/alljobs" component={AllJobs} />
           <Route path="/login" render={() => {
             return <Login currentUser={this.state.currentUser}
               onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
