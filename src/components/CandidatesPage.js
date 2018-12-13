@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 import AllJobs from "./AllJobs.js";
-
-// THIS PAGE NEEDS TO BE IMPORTED IN APP JS ONCE CHLOE CHOSES A NAME
 
 class CandidatesPage extends Component {
 
