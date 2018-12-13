@@ -40,16 +40,23 @@ class AllCandidates extends Component {
           {candidateArray.map(oneCandidate => {
             return (
                 <div className="AllCandidatesDiv">
+              
+              <p>
+              {oneCandidate.first_name} {oneCandidate.last_name}
+              </p>
+              
               <ul>
-              <li>{oneCandidate.first_name}</li>
-              <li>{oneCandidate.last_name}</li>
-              {/* <li>{oneCandidate.email}</li>
-              <li>{oneCandidate.telephone_number}</li>
-              <li>{oneCandidate.employment_status}</li>
-              <li>{oneCandidate.skills}</li> */}
-              {/* <li>{oneCandidate.experience}</li> */}
-              {/* <li>{oneCandidate.languages}</li> */}
-              {/* <li>[{oneCandidate.education}]</li> */}
+              <li>{oneCandidate.email}</li>
+              <li>{[oneCandidate.employment_status]}</li>
+              <li>{[oneCandidate.languages]}</li>
+            <li>{oneCandidate.skills}</li>
+               <li>{oneCandidate.experience}</li> 
+
+               {
+                oneCandidate.education ? 
+                 <li> {oneCandidate.education}</li> : 
+                 null 
+               }
               </ul>
               </div>
             );

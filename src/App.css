@@ -97,3 +97,18 @@ form button {
 .divSession {
   display: block;
 }
+
+
+.AllJobsDiv ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.AllJobsDiv li {
+    list-style: none;
+    display: inline-block;
+    width: calc(70% / 3);
+    height: 120px;
+    text-align: center;
+  }
