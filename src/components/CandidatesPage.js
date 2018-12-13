@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import AllJobs from "./AllJobs.js";
 
 // THIS PAGE NEEDS TO BE IMPORTED IN APP JS ONCE CHLOE CHOSES A NAME
 
@@ -10,9 +11,8 @@ class CandidatesPage extends Component {
       <section className="candidates">
 
       <h1>Welcome, candidates!</h1>
-      
+      <AllJobs />
       <ul>
-        <li> <Link to="/alljobs">View Jobs</Link> </li>
         <li> Add a CV </li>
       </ul>
 
