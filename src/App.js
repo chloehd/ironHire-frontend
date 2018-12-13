@@ -19,7 +19,7 @@ import OneAsso from "./components/OneAssociation.js";
 import AllCandidates from "./components/AllCandidates.js";
 import AllAssociations from "./components/AllAssociations.js";
 import AllJobs from "./components/AllJobs.js";
-import CandidatePage from "./components/CandidatesPage.js"
+import CandidatesPage from "./components/CandidatesPage.js"
 
 import "./App.css";
 
@@ -87,7 +87,7 @@ class App extends Component {
             ) : 
           <nav>
             <NavLink className="linkHome" exact to="/">IRONHIRE</NavLink>
-            <NavLink className="linkHome" to="/candidate">CANDIDATES</NavLink>
+            <NavLink className="linkHome" to="/candidatespage">CANDIDATES</NavLink>
             <NavLink className="linkHome" to="/recruiter">RECRUITERS</NavLink>
             <NavLink className="linkHome" to="/association">ASSOCIATIONS</NavLink>
 
@@ -98,7 +98,7 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/candidatepage" component={CandidatePage} />
+          <Route path="/candidatespage" component={CandidatesPage} />
           <Route path="/recruiter/allcandidates" component={AllCandidates} />
           <Route path="/candidate/:nameofthecandidate" component={OneCandidate} />
           <Route path="/add-cv" component={AddCv} />

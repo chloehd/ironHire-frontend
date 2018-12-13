@@ -26,16 +26,22 @@ class AllJobs extends Component {
 
   render() {
     const { jobsArray } = this.state;
+    console.log(jobsArray);
     return (
       <section className="AllJobsSection">
+
         <h2>Welcome, Recruiter!</h2>
 
-      
           {jobsArray.map(oneJob => {
             return (
-                <div className="AllJobsDiv">
+                <div key={oneJob._id} className="AllJobsDiv">
               <ul>
-              {/* job array list here */}
+              <li>Role: {oneJob.role}</li>
+              <li>Description: {oneJob.description}</li>
+              <li>Contract Type: {oneJob.contractType}</li>
+              <li>Location: {oneJob.location}</li>
+              <li>Created At: {oneJob.createdAt}</li>
+              <li>Deadline: {oneJob.deadline}</li>
               </ul>
               </div>
             );
