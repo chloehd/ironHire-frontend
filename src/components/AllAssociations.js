@@ -33,9 +33,11 @@ class AllAssociations extends Component {
 
   render() {
     const { assoArray } = this.state;
+    console.log(assoArray)
     return (
       <section className="AssoList">
-        <h2>All Associations</h2>
+        <h2>All Associations Tests
+        </h2>
 
         <ul>
           {assoArray.map(oneAsso => {

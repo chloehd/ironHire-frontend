@@ -15,12 +15,14 @@ import AddCv from "./components/AddCv.js";
 import AddAssoProfile from "./components/AddAssoProfile.js";
 import NewsPage from "./components/NewsPage.js";
 import OneCandidate from "./components/OneCandidate.js";
+import OneAsso from "./components/OneAssociation.js";
 import AllCandidates from "./components/AllCandidates.js";
 import AllAssociations from "./components/AllAssociations.js";
-import OneAsso from "./components/OneAssociation.js";
 import AllJobs from "./components/AllJobs.js";
+import CandidatePage from "./components/CandidatesPage.js"
 
 import "./App.css";
+
 
 class App extends Component {
 
@@ -78,13 +80,14 @@ class App extends Component {
             <NavLink exact to="/">Home</NavLink>
             <NavLink to="/recruiter">Recruiter</NavLink>
             <NavLink to="/asso/news">Associations</NavLink>
-            <NavLink to="/candidate">Candidates</NavLink>
+            <NavLink to="/candidatepage">Candidates</NavLink>
 
           </nav>}
         </header>
 
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route path="/candidatepage" component={CandidatePage} />
           <Route path="/recruiter/allcandidates" component={AllCandidates} />
           <Route path="/candidate/:nameofthecandidate" component={OneCandidate} />
           <Route path="/add-cv" component={AddCv} />
@@ -93,7 +96,7 @@ class App extends Component {
           <Route path="/asso/all/:id" component={OneAsso} />
           <Route path="/asso/change-profile" component={AddAssoProfile} />
           <Route path="/recruiter" component={Recruiters} />
-          <Route path="/all-jobs" component={AllJobs} />
+          <Route path="/alljobs" component={AllJobs} />
           <Route path="/login" render={() => {
             return <Login currentUser={this.state.currentUser}
               onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
@@ -115,7 +118,7 @@ class App extends Component {
           <Route component={NotFound} />
         </Switch>
 
-        <footer>Nous contacter</footer>
+        <footer>Contact Us</footer>
       </div>
     );
   }

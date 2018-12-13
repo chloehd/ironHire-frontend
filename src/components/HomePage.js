@@ -6,8 +6,6 @@ class HomePage extends Component {
       <section className="homepage">
         <h2>ironHire</h2>
 
-
-
         <div className="about">
         <p>this is where ABOUT the website goes</p>
         </div>
@@ -23,7 +21,6 @@ class HomePage extends Component {
         <div className="home-associations">
         <p>this is where about the ASSOCIATIONS goes</p>
         </div>
-
 
       </section>
 

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 class CandidatesPage extends Component {
 
-  
   render() {
     return (
       <section className="candidates">

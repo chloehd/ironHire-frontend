@@ -49,14 +49,14 @@ class AllCandidates extends Component {
               <li>{oneCandidate.skills}</li> */}
               {/* <li>{oneCandidate.experience}</li> */}
               {/* <li>{oneCandidate.languages}</li> */}
-              <li>[{oneCandidate.education}]</li>
+              {/* <li>[{oneCandidate.education}]</li> */}
               </ul>
               </div>
             );
-          })}
-  
-      </section>
+    })}
+       </section>
   );
+ }
 }
-}
+
 export default AllCandidates;
