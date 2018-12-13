@@ -11,11 +11,21 @@ class AddAssoProfile extends Component {
       name: props.currentUser
         ? props.currentUser.name
         : "",
-      createdOn: "",
-      description: "",
-      addInformation: "",
-      telNumber: "",
-      email: "",
+      createdOn: props.currentUser
+      ? props.currentUser.createdOn
+      : "",
+      description: props.currentUser
+      ? props.currentUser.description
+      : "",
+      addInformation: props.currentUser
+      ? props.currentUser.addInformation
+      : "",
+      telNumber: props.currentUser
+      ? props.currentUser.telNumber
+      : "",
+      email: props.currentUser
+      ? props.currentUser.email
+      : "",
       role: "association",
     }
   }
@@ -128,7 +138,6 @@ class AddAssoProfile extends Component {
               <input value={telNumber}
               onChange={event => this.genericSync(event)}
               type="number" name="telNumber" placeholder="01 45 76 18 01" />
-
           </label>
 
           <label>

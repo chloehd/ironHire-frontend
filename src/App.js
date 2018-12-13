@@ -22,6 +22,7 @@ import AllJobs from "./components/AllJobs.js";
 import CandidatesPage from "./components/CandidatesPage.js"
 
 import "./App.css";
+import "./materialize.css";
 
 
 class App extends Component {
@@ -107,7 +108,9 @@ class App extends Component {
           <Route path="/association/change-profile" render={() =>
             <AddAssoProfile currentUser={this.state.currentUser} />
           } />
-          <Route path="/association" component={Associations} />
+          <Route path="/association" render={() => 
+            <Associations currentUser={this.state.currentUser}/> 
+          } />
           <Route path="/recruiter" component={Recruiters} />
           <Route path="/alljobs" component={AllJobs} />
           <Route path="/login" render={() => {
