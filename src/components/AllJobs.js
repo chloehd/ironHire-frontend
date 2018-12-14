@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+
 class AllJobs extends Component {
   constructor(props) {
     super(props);
@@ -25,27 +26,26 @@ class AllJobs extends Component {
   }
 
   render() {
-    const { jobArray } = this.state;
-
-    const jobHTML = jobArray.map(oneJob => {
-      return (
-        <div className="AllJobsDiv">
-        
-        
-        <div> 
-      Position: {oneJob.name}
-      Description: {oneJob.description}
-      Contract Type: {oneJob.contractType}
-      Location: {oneJob.location}
-      Posted: {oneJob.createdAt}
-      Deadline: {oneJob.deadline}
-          
-        </div>
-    </div>);
-    })
+    const { jobsArray } = this.state;
+    console.log(jobsArray);
     return (
-      <section className="AllJobz">
-      {jobHTML}
+      <section className="AllJobsSection">
+
+          {jobsArray.map(oneJob => {
+            return (
+                <div key={oneJob._id} className="AllJobsDiv">
+              <ul>
+              <li><h4>{oneJob.name}</h4></li>
+              <li>Description: {oneJob.description}</li>
+              <li>Contract Type: {oneJob.contractType}</li>
+              <li>Location: {oneJob.location}</li>
+              <li>Created At: {oneJob.createdAt}</li>
+              <li>Deadline: {oneJob.deadline}</li>
+              </ul>
+              </div>
+            );
+          })}
+  
       </section>
     );
   }

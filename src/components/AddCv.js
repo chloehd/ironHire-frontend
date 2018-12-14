@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import axios from "axios";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 
 class AddCv extends Component {
@@ -7,16 +8,16 @@ class AddCv extends Component {
     super(props);
 
     this.state = {
-      candidatePic: "",
-      firstName: "",
-      lastName: "",
+      candidate_pic: "",
+      first_name: "",
+      last_name: "",
       email: "",
-      telephoneNumber: "",
-      employmentStatus: "",
+      telephone_number: "",
+      employment_status: "searching",
       experience: [{}],
       education: [{}],
       languages: [""],
-      addAchievements: "",
+      add_achievements: "",
       skills: "",
       role: "candidate",
     }
@@ -29,29 +30,47 @@ class AddCv extends Component {
 
   handleFormSubmit(event) {
     event.preventDefault();
-    const { onSubmit } = this.state;
-    onSubmit(this.state);
-    this.setState(this.getInitialState());
+
+    axios.put(process.env.REACT_APP_SERVER_URL + "/api/candidate",
+      this.state,
+      { withCredentials: true }
+    )
+    .then(response => {
+      console.log("Add CV", response.data);
+      this.setState({ isSubmitSuccessful: true });
+    })
+    .catch(err => {
+      console.log("Add CV ERROR", err);
+      alert("Sorry! Something went wrong. AddJob52")
+    });
   }
 
   syncExp(event, index) {
     const { experience } = this.state;
-    experience[index] = event.target.value;
+    const { name, value } = event.target;
+    
+    experience[index][name] = value;
     this.setState({ experience });
   }
 
   syncEdu(event, index) {
     const { education } = this.state;
-    education[index] = event.target.value;
+    const { name, value } = event.target;
+
+    education[index][name] = value;
     this.setState({ education });
   }
 
 
   render() {
+    if (this.state.isSubmitSuccessful) {
+      return <Redirect to="/candidate" />
+    }
+
     const {
-      firstName, lastName, candidatePic, email, telephoneNumber,
-      experience, education, skills, languages, addAchievements,
-      employmentStatus
+      first_name, last_name, candidate_pic, email, telephone_number,
+      experience, education, skills, languages, add_achievements,
+      employment_status
     } = this.state;
 
     return (
@@ -59,25 +78,25 @@ class AddCv extends Component {
         <form onSubmit={(event) => this.handleFormSubmit(event)}>
           <label>
             First Name:
-            <input value={firstName}
+            <input value={first_name}
               onChange={event => this.genericSync(event)}
-              type="text" name="firstName" placeholder="Jon" />
+              type="text" name="first_name" placeholder="Jon" />
 
           </label>
 
           <label>
             Last Name:
-            <input value={lastName}
+            <input value={last_name}
               onChange={event => this.genericSync(event)}
-              type="text" name="lastName" placeholder="Snow" />
+              type="text" name="last_name" placeholder="Snow" />
 
           </label>
 
           <label>
             Picture:
-            <input value={candidatePic}
+            <input value={candidate_pic}
               onChange={event => this.genericSync(event)}
-              type="url" name="candidatePic" placeholder="www.example.com/img.jpg" />
+              type="url" name="candidate_pic" placeholder="www.example.com/img.jpg" />
           </label>
 
           <label>
@@ -89,9 +108,9 @@ class AddCv extends Component {
 
           <label>
             Telephone Number:
-            <input value={telephoneNumber}
+            <input value={telephone_number}
               onChange={event => this.genericSync(event)}
-              type="number" name="telNumber" placeholder="07 28 63 86 20" />
+              type="number" name="telephone_number" placeholder="07 28 63 86 20" />
           </label>
 
           <div>
@@ -99,7 +118,7 @@ class AddCv extends Component {
 
             {experience.map((oneExp, index) => {
               return (
-                <div>
+                <div key={index}>
                   <label>
                     Company:
                     <input type="text" value={oneExp.companyName}
@@ -131,7 +150,7 @@ class AddCv extends Component {
 
             {education.map((oneEd, index) => {
               return (
-                <div>
+                <div key={index}>
                   <label>
                     Subject:
                       <input key={index} type="text" value={oneEd.studyName}
@@ -176,18 +195,20 @@ class AddCv extends Component {
 
           <label>
             Additional achievements:
-            <input value={addAchievements}
+            <input value={add_achievements}
               onChange={event => this.genericSync(event)}
-              type="text" name="addAchievements" placeholder="Driving licence... " />
+              type="text" name="add_achievements" placeholder="Driving licence... " />
 
           </label>
 
           <label>
             Employment status:
-            <input value={employmentStatus}
-              onChange={event => this.genericSync(event)}
-              type="enum" name="employmentStatus" placeholder="Searching, open to offers or employed" />
-
+            <select name="employment_status" value={employment_status}
+                onChange={event => this.genericSync(event)}>
+              <option value="searching">Searching</option>
+              <option value="open to offers">Open to Offers</option>
+              <option value="employed">Employed</option>
+            </select>
           </label>
 
           <button>Save this CV</button>

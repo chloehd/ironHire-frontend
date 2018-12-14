@@ -33,6 +33,9 @@ class OneCandidate extends Component {
       telephone_number, employment_status, skills,
       experience, languages, education
     } = this.state;
+
+    console.log("aloooooo", this.state)
+
     return (
       <section className="oneCandidate">
         <h3>

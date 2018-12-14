@@ -42,8 +42,8 @@ class AllAssociations extends Component {
         <ul>
           {assoArray.map(oneAsso => {
             return (
-              <div className="AllList">
-              <li key={oneAsso._id}>
+              <div key={oneAsso._id} className="AllList">
+              <li>
                 <h5>
                   <Link to={getAssoUrl(oneAsso)}>
                     {oneAsso.name}

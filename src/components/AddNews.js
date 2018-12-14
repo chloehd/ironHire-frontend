@@ -45,7 +45,6 @@ class AddNews extends Component {
 
     return ( 
       <section className="AddNews">
-        <h2>Share information</h2>
 
         <form onSubmit={event => this.handleSubmit(event)}>
           

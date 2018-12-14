@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class Signup extends Component {
     constructor(props) {
       super(props);
 
       this.state = {
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         email: "",
         originalPassword:"",
       }
@@ -38,21 +39,25 @@ class Signup extends Component {
     }
   
   render() {
+    if (this.props.currentUser) {
+      return <Redirect to="/candidate" />
+    }
+
     return (
       <section className="signup">
         <form onSubmit={(event) => {this.handleSubmit(event)}}>
           <label>
             First Name:
-            <input value={this.state.firstName}
+            <input value={this.state.first_name}
                 onChange={event => this.genericSync(event)}
-                type="text" name="firstName" placeholder="John" />
+                type="text" name="first_name" placeholder="John" />
           </label>
 
               <label>
             Last Name:
-            <input value={this.state.lastName}
+            <input value={this.state.last_name}
                 onChange={event => this.genericSync(event)}
-                type="text" name="lastName" placeholder="Smith" />
+                type="text" name="last_name" placeholder="Smith" />
           </label>
             
 

@@ -32,7 +32,7 @@ class AllCandidates extends Component {
 
   render() {
     const { candidateArray } = this.state;
-
+    console.log(candidateArray);
     const candidateHTML = candidateArray.map(oneCandidate => {
       return (
         <div className="AllCandidatesDiv" key={oneCandidate._id}>
@@ -64,6 +64,11 @@ class AllCandidates extends Component {
       </section>
     );
   }
+<<<<<<< HEAD
 }
+=======
+  }
+
+>>>>>>> fb1f5fe988840594479a76d8df8fdf06811cf074
 
 export default AllCandidates;
