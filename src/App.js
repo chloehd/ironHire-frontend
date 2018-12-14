@@ -101,16 +101,18 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/candidate/:nameofthecandidate" component={OneCandidate} />
           <Route path="/candidate/add-cv" component={AddCv} />
-          <Route exact path="/candidate" component={CandidatesPage} />
+          <Route exact path="/candidate" render={()=> 
+            <CandidatesPage onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
+          } />
           <Route path="/association/all/:id" component={OneAsso} />
           <Route exact path="/association/all" component={AllAssociations} />
           <Route path="/association/change-profile" render={() =>
             <AddAssoProfile currentUser={this.state.currentUser} />
           } />
           <Route path="/association" render={() =>
-            <Associations currentUser={this.state.currentUser} />
+            <Associations currentUser={this.state.currentUser}
+                onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           } />
           <Route path="/login" render={() => {
             return <Login currentUser={this.state.currentUser}
@@ -129,8 +131,12 @@ class App extends Component {
             onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           }} />
           <Route path="/recruiter/add-job" component={AddJob} />
-          <Route path="/recruiter" component={Recruiters}  />
+          <Route path="/recruiter" render={() =>
+            <Recruiters currentUser={this.state.currentUser}
+                onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
+          }  />
           <Route path="/candidate/alljobs" component={AllJobs} />
+          <Route path="/candidate/:nameofthecandidate" component={OneCandidate} />
           <Route path="/news" component={NewsPage} />
           <Route component={NotFound} />
         </Switch>

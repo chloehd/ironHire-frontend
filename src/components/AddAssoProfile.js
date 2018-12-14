@@ -7,7 +7,9 @@ class AddAssoProfile extends Component {
     super(props);
 
     this.state = {
-      associationLogo: "",
+      associationLogo: props.currentUser
+        ? props.currentUser.associationLogo
+        : "",
       name: props.currentUser
         ? props.currentUser.name
         : "",
@@ -37,7 +39,8 @@ class AddAssoProfile extends Component {
         description: this.props.currentUser.description,
         addInformation: this.props.currentUser.addInformation,
         telNumber: this.props.currentUser.telNumber,
-        email: this.props.currentUser.email
+        email: this.props.currentUser.email,
+        associationLogo: this.props.currentUser.associationLogo
        });
     }
   }
@@ -58,7 +61,7 @@ class AddAssoProfile extends Component {
       )
       .then(response => {
         console.log("Upload image", response.data);
-        this.setState({ image: response.data.fileUrl });
+        this.setState({ associationLogo: response.data.fileUrl });
       })
       .catch(err => {
         console.log("Upload Image Error", err);
@@ -74,8 +77,8 @@ class AddAssoProfile extends Component {
   handleFormSubmit(event) {
     event.preventDefault();
 
-    axios.post(
-      process.env.REACT_APP_SERVER_URL + "/api/association",
+    axios.put(
+      process.env.REACT_APP_SERVER_URL + "/api/association/change-profile",
       this.state,
       { withCredentials: true }
     )
@@ -95,7 +98,7 @@ class AddAssoProfile extends Component {
       addInformation, telNumber, email } = this.state;
 
     if (this.state.isSubmitSuccessful) {
-      return <Redirect to="/" />
+      return <Redirect to="/association" />
     }
 
   
@@ -147,7 +150,7 @@ class AddAssoProfile extends Component {
 
           <label>
             Logo:
-              <input value={associationLogo} type="file" onChange={event => this.uploadImage(event)}  />
+              <input type="file" onChange={event => this.uploadImage(event)}  />
           </label>
           <img src={this.state.associationLogo} alt=""/>
 

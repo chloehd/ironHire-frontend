@@ -30,7 +30,7 @@ class AddJob extends Component {
     event.preventDefault();
 
     axios.post(
-      process.env.REACT_APP_SERVER_URL + "/api/recruiter/addjob",
+      process.env.REACT_APP_SERVER_URL + "/api/recruiter/add-job",
       {
         name: this.state.name,
         salary: this.state.salary,

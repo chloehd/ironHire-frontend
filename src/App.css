@@ -29,7 +29,7 @@ header {
 
 .linkHome {
   text-decoration: none;
-  color: rgb(31, 30, 30);
+  color: white;
   font-weight: bold;
 }
 
@@ -190,4 +190,12 @@ form button {
 .OneAsso div {
   margin: 1.9466666667rem 0 1.168rem 10rem;
  
+}
+
+.AddAssoProfile img {
+  width: 100%;
+}
+
+.AddCv select {
+  display: inline;
 }

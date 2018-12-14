@@ -47,7 +47,7 @@ class Associations extends Component {
               a job is one of your aim. You can join the community of IronHire to be in contact with other associations that are following 
               the same way. 
             </p>
-            <Login onUserChange={userDoc => this.props.onUserChange(userDoc)}/>
+            <Login onUserChange={this.props.onUserChange}/>
         </div>
         }
         {this.props.currentUser && 

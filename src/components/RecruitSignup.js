@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class Signup extends Component {
     constructor(props) {
@@ -29,14 +30,24 @@ class Signup extends Component {
             console.log("Signup Page", response.data);
             const { userDoc } = response.data;
             this.props.onUserChange(userDoc);
+
           })
         .catch(err => {
           console.log("Signup ERROR.", err);
           alert("Sorry! Something went wrong. RECRUIT35");
         });
     }
+
+    getUrl(role) {
+      return `/${role}`;
+    }
   
   render() {
+
+    if(this.props.currentUser) {
+      return <Redirect to={this.getUrl(this.props.currentUser.role)} /> 
+    } 
+
     return (
       <section className="signup">
         <form onSubmit={(event) => {this.handleSubmit(event)}}>
