@@ -7,6 +7,7 @@ body {
   flex-direction: column; 
  }
 
+
 header {
   font-size: 12px;
   background-color: white;
@@ -17,6 +18,9 @@ header {
   height: 50px;
 }
 
+.AddCv {
+  display: block;
+}
 
 .App nav {
   display: flex;
@@ -109,17 +113,22 @@ form button {
   color: #4A4A4A;
 }
 
-.AllJobz {
+.candidatesJobs {
   display: flex;
   flex-direction: column;
-  margin: 5% 10%;
-  margin-top: 50px;
+  height: 550px;
+  margin: 3% 10%;
+  margin-top: 10rem;
   line-height: 1.5;
   font-size: 13px;
-  align-self: center;
 }
+
 .AllJobsDiv li {
-  border: solid;
+    list-style: none;
+    display: inline-block;
+    width: calc(70% / 3);
+    height: 120px;
+    text-align: center;
   }
 
 .AllCandidatesDiv {
@@ -183,3 +192,10 @@ form button {
  
 }
 
+.AddAssoProfile img {
+  width: 100%;
+}
+
+.AddCv select {
+  display: inline;
+}
