@@ -13,10 +13,10 @@ class OneCandidate extends Component {
   componentDidMount() {
     const { params } = this.props.match;
 
-    axios.get(process.env.REACT_APP_SERVER_URL + `/api/recruiter/allcandidates/${params.id}`, 
-    {
-      withCredentials: true
-    })
+    axios.get(
+      process.env.REACT_APP_SERVER_URL + `/api/recruiter/allcandidates/${params.id}`, 
+    { withCredentials: true }
+    )
       .then(response => {
         console.log("candidate deets", response.data);
         this.setState(response.data);
@@ -45,10 +45,10 @@ class OneCandidate extends Component {
           <p>Employment status:{employment_status}</p>
           <p>Skills: {skills}</p>
           {experience.map((oneExp, index) => {
-            return <p key={index}>{oneExp[0]}</p>
+            return <p key={index}>{oneExp[index]}</p>
           })}
           {education.map((oneEdu, index) => {
-            return <p key={index}>{oneEdu[0]}</p>
+            return <p key={index}>{oneEdu[index]}</p>
           })}
           {languages.map((oneLanguage, index) => {
             return <p key={index}>{oneLanguage}</p>

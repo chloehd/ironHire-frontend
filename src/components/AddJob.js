@@ -57,7 +57,7 @@ class AddJob extends Component {
 
   render() {
     if (this.state.isSubmitSuccessful) {
-      return <Redirect to="/recruiter/addjob" />
+      return <Redirect to="/recruiter/add-job" />
     }
 
     return (
@@ -92,10 +92,10 @@ class AddJob extends Component {
           </label>
 
           <label>
-            Contrat Type:
+            Contract Type:
             <input value={this.state.contractType}
               onChange={event => this.genericSync(event)}
-              type="text" name="contratType" placeholder="6 months contract" />
+              type="text" name="contractType" placeholder="6 months contract" />
           </label>
 
           <label>

@@ -46,6 +46,21 @@ class Associations extends Component {
         }
         {this.props.currentUser && 
         <div>
+      
+          <p>There is {{recipeVerifNumber}} recipe(s) to accept</p>
+          {{#each recipeArray}} 
+          <h4>{{this.title}}</h4>
+          <ul>
+          <li>Image: {{this.image}}</li>
+          <li>Level: {{this.level}}</li>
+          <li>Duration: {{this.duration}}</li>
+          <li> Ingredients: {{this.ingredients}}</li> 
+          <a href="/admin/{{this._id}}/recipes"><button>Validate the recipe</button></a>
+          </ul>
+          {{/each}}
+
+
+
         <AddNews updateNewsArray={(oneNews) => this.updateNewsArray(oneNews)} />
         <NewsPage newsArray={this.state.newsArray} />
         </div>

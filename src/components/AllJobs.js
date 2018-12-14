@@ -30,8 +30,6 @@ class AllJobs extends Component {
     return (
       <section className="AllJobsSection">
 
-        <h2>Welcome, Recruiter!</h2>
-
           {jobsArray.map(oneJob => {
             return (
                 <div key={oneJob._id} className="AllJobsDiv">

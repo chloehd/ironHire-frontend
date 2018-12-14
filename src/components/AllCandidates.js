@@ -16,10 +16,10 @@ class AllCandidates extends Component {
   }
 
   componentDidMount() {
-    axios
-      .get(process.env.REACT_APP_SERVER_URL + "/api/recruiter", {
-        withCredentials: true
-      })
+    axios.get(
+      process.env.REACT_APP_SERVER_URL + "/api/recruiter", 
+      { withCredentials: true}
+      )
       .then(response => {
         console.log("Candidates", response.data);
         this.setState({ candidateArray: response.data });
@@ -42,7 +42,6 @@ class AllCandidates extends Component {
               <div>
                 <img src={oneCandidate.candidate_pic} alt="" />
 
-              
 
                 <ul>
                   <li><h5>{oneCandidate.first_name} {oneCandidate.last_name}</h5></li>
@@ -51,11 +50,7 @@ class AllCandidates extends Component {
                   <li>{[oneCandidate.languages]}</li>
                   <li>{oneCandidate.skills}</li>
                   <li>{oneCandidate.experience}</li>
-                  {
-                    oneCandidate.education ?
-                      <li> {oneCandidate.education}</li> :
-                      null
-                  }
+                  { oneCandidate.education && <li> {oneCandidate.education}</li>}
                 </ul>
               </div>
 

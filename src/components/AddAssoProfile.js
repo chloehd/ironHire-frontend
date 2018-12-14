@@ -32,7 +32,13 @@ class AddAssoProfile extends Component {
 
   componentDidUpdate(oldProps) {
     if (!oldProps.currentUser && this.props.currentUser) {
-      this.setState({ name: this.props.currentUser.name });
+      this.setState({ name: this.props.currentUser.name, 
+        createdOn: this.props.currentUser.createdOn,
+        description: this.props.currentUser.description,
+        addInformation: this.props.currentUser.addInformation,
+        telNumber: this.props.currentUser.telNumber,
+        email: this.props.currentUser.email
+       });
     }
   }
 

@@ -26,12 +26,12 @@ class Signup extends Component {
         { withCredentials: true }
         )
         .then(response => {
-            console.log("Login Page", response.data);
+            console.log("Signup Page", response.data);
             const { userDoc } = response.data;
             this.props.onUserChange(userDoc);
           })
         .catch(err => {
-          console.log("Login Page ERROR.", err);
+          console.log("Signup ERROR.", err);
           alert("Sorry! Something went wrong. RECRUIT35");
         });
     }
