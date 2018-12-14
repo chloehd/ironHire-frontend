@@ -7,12 +7,14 @@ class CandidatesPage extends Component {
     return (
       <section className="candidates">
 
-      <h1>Welcome, candidates!</h1>
+      <div className="candidatesJobs">
       <AllJobs />
-      <ul>
-        <li> Add a CV </li>
-      </ul>
+      </div>
 
+      
+      <nav className="addcvlink">Add a CV</nav>
+      
+  
       </section>
     )
   }

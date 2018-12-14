@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
-// function getCandidateUrl(oneCandidate) {
-//   return `/onecandidate/${oneCandidate._id}`;
-// }
+function getCandidateUrl(oneCandidate) {
+  return `/candidate/${oneCandidate._id}`;
+}
 
 class AllCandidates extends Component {
   constructor(props) {
@@ -35,35 +35,39 @@ class AllCandidates extends Component {
     return (
       <section className="AllCandidatesSection">
         <h2>Welcome, Recruiter!</h2>
-      
-
-      
+       
+        <ul>
           {candidateArray.map(oneCandidate => {
             return (
-                <div className="AllCandidatesDiv">
+              <li key={oneCandidate._id}>
+
+
+              <h3> 
+                <Link to={getCandidateUrl(oneCandidate)}>
+                {oneCandidate.first_name} {oneCandidate.last_name}
+                </Link>
+              </h3>
               
-              <p>
-              {oneCandidate.first_name} {oneCandidate.last_name}
-              </p>
-              
-              <ul>
-              <li>{oneCandidate.email}</li>
-              <li>{[oneCandidate.employment_status]}</li>
-              <li>{[oneCandidate.languages]}</li>
-            <li>{oneCandidate.skills}</li>
-               <li>{oneCandidate.experience}</li>
+              <p>{oneCandidate.email}</p>
+              <p>{[oneCandidate.employment_status]}</p>
+              <p>{[oneCandidate.languages]}</p>
+              <p>{oneCandidate.skills}</p>
+               <p>{oneCandidate.experience}</p>
                {
-                oneCandidate.education ? 
-                 <li> {oneCandidate.education}</li> : 
+                 oneCandidate.education ? 
+                 <p>
+                 {oneCandidate.education}</p> : 
                  null 
-               }
+                }
+
+              </li>
+
+            ) 
+              })}
               </ul>
-              </div>
-            );
-    })}
-       </section>
-  );
- }
-}
+            </section>
+          );
+        }
+      }
 
 export default AllCandidates;
