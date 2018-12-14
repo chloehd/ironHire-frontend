@@ -37,7 +37,7 @@ class Associations extends Component {
 
   render() {
 
-
+  const {candidateArray} = this.props;
 
     return (
       <section className="associations">
@@ -46,19 +46,16 @@ class Associations extends Component {
         }
         {this.props.currentUser && 
         <div>
-      
-          <p>There is {{recipeVerifNumber}} recipe(s) to accept</p>
-          {{#each recipeArray}} 
-          <h4>{{this.title}}</h4>
-          <ul>
-          <li>Image: {{this.image}}</li>
-          <li>Level: {{this.level}}</li>
-          <li>Duration: {{this.duration}}</li>
-          <li> Ingredients: {{this.ingredients}}</li> 
-          <a href="/admin/{{this._id}}/recipes"><button>Validate the recipe</button></a>
-          </ul>
-          {{/each}}
-
+        {candidateArray.map(oneVerif => {
+            return (
+                <div key={oneVerif._id} className="Verifications">
+              <ul>
+              <a href="/association"><button>Validate the resume</button></a>
+             
+              </ul>
+              </div>
+            );
+          })}
 
 
         <AddNews updateNewsArray={(oneNews) => this.updateNewsArray(oneNews)} />
