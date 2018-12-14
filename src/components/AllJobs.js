@@ -7,7 +7,7 @@ class AllJobs extends Component {
     super(props);
 
     this.state = {
-      jobArray: []
+      jobsArray: []
     };
   }
 
