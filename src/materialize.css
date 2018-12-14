@@ -4536,9 +4536,10 @@ h2 {
 }
 
 h3 {
-  font-size: 2.92rem;
+  font-size: 1.80rem;
   line-height: 110%;
-  margin: 1.9466666667rem 0 1.168rem 0;
+  margin: 1.9466666667rem 0 1.168rem 10rem;
+  
 }
 
 h4 {
@@ -6100,7 +6101,7 @@ button:focus {
 
 label {
   font-size: 0.8rem;
-  color: #9e9e9e;
+  color: #1f1f1f;
 }
 
 /* Text Inputs + Textarea

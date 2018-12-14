@@ -7,6 +7,7 @@ body {
   flex-direction: column; 
  }
 
+
 header {
   font-size: 12px;
   background-color: white;
@@ -49,13 +50,15 @@ label {
 
 }
 
-.logoutButton {
+.LogoutButton {
   padding: 10px 30px;
   border-radius: 3px;
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.19);
   background-color: #192231;
   color: white;
   font-weight: bold;
+  position: absolute;
+  right: 0px;
 
 }
 
@@ -69,6 +72,7 @@ input[type=text],
 }
 
 form {
+  margin-top: 200px;
   margin-left: 25%;
   margin-top: 200px;
   background-color: #98878f;
@@ -109,6 +113,7 @@ form button {
   color: #4A4A4A;
 }
 
+<<<<<<< HEAD
 .candidatesJobs {
   display: flex;
   flex-direction: column;
@@ -117,4 +122,73 @@ form button {
   margin-top: 10rem;
   line-height: 1.5;
   font-size: 13px;
+=======
+.AllJobsDiv li {
+    list-style: none;
+    display: inline-block;
+    width: calc(70% / 3);
+    height: 120px;
+    text-align: center;
+  }
+
+.AllCandidatesDiv {
+  display: block;
+
+}
+
+.AllCandidatesDiv div {
+  display: flex;
+  background-color: #192231;
+  padding-left: 5%;
+  padding-right: 15%;
+  margin: 3% 20%;
+  
+}
+
+.AllCandidatesDiv li {
+  color: white;
+}
+
+
+
+.AllCandidatesDiv img{
+  margin: 3%;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.NewsMap {
+  background-color: #d8d8d8;
+  margin: 3% 15%;
+  padding: 2%;
+  border-radius: 3px;
+}
+
+.ImgNewsMap {
+  max-width: 200px;
+}
+
+.AllList {
+  display: block;
+  margin: 2% 30%;
+  border: 0.5px solid #222222; 
+  border-radius: 3px;
+  padding: 2%;
+ 
+}
+
+.AssoList,
+.OneAsso  {
+  color: #222222;
+  margin-top: 10%;
+}
+
+.OneAsso div {
+  margin: 1.9466666667rem 0 1.168rem 10rem;
+ 
+>>>>>>> fd8eaa3ab86f16412488dda61fe1299a7d7852e0
 }

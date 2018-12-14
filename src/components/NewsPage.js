@@ -12,13 +12,15 @@ class NewsPage extends Component {
         <ul>
           {newsArray.map(oneNews => {
             return (
+              <div className="NewsMap">
               <li key={oneNews._id}>
-                <h4>{oneNews.owner.name}</h4>
+                <h5>{oneNews.owner.name}</h5>
                 <p>{oneNews.createdAt}</p>
                 <p>{oneNews.message}</p>
-                {oneNews.image && <img src={oneNews.image} alt = ""/>}
+                {oneNews.image && <img className="ImgNewsMap" src={oneNews.image} alt = ""/>}
                 {oneNews.Link && <Link to={oneNews.link}>Click me</Link>}
               </li>
+              </div>
             )
           })}
         </ul>
