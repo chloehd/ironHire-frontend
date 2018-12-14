@@ -64,11 +64,7 @@ class AllCandidates extends Component {
       </section>
     );
   }
-<<<<<<< HEAD
-}
-=======
   }
 
->>>>>>> fb1f5fe988840594479a76d8df8fdf06811cf074
 
 export default AllCandidates;
