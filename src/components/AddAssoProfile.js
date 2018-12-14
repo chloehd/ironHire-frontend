@@ -98,8 +98,7 @@ class AddAssoProfile extends Component {
       return <Redirect to="/" />
     }
 
-    // ajouter ici le fait que si l'association existe alors 
-    // on est redirigé vers page /associations et si non, vers Home
+  
 
     return (
       <section className="AddAssoProfile">

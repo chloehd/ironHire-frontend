@@ -32,6 +32,7 @@ class AllCandidates extends Component {
 
   render() {
     const { candidateArray } = this.state;
+    console.log(candidateArray);
     return (
       <section className="AllCandidatesSection">
 

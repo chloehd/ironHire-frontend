@@ -12,8 +12,8 @@ class NewsPage extends Component {
         <ul>
           {newsArray.map(oneNews => {
             return (
-              <div className="NewsMap">
-              <li key={oneNews._id}>
+              <div key={oneNews._id} className="NewsMap">
+              <li>
                 <h5>{oneNews.owner.name}</h5>
                 <p>{oneNews.createdAt}</p>
                 <p>{oneNews.message}</p>

@@ -71,6 +71,7 @@ class App extends Component {
   render() {
     const { currentUser } = this.state;
     const additionalNav = () => (<nav>
+      <a className="linkHome" href="/association">HOME</a>
       <a className="linkHome" href="/association/all">ALL ASSOCIATIONS</a>
       <a className="linkHome" href="/association/change-profile">YOUR PROFILE</a>
     </nav>)
@@ -128,7 +129,7 @@ class App extends Component {
             onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           }} />
           <Route path="/recruiter/add-job" component={AddJob} />
-          <Route path="/recruiter" component={Recruiters} />
+          <Route path="/recruiter" component={Recruiters}  />
           <Route path="/candidate/alljobs" component={AllJobs} />
           <Route path="/news" component={NewsPage} />
           <Route component={NotFound} />

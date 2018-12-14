@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+
 class AllJobs extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +35,7 @@ class AllJobs extends Component {
             return (
                 <div key={oneJob._id} className="AllJobsDiv">
               <ul>
-              <li>Name: {oneJob.name}</li>
+              <li><h4>{oneJob.name}</h4></li>
               <li>Description: {oneJob.description}</li>
               <li>Contract Type: {oneJob.contractType}</li>
               <li>Location: {oneJob.location}</li>

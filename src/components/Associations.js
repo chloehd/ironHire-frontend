@@ -37,36 +37,43 @@ class Associations extends Component {
 
   render() {
 
-  const {candidateArray} = this.props;
+ // const {candidateArray} = this.props;
 
     return (
       <section className="associations">
         {!this.props.currentUser && 
+        <div>
+            <p>You are an association that is working with refugees. You help them to be integrated in their new place and helping them to find
+              a job is one of your aim. You can join the community of IronHire to be in contact with other associations that are following 
+              the same way. 
+            </p>
             <Login onUserChange={userDoc => this.props.onUserChange(userDoc)}/>
+        </div>
         }
         {this.props.currentUser && 
         <div>
-        {candidateArray.map(oneVerif => {
-            return (
+        {/* {candidateArray.map(oneVerif => { */}
+            {/* return (
                 <div key={oneVerif._id} className="Verifications">
               <ul>
               <a href="/association"><button>Validate the resume</button></a>
              
-              </ul>
-              </div>
+              </ul> */}
+                 
+                      <AddNews updateNewsArray={(oneNews) => this.updateNewsArray(oneNews)} />
+                      <NewsPage newsArray={this.state.newsArray} />
+              {/* </div>
             );
-          })}
-
-
-        <AddNews updateNewsArray={(oneNews) => this.updateNewsArray(oneNews)} />
-        <NewsPage newsArray={this.state.newsArray} />
+          })   */}
         </div>
+        }
+      </section>
+      )
       }
 
-      </section>
-    )
-
-  }
 }
+
+
+
 
 export default Associations;
