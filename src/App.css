@@ -1,10 +1,11 @@
 body {
-  margin: 0;
+  color:#4A4A4A;
   font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-  background-color: #F8F8F8;
-  color: #4A4A4A;
-}
+  letter-spacing: 2px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; 
+ }
 
 
 header {
@@ -42,7 +43,7 @@ label {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height : 60vh;
+    height : 115vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -73,6 +74,7 @@ input[type=text],
 form {
   margin-top: 200px;
   margin-left: 25%;
+  margin-top: 200px;
   background-color: #98878f;
   border-radius: 3px;
   padding: 20px;
@@ -102,11 +104,23 @@ form button {
   display: block;
 }
 
+  /* CANDIDATES PAGE */
+  .candidates-page {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  background-color: #F8F8F8;
+  color: #4A4A4A;
+}
 
-.AllJobsDiv ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.candidatesJobs {
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+  margin: 3% 10%;
+  margin-top: 10rem;
+  line-height: 1.5;
+  font-size: 13px;
 }
 
 .AllJobsDiv li {

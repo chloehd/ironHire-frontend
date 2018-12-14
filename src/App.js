@@ -135,7 +135,7 @@ class App extends Component {
           <Route component={NotFound} />
         </Switch>
 
-        <footer>Contact Us</footer>
+        <footer className="footer">Contact Us</footer>
       </div>
     );
   }

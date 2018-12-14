@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 function getCandidateUrl(oneCandidate) {
+<<<<<<< HEAD
+  return `/candidate/${oneCandidate._id}`;
+=======
   return `/recruiter/allcandidates/${oneCandidate._id}`;
+>>>>>>> fd8eaa3ab86f16412488dda61fe1299a7d7852e0
 }
 
 class AllCandidates extends Component {
@@ -35,6 +39,43 @@ class AllCandidates extends Component {
     console.log(candidateArray);
     return (
       <section className="AllCandidatesSection">
+<<<<<<< HEAD
+        <h2>Welcome, Recruiter!</h2>
+       
+        <ul>
+          {candidateArray.map(oneCandidate => {
+            return (
+              <li key={oneCandidate._id}>
+
+
+              <h3> 
+                <Link to={getCandidateUrl(oneCandidate)}>
+                {oneCandidate.first_name} {oneCandidate.last_name}
+                </Link>
+              </h3>
+              
+              <p>{oneCandidate.email}</p>
+              <p>{[oneCandidate.employment_status]}</p>
+              <p>{[oneCandidate.languages]}</p>
+              <p>{oneCandidate.skills}</p>
+               <p>{oneCandidate.experience}</p>
+               {
+                 oneCandidate.education ? 
+                 <p>
+                 {oneCandidate.education}</p> : 
+                 null 
+                }
+
+              </li>
+
+            ) 
+              })}
+              </ul>
+            </section>
+          );
+        }
+      }
+=======
 
         {candidateArray.map(oneCandidate => {
           return (
@@ -63,5 +104,6 @@ class AllCandidates extends Component {
     );
   }
 }
+>>>>>>> fd8eaa3ab86f16412488dda61fe1299a7d7852e0
 
 export default AllCandidates;

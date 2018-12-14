@@ -14,13 +14,16 @@ class CandidatesPage extends Component {
   render() {
     return (
       <section className="candidates">
+      <div className="candidatesJobs">
 
       <h1>Welcome, {this.state.first_name}</h1>
       <AllJobs />
-      <ul>
-        <li> Add a CV </li>
-      </ul>
+      </div>
 
+      
+      <nav className="addcvlink">Add a CV</nav>
+      
+  
       </section>
     )
   }
