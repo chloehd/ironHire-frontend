@@ -6,7 +6,7 @@ class AllJobs extends Component {
     super(props);
 
     this.state = {
-      jobsArray: []
+      jobArray: []
     };
   }
 
@@ -16,7 +16,7 @@ class AllJobs extends Component {
       })
       .then(response => {
         console.log("Jobs", response.data);
-        this.setState({ jobsArray: response.data });
+        this.setState({ jobArray: response.data });
       })
       .catch(err => {
         console.log("Jobs ERROR 🙈", err);
@@ -25,33 +25,29 @@ class AllJobs extends Component {
   }
 
   render() {
-    const { jobsArray } = this.state;
-    console.log(jobsArray);
+    const { jobArray } = this.state;
+
+    const jobHTML = jobArray.map(oneJob => {
+      return (
+        <div className="AllJobsDiv">
+        
+        
+        <div> 
+      Position: {oneJob.name}
+      Description: {oneJob.description}
+      Contract Type: {oneJob.contractType}
+      Location: {oneJob.location}
+      Posted: {oneJob.createdAt}
+      Deadline: {oneJob.deadline}
+          
+        </div>
+    </div>);
+    })
     return (
-      <section className="AllJobsSection">
-
-<<<<<<< HEAD
-        <h2>Welcome!</h2>
-
-=======
->>>>>>> fd8eaa3ab86f16412488dda61fe1299a7d7852e0
-          {jobsArray.map(oneJob => {
-            return (
-                <div key={oneJob._id} className="AllJobsDiv">
-              <ul>
-              <li>Name: {oneJob.name}</li>
-              <li>Description: {oneJob.description}</li>
-              <li>Contract Type: {oneJob.contractType}</li>
-              <li>Location: {oneJob.location}</li>
-              <li>Created At: {oneJob.createdAt}</li>
-              <li>Deadline: {oneJob.deadline}</li>
-              </ul>
-              </div>
-            );
-          })}
-  
+      <section className="AllJobz">
+      {jobHTML}
       </section>
-  );
-}
+    );
+  }
 }
 export default AllJobs;

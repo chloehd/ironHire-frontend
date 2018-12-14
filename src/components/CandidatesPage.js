@@ -10,9 +10,6 @@ class CandidatesPage extends Component {
       <div className="candidatesJobs">
       <AllJobs />
       </div>
-
-      
-      <nav className="addcvlink">Add a CV</nav>
       
   
       </section>
