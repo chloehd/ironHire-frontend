@@ -36,20 +36,19 @@ class AllCandidates extends Component {
     const candidateHTML = candidateArray.map(oneCandidate => {
       return (
         <div className="AllCandidatesDiv" key={oneCandidate._id}>
-          <div>
-            <Link to={getCandidateUrl(oneCandidate)}>
-              <img src={oneCandidate.candidate_pic} alt="" />
-            </Link>
-          </div>
-
           <div className="candidatesInfo">
+
+            <div>
+              <Link to={getCandidateUrl(oneCandidate)}>
+                <img src={oneCandidate.candidate_pic} alt="" />
+              </Link>
+            </div>
+
             <h5>
               {oneCandidate.first_name} {oneCandidate.last_name}
             </h5>
-            {oneCandidate.email}
-            {oneCandidate.employment_status}
-            {oneCandidate.languages}
-            {oneCandidate.skills}
+            <p>{oneCandidate.email}</p>
+            <p>{oneCandidate.employment_status}</p>
           </div>
 
         </div>
@@ -58,15 +57,10 @@ class AllCandidates extends Component {
 
     return (
       <section className="AllCandidatesSection">
-      {candidateHTML}
+        {candidateHTML}
       </section>
     );
   }
-<<<<<<< HEAD
-  }
-
-=======
 }
->>>>>>> a2a3643df1b415a3b71c1c60ee27cac684878126
 
 export default AllCandidates;
