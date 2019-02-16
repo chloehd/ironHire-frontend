@@ -47,11 +47,9 @@ class AllCandidates extends Component {
               {oneCandidate.first_name} {oneCandidate.last_name}
             </h5>
             {oneCandidate.email}
-            {[oneCandidate.employment_status]}
-            {[oneCandidate.languages]}
+            {oneCandidate.employment_status}
+            {oneCandidate.languages}
             {oneCandidate.skills}
-            {oneCandidate.experience}
-            {oneCandidate.education} && {oneCandidate.education}
           </div>
 
         </div>

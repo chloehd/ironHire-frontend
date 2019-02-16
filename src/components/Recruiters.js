@@ -2,36 +2,39 @@ import React, { Component } from "react";
 import axios from "axios";
 import AllCandidates from "./AllCandidates.js";
 import Login from "./Login.js";
+import AddJob from "./AddJob.js";
 
 class Recruiters extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allCandidatesArray: []
+      jobsArray: []
     };
   }
 
-  componentWillMount() {
-    if (this.props.currentUser) {
-      this.getCandidates();
-    }
+  syncCurrentUser(userDoc) {
+    this.setState({ currentUser: userDoc });
   }
 
-  componentDidUpdate(oldProps) {
-    if (!oldProps.currentUser && this.props.currentUser) {
-      this.getCandidates();
-    }
+
+  updateJobsArray(oneJob) {
+    const jobsArrayCopy = [...this.state.jobsArray];
+    jobsArrayCopy.unshift(oneJob);
+    this.setState({ jobsArray: jobsArrayCopy });
   }
 
-  getCandidates() {
-    axios.get(process.env.REACT_APP_SERVER_URL + "/api/recruiter")
-      .then(response => {
-        console.log("Get Candidates", response.data);
-        this.setState({ allCandidatesArray: response.data })
+
+
+  logoutClick() {
+    axios.delete(
+      process.env.REACT_APP_SERVER_URL + "/api/logout",
+      { withCredentials: true }
+    )
+      .then(() => {
+        this.syncCurrentUser(null);
       })
       .catch(err => {
-        console.log("Get Candidates ERROR", err);
-        alert("Sorry! Something went wrong. ADDASSOProfile34");
+        console.log("Logout ERROR", err);
       });
   }
 
@@ -40,23 +43,34 @@ class Recruiters extends Component {
     return (
       <section className="AllCandidatesSection">
 
+
         {!this.props.currentUser &&
-        <div>
-          <p>Dear Recruiters, you are looking for employees and
-            you are sure that integrating people that are in difficulties is a good thing, 
-            you are in the right place. You can add job offers here and see candidate profiles.
-            Sign up to experiment the website.
+          <div>
+            <p>Dear Recruiters, you are looking for employees and
+              you are sure that integrating people that are in difficulties is a good thing,
+              you are in the right place. You can add job offers here and see candidate profiles.
+              Sign up to experiment the website.
           </p>
-          <Login onUserChange={this.props.onUserChange} />
+            <Login onUserChange={this.props.onUserChange} />
           </div>
         }
+
         {this.props.currentUser &&
-          <div>
+          <section>
+            <nav>
+              <a href="/recruiter">ALL CANDIDATES</a>
+              <a href="/recruiter/add-job">ADD A JOB</a>
+              <a className="linkHome" href="/logout" onClick={() => this.logoutClick()}>LOGOUT</a>
+            </nav>
+
             <h2>Welcome, recruiters!</h2>
             <AllCandidates allCandidatesArray={this.state.allCandidatesArray} />
-          </div>}
+            <AddJob updateJobsArray={(oneJob) => this.updateJobsArray(oneJob)} />
+
+          </section>
+        }
       </section>
-      );
-    }
+    );
   }
-  export default Recruiters;
+}
+export default Recruiters;

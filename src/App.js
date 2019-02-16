@@ -70,11 +70,14 @@ class App extends Component {
 
   render() {
     const { currentUser } = this.state;
-    const additionalNav = () => (<nav>
+    const additionalNav = () => (
+    <nav>
       <a className="linkHome" href="/association">HOME</a>
       <a className="linkHome" href="/association/all">ALL ASSOCIATIONS</a>
       <a className="linkHome" href="/association/change-profile">YOUR PROFILE</a>
-    </nav>)
+      <a className="linkHome" href="/logout" onClick={() => this.logoutClick()}>LOGOUT</a>
+    </nav>
+    )
 
     return (
       <div className="App">
@@ -85,11 +88,10 @@ class App extends Component {
             <Switch>
               <Route path='/association' component={additionalNav} />
             </Switch>
-            <button className="LogoutButton" onClick={() => this.logoutClick()} >Log Out</button>
             </div>
             ) :
             <nav>
-              <NavLink className="linkHome" exact to="/">IRONHIRE</NavLink>
+              <NavLink className="linkHome" exact to="/">INTÉGRATION</NavLink>
               <NavLink className="linkHome" to="/candidate">CANDIDATES</NavLink>
               <NavLink className="linkHome" to="/recruiter">RECRUITERS</NavLink>
               <NavLink className="linkHome" to="/association">ASSOCIATIONS</NavLink>
@@ -105,6 +107,10 @@ class App extends Component {
           <Route exact path="/candidate" render={()=> 
             <CandidatesPage onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           } />
+          <Route path="/association/signup" render={() => {
+            return <AssoSignup currentUser={this.state.currentUser}
+            onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
+          }} />
           <Route path="/association/all/:id" component={OneAsso} />
           <Route exact path="/association/all" component={AllAssociations} />
           <Route path="/association/change-profile" render={() =>
@@ -118,10 +124,7 @@ class App extends Component {
             return <Login currentUser={this.state.currentUser}
             onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           }} />
-          <Route path="/association/signup" render={() => {
-            return <AssoSignup currentUser={this.state.currentUser}
-            onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
-          }} />
+          
           <Route path="/recruiter/signup" render={() => {
             return <RecruitSignup currentUser={this.state.currentUser}
             onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
@@ -141,7 +144,7 @@ class App extends Component {
           <Route component={NotFound} />
         </Switch>
 
-        <footer className="footer">Contact Us</footer>
+        <footer className="footer"></footer>
       </div>
     );
   }

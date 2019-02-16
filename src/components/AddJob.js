@@ -57,7 +57,7 @@ class AddJob extends Component {
 
   render() {
     if (this.state.isSubmitSuccessful) {
-      return <Redirect to="/recruiter/add-job" />
+      return <Redirect to="/recruiter" />
     }
 
     return (

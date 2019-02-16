@@ -7,6 +7,10 @@ body {
   flex-direction: column; 
  }
 
+nav {
+  background-color: #494E6B !important;
+}
+
 
 header {
   font-size: 12px;
@@ -43,7 +47,7 @@ label {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height : 115vh;
+    height : 80vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -198,4 +202,21 @@ form button {
 
 .AddCv select {
   display: inline;
+}
+
+.AllJobsDiv {
+  display: flex;
+  background-color: #192231;
+  padding-left: 5%;
+  padding-right: 15%;
+  color: #ffffff;
+  margin: 3% 20%;
+}
+
+.AllCandidatesSection {
+  margin-top: 150px;
+}
+
+.candidatesInfo {
+  color: white;
 }

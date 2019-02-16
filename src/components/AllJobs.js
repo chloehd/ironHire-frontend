@@ -17,7 +17,7 @@ class AllJobs extends Component {
       })
       .then(response => {
         console.log("Jobs", response.data);
-        this.setState({ jobArray: response.data });
+        this.setState({ jobsArray: response.data });
       })
       .catch(err => {
         console.log("Jobs ERROR 🙈", err);
@@ -34,13 +34,13 @@ class AllJobs extends Component {
           {jobsArray.map(oneJob => {
             return (
                 <div key={oneJob._id} className="AllJobsDiv">
-              <ul>
+              <ul className="jobDescription">
               <li><h4>{oneJob.name}</h4></li>
-              <li>Description: {oneJob.description}</li>
-              <li>Contract Type: {oneJob.contractType}</li>
-              <li>Location: {oneJob.location}</li>
-              <li>Created At: {oneJob.createdAt}</li>
-              <li>Deadline: {oneJob.deadline}</li>
+              <p>Description: {oneJob.description}</p>
+              <p>Contract Type: {oneJob.contractType}</p>
+              <p>Location: {oneJob.location}</p>
+              <p>Created At: {oneJob.createdAt}</p>
+              <p>Deadline: {oneJob.deadline}</p>
               </ul>
               </div>
             );
