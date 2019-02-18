@@ -124,6 +124,11 @@ class App extends Component {
             return <Login currentUser={this.state.currentUser}
             onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           }} />
+
+          <Route path="/logout" render={() => {
+            return <Login currentUser={this.state.currentUser}
+            onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
+          }} />
           
           <Route path="/recruiter/signup" render={() => {
             return <RecruitSignup currentUser={this.state.currentUser}
