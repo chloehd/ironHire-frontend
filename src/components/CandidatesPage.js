@@ -5,8 +5,6 @@ import { Switch, Route, NavLink } from "react-router-dom";
 import Login from "./Login.js";
 
 
-
-
 class CandidatesPage extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +36,7 @@ class CandidatesPage extends Component {
 
   render() {
 
-    const { currentUser } = this.state;
+    //const { currentUser } = this.state;
     const additionalNav = () => (
       <nav>
         <a href="/candidate">ALL JOBS</a>
@@ -48,41 +46,50 @@ class CandidatesPage extends Component {
     )
     return (
       <section className="candidates">
-        <header>
 
-          {currentUser ? (
-            <div>
+
+        {!this.props.currentUser ? (
+          <div>
+            <header>
               <Switch>
                 <Route path='/candidate' component={additionalNav} />
               </Switch>
+            </header>
+
+
+            <div className="candidatesJobs">
+              <h1>Welcome</h1>
+              <AllJobs />
             </div>
-          ) :
-            <nav>
-              <NavLink className="linkHome" exact to="/">INTÉGRATION</NavLink>
-              <NavLink className="linkHome" to="/candidate">CANDIDATES</NavLink>
-              <NavLink className="linkHome" to="/recruiter">RECRUITERS</NavLink>
-              <NavLink className="linkHome" to="/association">ASSOCIATIONS</NavLink>
-
-            </nav>}
 
 
-        </header>
 
-        {!this.props.currentUser &&
-          <div>
-            <p>Dear Recruiters, you are looking for employees and
-              you are sure that integrating people that are in difficulties is a good thing,
-              you are in the right place. You can add job offers here and see candidate profiles.
-              Sign up to experiment the website.
-          </p>
-            <Login onUserChange={this.props.onUserChange} />
+
           </div>
-        }
-        {this.props.currentUser &&
-          <div className="candidatesJobs">
-            <h1>Welcome</h1>
-            <AllJobs />
-          </div>
+        ) : (
+            <div>
+              <header>
+                <nav>
+                  <NavLink className="linkHome" exact to="/">INTÉGRATION</NavLink>
+                  <NavLink className="linkHome" to="/candidate">CANDIDATES</NavLink>
+                  <NavLink className="linkHome" to="/recruiter">RECRUITERS</NavLink>
+                  <NavLink className="linkHome" to="/association">ASSOCIATIONS</NavLink>
+
+                </nav>
+              </header>
+
+              <div>
+                <p>Dear Recruiters, you are looking for employees and
+                  you are sure that integrating people that are in difficulties is a good thing,
+                  you are in the right place. You can add job offers here and see candidate profiles.
+                  Sign up to experiment the website.
+                </p>
+                <Login onUserChange={this.props.onUserChange} />
+              </div>
+
+
+            </div>
+          )}
         }
 
       </section>

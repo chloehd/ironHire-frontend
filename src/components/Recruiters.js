@@ -11,7 +11,7 @@ class Recruiters extends Component {
       jobsArray: []
     };
   }
-
+  
   syncCurrentUser(userDoc) {
     this.setState({ currentUser: userDoc });
   }
