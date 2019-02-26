@@ -32,6 +32,7 @@ class App extends Component {
 
     this.state = {
       currentUser: null,
+      role: "",
     }
   }
 
@@ -68,6 +69,7 @@ class App extends Component {
       });
   }
 
+  
   render() {
     const { currentUser } = this.state;
     const additionalNav = () => (
@@ -78,6 +80,9 @@ class App extends Component {
       <a className="linkHome" href="/logout" onClick={() => this.logoutClick()}>LOGOUT</a>
     </nav>
     )
+    
+    console.log(currentUser, "here is the current user");
+
 
     return (
       <div className="App">
@@ -105,7 +110,8 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/candidate/add-cv" component={AddCv} />
           <Route exact path="/candidate" render={()=> 
-            <CandidatesPage onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
+            <CandidatesPage currentUser={this.state.currentUser}
+            onUserChange={userDoc => this.syncCurrentUser(userDoc)}  />
           } />
           <Route path="/association/signup" render={() => {
             return <AssoSignup currentUser={this.state.currentUser}
@@ -120,10 +126,6 @@ class App extends Component {
             <Associations currentUser={this.state.currentUser}
                 onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           } />
-          <Route path="/login" render={() => {
-            return <Login currentUser={this.state.currentUser}
-            onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
-          }} />
 
           <Route path="/logout" render={() => {
             return <Login currentUser={this.state.currentUser}

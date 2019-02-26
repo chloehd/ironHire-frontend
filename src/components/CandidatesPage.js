@@ -48,7 +48,7 @@ class CandidatesPage extends Component {
       <section className="candidates">
 
 
-        {!this.props.currentUser ? (
+        {this.props.currentUser ? (
           <div>
             <header>
               <Switch>
