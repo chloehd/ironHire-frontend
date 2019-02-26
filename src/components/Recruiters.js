@@ -11,7 +11,7 @@ class Recruiters extends Component {
       jobsArray: []
     };
   }
-  
+
   syncCurrentUser(userDoc) {
     this.setState({ currentUser: userDoc });
   }
@@ -57,11 +57,13 @@ class Recruiters extends Component {
 
         {this.props.currentUser &&
           <section>
-            <nav>
-              <a href="/recruiter">ALL CANDIDATES</a>
-              <a href="/recruiter/add-job">ADD A JOB</a>
-              <a className="linkHome" href="/logout" onClick={() => this.logoutClick()}>LOGOUT</a>
-            </nav>
+            <header>
+              <nav>
+                <a href="/recruiter">ALL CANDIDATES</a>
+                <a href="/recruiter/add-job">ADD A JOB</a>
+                <a className="linkHome" href="/logout" onClick={() => this.logoutClick()}>LOGOUT</a>
+              </nav>
+            </header>
 
             <h2>Welcome, recruiters!</h2>
             <AllCandidates allCandidatesArray={this.state.allCandidatesArray} />
