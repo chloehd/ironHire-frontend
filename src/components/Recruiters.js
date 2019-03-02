@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import AllCandidates from "./AllCandidates.js";
 import Login from "./Login.js";
-import AddJob from "./AddJob.js";
 
 class Recruiters extends Component {
   constructor(props) {
@@ -67,7 +66,6 @@ class Recruiters extends Component {
 
             <h2>Welcome, recruiters!</h2>
             <AllCandidates allCandidatesArray={this.state.allCandidatesArray} />
-            <AddJob updateJobsArray={(oneJob) => this.updateJobsArray(oneJob)} />
 
           </section>
         }

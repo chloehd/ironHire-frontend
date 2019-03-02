@@ -35,20 +35,20 @@ class AddCv extends Component {
       this.state,
       { withCredentials: true }
     )
-    .then(response => {
-      console.log("Add CV", response.data);
-      this.setState({ isSubmitSuccessful: true });
-    })
-    .catch(err => {
-      console.log("Add CV ERROR", err);
-      alert("Sorry! Something went wrong. AddJob52")
-    });
+      .then(response => {
+        console.log("Add CV", response.data);
+        this.setState({ isSubmitSuccessful: true });
+      })
+      .catch(err => {
+        console.log("Add CV ERROR", err);
+        alert("Sorry! Something went wrong. AddJob52")
+      });
   }
 
   syncExp(event, index) {
     const { experience } = this.state;
     const { name, value } = event.target;
-    
+
     experience[index][name] = value;
     this.setState({ experience });
   }
@@ -75,6 +75,13 @@ class AddCv extends Component {
 
     return (
       <section className="AddCv">
+        <nav>
+          <a href="/candidate">ALL JOBS</a>
+          <a href="/candidate/add-cv">ADD RESUME</a>
+          <a className="linkHome" href="/logout" onClick={() => this.logoutClick()}>LOGOUT</a>
+        </nav>
+
+
         <form onSubmit={(event) => this.handleFormSubmit(event)}>
           <label>
             First Name:
@@ -154,8 +161,8 @@ class AddCv extends Component {
                   <label>
                     Subject:
                       <input key={index} type="text" value={oneEd.studyName}
-                        name="studyName"
-                         onChange={event => this.syncEdu(event, index)} />
+                      name="studyName"
+                      onChange={event => this.syncEdu(event, index)} />
                   </label>
 
                   <label>
@@ -204,7 +211,7 @@ class AddCv extends Component {
           <label>
             Employment status:
             <select name="employment_status" value={employment_status}
-                onChange={event => this.genericSync(event)}>
+              onChange={event => this.genericSync(event)}>
               <option value="searching">Searching</option>
               <option value="open to offers">Open to Offers</option>
               <option value="employed">Employed</option>

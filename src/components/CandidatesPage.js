@@ -56,14 +56,10 @@ class CandidatesPage extends Component {
               </Switch>
             </header>
 
-
             <div className="candidatesJobs">
               <h1>Welcome</h1>
               <AllJobs />
             </div>
-
-
-
 
           </div>
         ) : (
@@ -74,12 +70,12 @@ class CandidatesPage extends Component {
                   <NavLink className="linkHome" to="/candidate">CANDIDATES</NavLink>
                   <NavLink className="linkHome" to="/recruiter">RECRUITERS</NavLink>
                   <NavLink className="linkHome" to="/association">ASSOCIATIONS</NavLink>
-
                 </nav>
               </header>
 
               <div>
-                <p>Dear Recruiters, you are looking for employees and
+                <p>
+                  Dear Recruiters, you are looking for employees and
                   you are sure that integrating people that are in difficulties is a good thing,
                   you are in the right place. You can add job offers here and see candidate profiles.
                   Sign up to experiment the website.
@@ -87,11 +83,9 @@ class CandidatesPage extends Component {
                 <Login onUserChange={this.props.onUserChange} />
               </div>
 
-
             </div>
           )}
         }
-
       </section>
     )
   }

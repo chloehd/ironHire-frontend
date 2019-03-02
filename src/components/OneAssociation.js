@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import moment from "moment";
 
 class OneAssociation extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class OneAssociation extends Component {
       <div>
         <h3>{name}</h3>
         {associationLogo && <img src={associationLogo} alt="" /> }
-        <p>{createdOn}</p>
+        <p>{moment(createdOn).format('DD/MM/YYYY')}</p>
         { addInformation && <p>{addInformation}</p> }
         <p>{email}</p>
         { telNumber && <p>{telNumber}</p> }

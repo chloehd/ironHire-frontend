@@ -6,6 +6,7 @@ function getCandidateUrl(oneCandidate) {
   return `/recruiter/allcandidates/${oneCandidate._id}`;
 }
 
+
 class AllCandidates extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +22,6 @@ class AllCandidates extends Component {
         withCredentials: true
       })
       .then(response => {
-        console.log("Candidates", response.data);
         this.setState({ candidateArray: response.data });
       })
       .catch(err => {
@@ -32,7 +32,6 @@ class AllCandidates extends Component {
 
   render() {
     const { candidateArray } = this.state;
-    console.log(candidateArray);
     const candidateHTML = candidateArray.map(oneCandidate => {
       return (
         <div className="AllCandidatesDiv" key={oneCandidate._id}>

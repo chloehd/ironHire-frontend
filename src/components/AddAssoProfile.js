@@ -152,7 +152,7 @@ class AddAssoProfile extends Component {
             Logo:
               <input type="file" onChange={event => this.uploadImage(event)}  />
           </label>
-          <img src={this.state.associationLogo} alt=""/>
+          <img src={associationLogo} alt=""/>
 
 
           <button>Update your profile</button>

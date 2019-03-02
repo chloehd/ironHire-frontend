@@ -34,8 +34,6 @@ class OneCandidate extends Component {
       experience, languages, education
     } = this.state;
 
-    console.log("aloooooo", this.state)
-
     return (
       <section className="oneCandidate">
         <h3>
@@ -47,7 +45,7 @@ class OneCandidate extends Component {
           {telephone_number && <p>Telephone Number: {telephone_number}</p>}
           <p>Employment status:{employment_status}</p>
           <p>Skills: {skills}</p>
-          {experience.map((oneExp, index) => {
+          {/* {experience.map((oneExp, index) => {
             return <p key={index}>{oneExp[index]}</p>
           })}
           {education.map((oneEdu, index) => {
@@ -55,7 +53,7 @@ class OneCandidate extends Component {
           })}
           {languages.map((oneLanguage, index) => {
             return <p key={index}>{oneLanguage}</p>
-          })}
+          })} */}
         </ul>
       </section>
     );

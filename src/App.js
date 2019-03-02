@@ -80,8 +80,6 @@ class App extends Component {
       <a className="linkHome" href="/logout" onClick={() => this.logoutClick()}>LOGOUT</a>
     </nav>
     )
-    
-    console.log(currentUser, "here is the current user");
 
 
     return (
@@ -132,6 +130,8 @@ class App extends Component {
             onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           }} />
           
+          <Route path="/recruiter/allcandidates/:id" component={OneCandidate} />
+
           <Route path="/recruiter/signup" render={() => {
             return <RecruitSignup currentUser={this.state.currentUser}
             onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
@@ -146,7 +146,6 @@ class App extends Component {
                 onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           }  />
           <Route path="/candidate/alljobs" component={AllJobs} />
-          <Route path="/candidate/:nameofthecandidate" component={OneCandidate} />
           <Route path="/news" component={NewsPage} />
           <Route component={NotFound} />
         </Switch>

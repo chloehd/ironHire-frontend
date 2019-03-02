@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import moment from 'moment';
 
 
 class AllJobs extends Component {
@@ -39,8 +40,8 @@ class AllJobs extends Component {
               <p>Description: {oneJob.description}</p>
               <p>Contract Type: {oneJob.contractType}</p>
               <p>Location: {oneJob.location}</p>
-              <p>Created At: {oneJob.createdAt}</p>
-              <p>Deadline: {oneJob.deadline}</p>
+              <p>Created At: {moment(oneJob.createdAt).format('DD/MM/YYYY')}</p>
+              <p>Deadline: {moment(oneJob.deadline).format('DD/MM/YYYY')}</p>
               </ul>
               </div>
             );

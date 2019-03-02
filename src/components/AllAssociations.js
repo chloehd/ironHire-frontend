@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 function getAssoUrl(oneAsso) {
   return `/association/all/${oneAsso._id}`;
@@ -49,7 +50,7 @@ class AllAssociations extends Component {
                     {oneAsso.name}
                   </Link>
                 </h5>
-                <p>{oneAsso.createdOn}</p>
+                <p>{moment(oneAsso.createdOn).format('DD/MM/YYYY')}</p>
                 { oneAsso.associationLogo && <img src={oneAsso.associationLogo} alt={oneAsso.name} />}
               </li>
               </div>
