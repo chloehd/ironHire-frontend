@@ -196,7 +196,8 @@ form button {
  
 }
 
-.AddAssoProfile img {
+.AddAssoProfile img,
+.AllList img {
   width: 100%;
 }
 

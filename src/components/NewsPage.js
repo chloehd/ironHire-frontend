@@ -16,7 +16,7 @@ class NewsPage extends Component {
               <div key={oneNews._id} className="NewsMap">
               <li>
                 <h5>{oneNews.owner.name}</h5>
-                <p>{moment(oneNews.createdAt).format('DD/MM/YYYY')}</p>
+                <p>{moment(oneNews.createdAt).format('MMMM Do, YYYY')}</p>
                 <p>{oneNews.message}</p>
                 {oneNews.image && <img className="ImgNewsMap" src={oneNews.image} alt = ""/>}
                 {oneNews.Link && <Link to={oneNews.link}>Click me</Link>}

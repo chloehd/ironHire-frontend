@@ -50,7 +50,7 @@ class AllAssociations extends Component {
                     {oneAsso.name}
                   </Link>
                 </h5>
-                <p>{moment(oneAsso.createdOn).format('DD/MM/YYYY')}</p>
+                <p>{moment(oneAsso.createdOn).format('DD / MM / YYYY')}</p>
                 { oneAsso.associationLogo && <img src={oneAsso.associationLogo} alt={oneAsso.name} />}
               </li>
               </div>
