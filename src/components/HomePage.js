@@ -30,7 +30,7 @@ class HomePage extends Component {
                     <h2 className="center brown-text"><i className="material-icons">flash_on</i></h2>
                     <h5 className="center">Candidates</h5>
 
-                    <p className="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+                    <p className="light">We work to mobilize businesses to hire refugees and integrate them into supply chains anywhere that refugees live, but we encourage businesses to focus in particular in markets where the need is greatest, including developing countries that host the largest refugee populations.</p>
                   </div>
                 </div>
 
@@ -39,7 +39,7 @@ class HomePage extends Component {
                     <h2 className="center brown-text"><i className="material-icons">group</i></h2>
                     <h5 className="center">Recruiter</h5>
 
-                    <p className="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+                    <p className="light">Private sector companies can play a vital role in creating jobs for refugees, whether by hiring them directly in their workforce or taking steps to integrate them into their supply chains. In so doing, companies can help refugees become self-reliant and transform refugee-hosting communities into thriving economies — while also expanding their business and elevating their brand.</p>
                   </div>
                 </div>
 
