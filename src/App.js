@@ -16,7 +16,6 @@ import AddAssoProfile from "./components/AddAssoProfile.js";
 import NewsPage from "./components/NewsPage.js";
 import OneCandidate from "./components/OneCandidate.js";
 import OneAsso from "./components/OneAssociation.js";
-//import AllCandidates from "./components/AllCandidates.js";
 import AllAssociations from "./components/AllAssociations.js";
 import AllJobs from "./components/AllJobs.js";
 import CandidatesPage from "./components/CandidatesPage.js"
@@ -84,7 +83,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header>
+        <header className="row">
 
           {currentUser ? (
             <div>

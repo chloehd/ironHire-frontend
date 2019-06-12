@@ -14,8 +14,8 @@ class OneCandidate extends Component {
     const { params } = this.props.match;
 
     axios.get(
-      process.env.REACT_APP_SERVER_URL + `/api/recruiter/allcandidates/${params.id}`, 
-    { withCredentials: true }
+      process.env.REACT_APP_SERVER_URL + `/api/recruiter/allcandidates/${params.id}`,
+      { withCredentials: true }
     )
       .then(response => {
         console.log("candidate deets", response.data);
@@ -34,18 +34,29 @@ class OneCandidate extends Component {
       experience, languages, education
     } = this.state;
 
+
+
     return (
       <section className="oneCandidate">
-        <h3>
-          {first_name} {last_name}
-        </h3>
-        <ul>
-          <img src={candidate_pic} alt="" />
-          <p>Email: {email}</p>
-          {telephone_number && <p>Telephone Number: {telephone_number}</p>}
-          <p>Employment status:{employment_status}</p>
-          <p>Skills: {skills}</p>
-          {/* {experience.map((oneExp, index) => {
+        <header className="row">
+          <nav>
+            <a href="/recruiter">ALL CANDIDATES</a>
+            <a href="/recruiter/add-job">ADD A JOB</a>
+            <a className="linkHome" href="/logout" onClick={() => this.logoutClick()}>LOGOUT</a>
+          </nav>
+        </header>
+
+        <div className="row">
+          <h3>
+            {first_name} {last_name}
+          </h3>
+          <ul>
+            <img className="col s6" src={candidate_pic} alt="" />
+            <p>Email: {email}</p>
+            {telephone_number && <p>Telephone Number: {telephone_number}</p>}
+            <p>Employment status:{employment_status}</p>
+            <p>Skills: {skills}</p>
+            {/* {experience.map((oneExp, index) => {
             return <p key={index}>{oneExp[index]}</p>
           })}
           {education.map((oneEdu, index) => {
@@ -54,7 +65,9 @@ class OneCandidate extends Component {
           {languages.map((oneLanguage, index) => {
             return <p key={index}>{oneLanguage}</p>
           })} */}
-        </ul>
+          </ul>
+
+        </div>
       </section>
     );
   }

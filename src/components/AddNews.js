@@ -69,7 +69,7 @@ class AddNews extends Component {
                   type="url" name="link" placeholder="www.example.com"/>
           </label>
 
-          <button>Add News</button>
+          <button className="waves-effect waves-light btn-small">Add News</button>
       
         </form>
       </section>

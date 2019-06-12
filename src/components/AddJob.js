@@ -62,6 +62,14 @@ class AddJob extends Component {
 
     return (
       <section className="AddJob">
+        <header className="row">
+          <nav>
+            <a href="/recruiter">ALL CANDIDATES</a>
+            <a href="/recruiter/add-job">ADD A JOB</a>
+            <a className="linkHome" href="/logout" onClick={() => this.logoutClick()}>LOGOUT</a>
+          </nav>
+        </header>
+
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
             Job's name:
@@ -112,7 +120,7 @@ class AddJob extends Component {
               type="date" name="deadline" placeholder="London" />
           </label>
 
-          <button>Add a job offer</button>
+          <button className="waves-effect waves-light btn-small">Add a job offer</button>
 
         </form>
       </section>

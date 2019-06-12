@@ -79,7 +79,7 @@ class Signup extends Component {
                 type="password" name="originalPassword" placeholder="****" />
           </label>
 
-          <button>Sign Up!</button>
+          <button className="waves-effect waves-light btn-small">Sign Up!</button>
         </form>
       </section>
     );

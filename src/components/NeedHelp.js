@@ -62,7 +62,7 @@ class NeedHelp extends Component {
           </label>
 
 
-          <button>Need Help</button>
+          <button className="waves-effect waves-light btn-small">Need Help</button>
         </form>
       </section>
     );

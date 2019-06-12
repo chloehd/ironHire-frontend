@@ -75,12 +75,13 @@ class AddCv extends Component {
 
     return (
       <section className="AddCv">
+        <header className="row">
         <nav>
           <a href="/candidate">ALL JOBS</a>
           <a href="/candidate/add-cv">ADD RESUME</a>
           <a className="linkHome" href="/logout" onClick={() => this.logoutClick()}>LOGOUT</a>
         </nav>
-
+      </header>
 
         <form onSubmit={(event) => this.handleFormSubmit(event)}>
           <label>

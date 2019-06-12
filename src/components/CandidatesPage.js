@@ -50,7 +50,7 @@ class CandidatesPage extends Component {
 
         {this.props.currentUser ? (
           <div>
-            <header>
+            <header className="row">
               <Switch>
                 <Route path='/candidate' component={additionalNav} />
               </Switch>
@@ -64,7 +64,7 @@ class CandidatesPage extends Component {
           </div>
         ) : (
             <div>
-              <header>
+              <header className="row">
                 <nav>
                   <NavLink className="linkHome" exact to="/">INTÉGRATION</NavLink>
                   <NavLink className="linkHome" to="/candidate">CANDIDATES</NavLink>

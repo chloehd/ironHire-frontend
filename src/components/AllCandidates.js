@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 function getCandidateUrl(oneCandidate) {
@@ -34,32 +34,33 @@ class AllCandidates extends Component {
     const { candidateArray } = this.state;
     const candidateHTML = candidateArray.map(oneCandidate => {
       return (
-        <div className="AllCandidatesDiv" key={oneCandidate._id}>
-          <div className="candidatesInfo">
-
-            <div>
-              <Link to={getCandidateUrl(oneCandidate)}>
-                <img src={oneCandidate.candidate_pic} alt="" />
-              </Link>
-            </div>
-
-            <h5>
-              {oneCandidate.first_name} {oneCandidate.last_name}
-            </h5>
-            <p>{oneCandidate.email}</p>
-            <p>{oneCandidate.employment_status}</p>
+        <div className="row">
+        <div className="card col s6 offset-s3" key={oneCandidate._id}>
+          <div className="card-image waves-effect waves-block waves-light">
+            <NavLink to={getCandidateUrl(oneCandidate)}>
+                  <img className="activator" src={oneCandidate.candidate_pic} alt="" />
+                </NavLink>
           </div>
-
+            <div className="card-content">
+              <span className="card-title activator grey-text text-darken-4">{oneCandidate.first_name} {oneCandidate.last_name}
+                <i className="material-icons right">more_vert</i></span>
+            </div>
+            <div className="card-reveal">
+              <span className="card-title grey-text text-darken-4">{oneCandidate.first_name} {oneCandidate.last_name}<i className="material-icons right">close</i></span>
+              <p>{oneCandidate.email}</p>
+              <p>{oneCandidate.employment_status}</p>
+            </div>
         </div>
-      );
-    })
-
-    return (
-      <section className="AllCandidatesSection">
-        {candidateHTML}
-      </section>
-    );
-  }
-}
-
-export default AllCandidates;
+        </div>
+          );
+        })
+    
+        return (
+        <section className="AllCandidatesSection">
+            {candidateHTML}
+          </section>
+          );
+        }
+      }
+      
+      export default AllCandidates;

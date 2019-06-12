@@ -64,7 +64,7 @@ class Login extends Component {
                 type="password" name="originalPassword" placeholder="****" />
           </label>
 
-          <button>Log In!</button>
+          <button className="waves-effect waves-light btn-small">Log In!</button>
         </form>
       </section>
     );
