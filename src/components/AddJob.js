@@ -62,7 +62,7 @@ class AddJob extends Component {
 
     return (
       <section className="AddJob">
-        <header className="row">
+        <header className="row fixNavBar">
           <nav>
             <a href="/recruiter">ALL CANDIDATES</a>
             <a href="/recruiter/add-job">ADD A JOB</a>

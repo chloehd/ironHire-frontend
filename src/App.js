@@ -83,8 +83,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header className="row">
-
+        <header>
           {currentUser ? (
             <div>
             <Switch>
@@ -92,14 +91,13 @@ class App extends Component {
             </Switch>
             </div>
             ) :
-            <nav>
+            <nav className="fixNavBar">
               <NavLink className="linkHome" exact to="/">INTÉGRATION</NavLink>
               <NavLink className="linkHome" to="/candidate">CANDIDATES</NavLink>
               <NavLink className="linkHome" to="/recruiter">RECRUITERS</NavLink>
               <NavLink className="linkHome" to="/association">ASSOCIATIONS</NavLink>
 
             </nav>}
-
 
         </header>
 

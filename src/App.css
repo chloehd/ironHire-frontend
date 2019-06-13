@@ -15,11 +15,14 @@ nav {
 header {
   font-size: 12px;
   background-color: white;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 50px;
+}
+
+.fixNavBar {
+  position: fixed;
 }
 
 .AddCv {
@@ -76,13 +79,11 @@ input[type=text],
 }
 
 form {
-  margin-top: 200px;
   margin-left: 25%;
-  margin-top: 200px;
   background-color: #98878f;
   border-radius: 3px;
   padding: 20px;
-  width: 40%;
+  width: 50%;
 }
 
 form button {

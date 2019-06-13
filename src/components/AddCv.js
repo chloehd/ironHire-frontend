@@ -75,7 +75,7 @@ class AddCv extends Component {
 
     return (
       <section className="AddCv">
-        <header className="row">
+        <header className="row fixNavBar">
         <nav>
           <a href="/candidate">ALL JOBS</a>
           <a href="/candidate/add-cv">ADD RESUME</a>

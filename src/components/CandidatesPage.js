@@ -50,7 +50,7 @@ class CandidatesPage extends Component {
 
         {this.props.currentUser ? (
           <div>
-            <header className="row">
+            <header className="row fixNavBar">
               <Switch>
                 <Route path='/candidate' component={additionalNav} />
               </Switch>
@@ -63,22 +63,14 @@ class CandidatesPage extends Component {
 
           </div>
         ) : (
-            <div>
-              <header className="row">
-                <nav>
-                  <NavLink className="linkHome" exact to="/">INTÉGRATION</NavLink>
-                  <NavLink className="linkHome" to="/candidate">CANDIDATES</NavLink>
-                  <NavLink className="linkHome" to="/recruiter">RECRUITERS</NavLink>
-                  <NavLink className="linkHome" to="/association">ASSOCIATIONS</NavLink>
-                </nav>
-              </header>
-
+            <div className="container row">
               <div>
                 <p>
-                  Dear Recruiters, you are looking for employees and
-                  you are sure that integrating people that are in difficulties is a good thing,
-                  you are in the right place. You can add job offers here and see candidate profiles.
-                  Sign up to experiment the website.
+                  Dear Candidates, you just arrived in France and you are looking for a job to 
+                  begin a new life. You found the great place. Here are some job offers but you profile will
+                  also be shared with companies looking for someone to hire. So it is possible that a company 
+                  directly contact you. It is important to file you resume in order to be easy to contact.
+                  Please login to enter to your account.
                 </p>
                 <Login onUserChange={this.props.onUserChange} />
               </div>

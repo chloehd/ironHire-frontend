@@ -42,10 +42,11 @@ class Associations extends Component {
     return (
       <section className="associations">
         {!this.props.currentUser && 
-        <div>
-            <p>You are an association that is working with refugees. You help them to be integrated in their new place and helping them to find
-              a job is one of your aim. You can join the community of IronHire to be in contact with other associations that are following 
-              the same way. 
+        <div className="container row">
+            <p>You are an association working for refugees. You help them to be integrated 
+              in their new place and to find a job. 
+              You can join the community of Intégration to be in contact with other associations 
+              and to share with them all good practises. 
             </p>
             <Login onUserChange={this.props.onUserChange}/>
         </div>

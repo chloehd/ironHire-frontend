@@ -38,7 +38,7 @@ class OneCandidate extends Component {
 
     return (
       <section className="oneCandidate">
-        <header className="row">
+        <header className="row fixNavBar">
           <nav>
             <a href="/recruiter">ALL CANDIDATES</a>
             <a href="/recruiter/add-job">ADD A JOB</a>

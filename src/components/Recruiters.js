@@ -43,15 +43,15 @@ class Recruiters extends Component {
       <section className="row">
 
         {!this.props.currentUser &&
-          <div className="row">
-            <div className="col m6">
+          <div className="container row">
+            <div className="col m12">
               <p>Dear Recruiters, you are looking for employees and
                 you are sure that integrating people that are in difficulties is a good thing,
                 you are in the right place. You can add job offers here and see candidate profiles.
                 Sign up to experiment the website.
               </p>
             </div>
-            <div className="row">
+            <div className="col m12">
               <Login onUserChange={this.props.onUserChange} />
             </div>
           </div>
@@ -59,7 +59,7 @@ class Recruiters extends Component {
 
         {this.props.currentUser &&
           <section>
-            <header className="row">
+            <header className="fixNavBar">
               <nav>
                 <a href="/recruiter">ALL CANDIDATES</a>
                 <a href="/recruiter/add-job">ADD A JOB</a>
@@ -67,7 +67,7 @@ class Recruiters extends Component {
               </nav>
             </header>
 
-            <div className="row">
+            <div className="container row">
               <h2>Welcome, recruiters!</h2>
               <AllCandidates allCandidatesArray={this.state.allCandidatesArray} />
             </div>
