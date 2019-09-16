@@ -59,6 +59,12 @@ class Recruiters extends Component {
 
         {this.props.currentUser &&
           <section>
+            
+            <div className="container row">
+              <h2>Welcome, recruiters!</h2>
+              <AllCandidates allCandidatesArray={this.state.allCandidatesArray} />
+            </div>
+
             <header className="fixNavBar">
               <nav>
                 <a href="/recruiter">ALL CANDIDATES</a>
@@ -67,10 +73,6 @@ class Recruiters extends Component {
               </nav>
             </header>
 
-            <div className="container row">
-              <h2>Welcome, recruiters!</h2>
-              <AllCandidates allCandidatesArray={this.state.allCandidatesArray} />
-            </div>
 
           </section>
         }

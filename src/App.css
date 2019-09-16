@@ -218,3 +218,9 @@ form button {
 .candidatesInfo {
   color: white;
 }
+
+.AllCandidatesSection .waves-effect img, 
+.AllCandidatesSection .card-image
+ {
+  z-index: 0;
+}

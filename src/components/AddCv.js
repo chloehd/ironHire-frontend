@@ -14,14 +14,28 @@ class AddCv extends Component {
       email: "",
       telephone_number: "",
       employment_status: "searching",
-      experience: [{}],
-      education: [{}],
+      experience: [],
+      education: [],
       languages: [""],
       add_achievements: "",
       skills: "",
       role: "candidate",
     }
   }
+
+  componentDidMount() {
+
+    axios.get(
+      process.env.REACT_APP_SERVER_URL + "/api/candidate/cv",
+      { withCredentials: true }
+    )
+      .then(res => {
+        console.log(res)
+        this.setState(res.data);
+      })
+      .catch()
+  }
+
 
   genericSync(event) {
     const { name, value } = event.target;
@@ -46,11 +60,14 @@ class AddCv extends Component {
   }
 
   syncExp(event, index) {
-    const { experience } = this.state;
     const { name, value } = event.target;
-
-    experience[index][name] = value;
-    this.setState({ experience });
+    
+    this.setState((currentState) => {
+      const { experience } = currentState;
+      experience[index][name] = value;
+      return {...currentState, experience}
+    })
+     
   }
 
   syncEdu(event, index) {
@@ -123,6 +140,14 @@ class AddCv extends Component {
 
           <div>
             <h4>Experience:</h4>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                const experience = this.state.experience;
+                experience.push({});
+                this.setState({experience});
+              }}
+            >+</button>
 
             {experience.map((oneExp, index) => {
               return (

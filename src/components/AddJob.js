@@ -21,6 +21,7 @@ class AddJob extends Component {
   }
 
 
+
   genericSync(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
