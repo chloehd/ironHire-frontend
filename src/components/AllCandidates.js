@@ -39,7 +39,7 @@ class AllCandidates extends Component {
           <div className="card-image waves-effect waves-block waves-light">
             <NavLink to={getCandidateUrl(oneCandidate)}>
                   <img className="activator" src={oneCandidate.candidate_pic} alt="" />
-                </NavLink>
+            </NavLink>
           </div>
             <div className="card-content">
               <span className="card-title activator grey-text text-darken-4">{oneCandidate.first_name} {oneCandidate.last_name}

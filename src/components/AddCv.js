@@ -147,7 +147,9 @@ class AddCv extends Component {
                 experience.push({});
                 this.setState({experience});
               }}
-            >+</button>
+            >
+              +
+            </button>
 
             {experience.map((oneExp, index) => {
               return (
@@ -180,6 +182,16 @@ class AddCv extends Component {
 
           <div>
             <h4>Education:</h4>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                const education = this.state.education;
+                education.push({});
+                this.setState({education});
+              }}
+            >
+              +
+            </button>
 
             {education.map((oneEd, index) => {
               return (
