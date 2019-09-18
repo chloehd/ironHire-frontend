@@ -56,6 +56,7 @@ class OneCandidate extends Component {
             {telephone_number && <p>Telephone Number: {telephone_number}</p>}
             <p>Employment status:{employment_status}</p>
             <p>Skills: {skills}</p>
+
             {/* {experience.map((oneExp, index) => {
             return <p key={index}>{oneExp[index]}</p>
           })}
