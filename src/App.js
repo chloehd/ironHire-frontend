@@ -16,8 +16,8 @@ import AddAssoProfile from "./components/AddAssoProfile.js";
 import NewsPage from "./components/NewsPage.js";
 import OneCandidate from "./components/OneCandidate.js";
 import OneAsso from "./components/OneAssociation.js";
+import OneJob from "./components/OneJob.js";
 import AllAssociations from "./components/AllAssociations.js";
-import AllJobs from "./components/AllJobs.js";
 import CandidatesPage from "./components/CandidatesPage.js"
 
 import "./App.css";
@@ -103,6 +103,7 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route path="/candidate/alljobs/:id" component={OneJob} />
           <Route path="/candidate/add-cv" component={AddCv} />
           <Route exact path="/candidate" render={()=> 
             <CandidatesPage currentUser={this.state.currentUser}
@@ -142,7 +143,6 @@ class App extends Component {
             <Recruiters currentUser={this.state.currentUser}
                 onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           }  />
-          <Route path="/candidate/alljobs" component={AllJobs} />
           <Route path="/news" component={NewsPage} />
           <Route component={NotFound} />
         </Switch>
