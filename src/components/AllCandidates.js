@@ -6,7 +6,6 @@ function getCandidateUrl(oneCandidate) {
   return `/recruiter/allcandidates/${oneCandidate._id}`;
 }
 
-
 class AllCandidates extends Component {
   constructor(props) {
     super(props);
@@ -34,33 +33,32 @@ class AllCandidates extends Component {
     const { candidateArray } = this.state;
     const candidateHTML = candidateArray.map(oneCandidate => {
       return (
-        <div className="row">
-        <div className="card col s6 offset-s3" key={oneCandidate._id}>
+        <div className="card col s3 offset-s3" key={oneCandidate._id}>
           <div className="card-image waves-effect waves-block waves-light">
             <NavLink to={getCandidateUrl(oneCandidate)}>
-                  <img className="activator" src={oneCandidate.candidate_pic} alt="" />
+              <img
+                className="activator"
+                src={oneCandidate.candidate_pic}
+                alt=""
+              />
             </NavLink>
           </div>
-            <div className="card-content">
-              <span className="card-title activator grey-text text-darken-4">{oneCandidate.first_name} {oneCandidate.last_name}
-                <i className="material-icons right">more_vert</i></span>
-            </div>
-            <div className="card-reveal">
-              <span className="card-title grey-text text-darken-4">{oneCandidate.first_name} {oneCandidate.last_name}<i className="material-icons right">close</i></span>
-              <p>{oneCandidate.email}</p>
-              <p>{oneCandidate.employment_status}</p>
-            </div>
+          <div className="card-content">
+            <span className="card-title activator grey-text text-darken-4">
+              {oneCandidate.first_name} {oneCandidate.last_name}
+            </span>
+          </div>
+         
         </div>
-        </div>
-          );
-        })
-    
-        return (
-        <section className="AllCandidatesSection">
-            {candidateHTML}
-          </section>
-          );
-        }
-      }
-      
-      export default AllCandidates;
+      );
+    });
+
+    return (
+      <section className="AllCandidatesSection">
+        <div className="row">{candidateHTML}</div>
+      </section>
+    );
+  }
+}
+
+export default AllCandidates;

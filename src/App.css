@@ -224,3 +224,15 @@ form button {
  {
   z-index: 0;
 }
+
+.AllCandidatesSection .row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.AllCandidatesSection .row .col.offset-s3 {
+  margin-left: 2%;
+  margin-bottom: 2%;
+}
+
