@@ -236,3 +236,14 @@ form button {
   margin-bottom: 2%;
 }
 
+.AllJobsSection .row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.AllJobsSection .row .AllJobsDiv {
+  margin-left: 2%;
+  margin-bottom: 2%;
+}
+

@@ -34,7 +34,7 @@ class AllJobs extends Component {
     const { jobsArray } = this.state;
     const jobHTML = jobsArray.map(oneJob => {
       return (
-        <div className="row">
+        
           <div key={oneJob._id} className="AllJobsDiv">
             <NavLink to={getJobUrl(oneJob)}>
               <ul className="jobDescription">
@@ -51,11 +51,13 @@ class AllJobs extends Component {
               </ul>
             </NavLink>
           </div>
-        </div>
+
       );
     });
     return (<section className="AllJobsSection">
+      <div className="row">
       {jobHTML}
+      </div>
       </section>
     )
   }
