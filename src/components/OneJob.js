@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
+import moment from "moment";
 
 class OneJob extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      specs: []
+      specs: [],
     };
   }
 
@@ -20,12 +21,10 @@ class OneJob extends Component {
         { withCredentials: true }
       )
       .then(response => {
-        console.log("Jobs deets", response.data);
         this.setState(response.data);
       })
       .catch(err => {
         console.log("Jobs deets error", err);
-        alert("Oops! Something went wrong.");
       });
   }
 
@@ -38,7 +37,7 @@ class OneJob extends Component {
       contractType,
       location,
       createdAt,
-      deadline,
+      deadline, 
       owner
     } = this.state;
 
@@ -58,18 +57,19 @@ class OneJob extends Component {
           </nav>
         </header>
 
-        <div className="row">
+        <div className="row content">
           <h3>{name}</h3>
-          <p>Created at: {createdAt}</p>
           <ul>
             <li>Salary: {salary}</li>
             <li>Education: {educationLevel}</li>
             <li>Description:{description}</li>
             <li>Contract: {contractType}</li>
             <li>Location: {location}</li>
-            <li>Deadline: {deadline}</li>
-            <li>Company: {owner}</li>
+            <li>Deadline: {moment(deadline).format("DD/MM/YYYY")}</li>
+            <li>Company: {owner && owner.companyName}</li>
+            <li>Company email: {owner && owner.email}</li>
           </ul>
+          <p>Date of publication: {moment(createdAt).format("DD/MM/YYYY")}</p>
         </div>
       </section>
     );

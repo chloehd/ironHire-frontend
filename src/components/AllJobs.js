@@ -34,28 +34,25 @@ class AllJobs extends Component {
     const { jobsArray } = this.state;
     const jobHTML = jobsArray.map(oneJob => {
       return (
-        
-          <div key={oneJob._id} className="AllJobsDiv col s3">
-            <NavLink to={getJobUrl(oneJob)}>
-              <ul className="jobDescription">
-                <li>
-                  <h3>{oneJob.name}</h3>
-                </li>
-                <p>Contract Type: {oneJob.contractType}</p>
-                <p>Location: {oneJob.location}</p>
-                <p>Deadline: {moment(oneJob.deadline).format("DD/MM/YYYY")}</p>
-              </ul>
-            </NavLink>
-          </div>
-
+        <div key={oneJob._id} className="AllJobsDiv col s4">
+          <NavLink to={getJobUrl(oneJob)}>
+            <ul className="jobDescription">
+              <li>
+                <h3>{oneJob.name}</h3>
+              </li>
+              <p>Contract Type: {oneJob.contractType}</p>
+              <p>Location: {oneJob.location}</p>
+              <p>Deadline: {moment(oneJob.deadline).format("DD/MM/YYYY")}</p>
+            </ul>
+          </NavLink>
+        </div>
       );
     });
-    return (<section className="AllJobsSection">
-      <div className="row">
-      {jobHTML}
-      </div>
+    return (
+      <section className="AllJobsSection">
+        <div className="row">{jobHTML}</div>
       </section>
-    )
+    );
   }
 }
 

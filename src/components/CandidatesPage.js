@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AllJobs from "./AllJobs.js";
 import axios from "axios";
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Login from "./Login.js";
 
 
@@ -57,7 +57,7 @@ class CandidatesPage extends Component {
             </header>
 
             <div className="candidatesJobs">
-              <h1>Welcome</h1>
+              <h2>Welcome {this.props.currentUser.first_name}!</h2>
               <AllJobs />
             </div>
 
