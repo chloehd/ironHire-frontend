@@ -209,10 +209,11 @@ form button {
 .AllJobsDiv {
   display: flex;
   background-color: #192231;
+  border-radius: 1%;
   padding-left: 5%;
   padding-right: 15%;
   color: #ffffff;
-  margin: 3% 20%;
+  margin: 0;
 }
 
 .candidatesInfo {
@@ -242,8 +243,21 @@ form button {
   flex-wrap: wrap;
 }
 
-.AllJobsSection .row .AllJobsDiv {
-  margin-left: 2%;
-  margin-bottom: 2%;
+
+.AllJobsSection .row .col.s3 {
+  margin-left: 15px;
+  margin-bottom: 15px;
 }
+
+.AllJobsSection h3 {
+  margin: 0;
+}
+
+.AllJobsSection a {
+  color: white;
+}
+
+
+
+
 

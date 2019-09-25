@@ -35,18 +35,14 @@ class AllJobs extends Component {
     const jobHTML = jobsArray.map(oneJob => {
       return (
         
-          <div key={oneJob._id} className="AllJobsDiv">
+          <div key={oneJob._id} className="AllJobsDiv col s3">
             <NavLink to={getJobUrl(oneJob)}>
               <ul className="jobDescription">
                 <li>
-                  <h4>{oneJob.name}</h4>
+                  <h3>{oneJob.name}</h3>
                 </li>
-                <p>Description: {oneJob.description}</p>
                 <p>Contract Type: {oneJob.contractType}</p>
                 <p>Location: {oneJob.location}</p>
-                <p>
-                  Created At: {moment(oneJob.createdAt).format("DD/MM/YYYY")}
-                </p>
                 <p>Deadline: {moment(oneJob.deadline).format("DD/MM/YYYY")}</p>
               </ul>
             </NavLink>
