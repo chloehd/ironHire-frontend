@@ -37,8 +37,6 @@ class Associations extends Component {
 
   render() {
 
- // const {candidateArray} = this.props;
-
     return (
       <section className="associations">
         {!this.props.currentUser && 

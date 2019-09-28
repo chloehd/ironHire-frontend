@@ -1,3 +1,4 @@
+
 body {
   color:#4A4A4A;
   font-family: 'Roboto', sans-serif;
@@ -289,6 +290,37 @@ form button {
   margin-right: 0;
 }
 
+.candidates .container {
+  display: flex;
+  max-width: 100%;
+  margin: 0;
+}
+
+@media only screen and (min-width: 993px) 
+{
+  .container {
+    width: 100%;
+  }
+}
+
+.candidates {
+  margin:0;
+}
+
+.candidates .container .row {
+  margin:0;
+}
+
+.candidates .container .text {
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 50%;
+}
+
+.candidates .container .image {
+  height: auto;
+  width: 20%;
+}
 
 
 
