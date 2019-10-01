@@ -60,17 +60,6 @@ label {
 
 }
 
-.LogoutButton {
-  padding: 10px 30px;
-  border-radius: 3px;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.19);
-  background-color: #192231;
-  color: white;
-  font-weight: bold;
-  position: absolute;
-  right: 0px;
-
-}
 
 input[type=text],
 [type=url] {
@@ -304,7 +293,8 @@ form button {
   }
 }
 
-.candidates {
+.candidates,
+.recruiters {
   margin:0;
 }
 
@@ -313,29 +303,48 @@ form button {
   width: 100%;
 }
 
-.candidates .row {
+.candidates .row,
+.recruiters .row {
   margin:0;
-  justify-content: space-evenly;
 }
 
-.candidates .container .text {
+.candidates .container .text,
+.recruiters .container .text {
   margin-top: 50px;
   margin-left: 60px;
   padding-right: 60px;
   width: 58%;
 }
 
-.candidates .container .image {
+.candidates .container .image, 
+.recruiters .container .image {
   height: auto;
   width: 50%;
 }
 
-.candidates img {
+.candidates img, 
+.recruiters img {
   height: auto;
   width: 100%;
 }
 
-.candidates .text p {
+.candidates .text p,
+.recruiters .text p {
   margin-bottom: 50px;
 }
 
+.recruiters .container {
+  margin: 0;
+  width: 100%;
+  display: -webkit-box;
+}
+
+button:focus {
+  outline: none;
+  background-color: #494e6b;
+}
+
+button {
+  background-color: #494e6b;
+  color: #ffffff;
+}
