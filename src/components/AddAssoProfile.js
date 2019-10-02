@@ -155,7 +155,7 @@ class AddAssoProfile extends Component {
           <img src={associationLogo} alt=""/>
 
 
-          <button className="waves-effect waves-light btn-small">Update your profile</button>
+          <button className="waves-effect waves-light btn-small indigo lighten-1">Update your profile</button>
 
         </form>
       </section>

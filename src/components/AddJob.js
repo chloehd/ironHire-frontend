@@ -121,7 +121,7 @@ class AddJob extends Component {
               type="date" name="deadline" placeholder="London" />
           </label>
 
-          <button className="waves-effect waves-light btn-small">Add a job offer</button>
+          <button className="waves-effect waves-light btn-small indigo lighten-1">Add a job offer</button>
 
         </form>
       </section>

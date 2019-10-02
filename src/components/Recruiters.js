@@ -38,7 +38,7 @@ class Recruiters extends Component {
     return (
       <section className="recruiters">
         {!this.props.currentUser && (
-          <div>
+          <div className="div-recruiters">
             <div className="container row">
               <div className="text">
                 <p>
@@ -61,7 +61,7 @@ class Recruiters extends Component {
         )}
 
         {this.props.currentUser && (
-          <section>
+          <section className="recruiters1">
             <div className="container row">
               <h2>Welcome, {this.props.currentUser.companyName}!</h2>
               <AllCandidates
