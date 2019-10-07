@@ -37,20 +37,22 @@ class Associations extends Component {
     return (
       <section className="associations">
         {!this.props.currentUser && (
-          <div className="container row">
-            <div className="text">
-              <p>
-                You are an association working for refugees. You help them to be
-                integrated in their new place and to find a job. You can join
-                the community of Intégration to be in contact with other
-                associations and to share with them all good practises.
-              </p>
-            </div>
-            <div className="image">
-              <img
-                src="https://images.unsplash.com/photo-1461532257246-777de18cd58b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80"
-                alt="Hands"
-              />
+          <div className="div-associations">
+            <div className="container row">
+              <div className="text">
+                <p>
+                  You are an association working for refugees. You help them to
+                  be integrated in their new place and to find a job. You can
+                  join the community of Intégration to be in contact with other
+                  associations and to share with them all good practises.
+                </p>
+              </div>
+              <div className="image">
+                <img
+                  src="https://images.unsplash.com/photo-1461532257246-777de18cd58b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80"
+                  alt="Hands"
+                />
+              </div>
             </div>
             <Login onUserChange={this.props.onUserChange} />
           </div>
