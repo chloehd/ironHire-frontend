@@ -336,3 +336,8 @@ form button {
 .waves-effect {
   position: initial !important;
 }
+
+.buttons-loginform .white{
+  color: #5c6bc0;
+  margin-left: 10px;
+}
