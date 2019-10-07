@@ -75,10 +75,7 @@ class Login extends Component {
 
           <button 
             className="waves-effect waves-light btn-small white"
-            onClick={e => {
-              e.preventDefault()
-              
-            }}
+            onClick={e => e.preventDefault()}
           >
             Sign up!
           </button>
