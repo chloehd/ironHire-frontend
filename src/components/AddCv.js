@@ -74,6 +74,19 @@ class AddCv extends Component {
     this.setState({ education });
   }
 
+  logoutClick() {
+    axios
+      .delete(process.env.REACT_APP_SERVER_URL + "/api/logout", {
+        withCredentials: true
+      })
+      .then(() => {
+        this.syncCurrentUser(null);
+      })
+      .catch(err => {
+        console.log("Logout ERROR", err);
+      });
+  }
+
   render() {
     if (this.state.isSubmitSuccessful) {
       return <Redirect to="/candidate" />;
