@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import AllJobs from "./AllJobs.js";
+import AllJobs from "./AllJobs";
 import axios from "axios";
 import { Switch, Route } from "react-router-dom";
-import Login from "./Login.js";
+import Login from "./Login";
+import Search from "./Search";
 
 class CandidatesPage extends Component {
   constructor(props) {
@@ -57,6 +58,7 @@ class CandidatesPage extends Component {
 
             <div className="candidatesJobs">
               <h2>Welcome {this.props.currentUser.first_name}!</h2>
+              <Search />
               <AllJobs />
             </div>
           </div>
