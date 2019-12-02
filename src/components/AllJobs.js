@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import moment from "moment";
 
 function getJobUrl(oneJob) {
@@ -10,29 +10,14 @@ function getJobUrl(oneJob) {
 class AllJobs extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      jobsArray: []
-    };
-  }
-
-  componentDidMount() {
-    axios
-      .get(process.env.REACT_APP_SERVER_URL + "/api/candidate", {
-        withCredentials: true
-      })
-      .then(response => {
-        console.log("Jobs", response.data);
-        this.setState({ jobsArray: response.data });
-      })
-      .catch(err => {
-        console.log("Jobs ERROR 🙈", err);
-      });
+    this.state = {};
   }
 
   render() {
-    const { jobsArray } = this.state;
-    const jobHTML = jobsArray.map(oneJob => {
+    const { jobsData } = this.props;
+    console.log("kjskdlkslks", jobsData);
+
+    const jobHTML = jobsData.map(oneJob => {
       return (
         <div key={oneJob._id} className="AllJobsDiv col s4">
           <NavLink to={getJobUrl(oneJob)}>

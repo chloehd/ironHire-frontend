@@ -11,8 +11,23 @@ class CandidatesPage extends Component {
 
     this.state = {
       first_name: "",
-      last_name: ""
+      last_name: "",
+      data: []
     };
+  }
+
+  componentDidMount() {
+    axios
+      .get(process.env.REACT_APP_SERVER_URL + "/api/candidate", {
+        withCredentials: true
+      })
+      .then(response => {
+        console.log("Jobs", response.data);
+        this.setState({ data: response.data });
+      })
+      .catch(err => {
+        console.log("Jobs ERROR 🙈", err);
+      });
   }
 
   syncCurrentUser(userDoc) {
@@ -33,6 +48,8 @@ class CandidatesPage extends Component {
   }
 
   render() {
+    const { data } = this.state;
+
     const additionalNav = () => (
       <nav>
         <a href="/candidate">ALL JOBS</a>
@@ -58,8 +75,8 @@ class CandidatesPage extends Component {
 
             <div className="candidatesJobs">
               <h2>Welcome {this.props.currentUser.first_name}!</h2>
-              <Search />
-              <AllJobs />
+              <Search data={data} />
+              <AllJobs jobsData={data} />
             </div>
           </div>
         ) : (

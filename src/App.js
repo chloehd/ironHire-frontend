@@ -123,7 +123,7 @@ class App extends Component {
             render={() => {
               return (
                 <CandidateSignup
-                  currentUser={this.state.currentUser}
+                  currentUser={currentUser}
                   onUserChange={userDoc => this.syncCurrentUser(userDoc)}
                 />
               );
@@ -135,7 +135,7 @@ class App extends Component {
             path="/candidate"
             render={() => (
               <CandidatesPage
-                currentUser={this.state.currentUser}
+                currentUser={currentUser}
                 onUserChange={userDoc => this.syncCurrentUser(userDoc)}
               />
             )}
@@ -145,7 +145,7 @@ class App extends Component {
             render={() => {
               return (
                 <AssoSignup
-                  currentUser={this.state.currentUser}
+                  currentUser={currentUser}
                   onUserChange={userDoc => this.syncCurrentUser(userDoc)}
                 />
               );
@@ -155,15 +155,13 @@ class App extends Component {
           <Route exact path="/association/all" component={AllAssociations} />
           <Route
             path="/association/change-profile"
-            render={() => (
-              <AddAssoProfile currentUser={this.state.currentUser} />
-            )}
+            render={() => <AddAssoProfile currentUser={currentUser} />}
           />
           <Route
             path="/association"
             render={() => (
               <Associations
-                currentUser={this.state.currentUser}
+                currentUser={currentUser}
                 onUserChange={userDoc => this.syncCurrentUser(userDoc)}
               />
             )}
@@ -174,7 +172,7 @@ class App extends Component {
             render={() => {
               return (
                 <Login
-                  currentUser={this.state.currentUser}
+                  currentUser={currentUser}
                   onUserChange={userDoc => this.syncCurrentUser(userDoc)}
                 />
               );
@@ -188,7 +186,7 @@ class App extends Component {
             render={() => {
               return (
                 <RecruitSignup
-                  currentUser={this.state.currentUser}
+                  currentUser={currentUser}
                   onUserChange={userDoc => this.syncCurrentUser(userDoc)}
                 />
               );
@@ -199,7 +197,7 @@ class App extends Component {
             path="/recruiter"
             render={() => (
               <Recruiters
-                currentUser={this.state.currentUser}
+                currentUser={currentUser}
                 onUserChange={userDoc => this.syncCurrentUser(userDoc)}
               />
             )}
