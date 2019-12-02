@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-// import axios from "axios";
 import moment from "moment";
 
 function getJobUrl(oneJob) {
@@ -14,28 +13,47 @@ class AllJobs extends Component {
   }
 
   render() {
-    const { jobsData } = this.props;
-    console.log("kjskdlkslks", jobsData);
+    const { jobsData, data } = this.props;
 
-    const jobHTML = jobsData.map(oneJob => {
-      return (
-        <div key={oneJob._id} className="AllJobsDiv col s4">
-          <NavLink to={getJobUrl(oneJob)}>
-            <ul className="jobDescription">
-              <li>
-                <h3>{oneJob.name}</h3>
-              </li>
-              <p>Contract Type: {oneJob.contractType}</p>
-              <p>Location: {oneJob.location}</p>
-              <p>Deadline: {moment(oneJob.deadline).format("DD/MM/YYYY")}</p>
-            </ul>
-          </NavLink>
-        </div>
-      );
-    });
+    console.log("pppppppp", data);
+
+    // const jobHTML = jobsData.map(oneJob => {
+    //   return (
+    //     <div key={oneJob._id} className="AllJobsDiv col s4">
+    //       <NavLink to={getJobUrl(oneJob)}>
+    //         <ul className="jobDescription">
+    //           <li>
+    //             <h3>{oneJob.name}</h3>
+    //           </li>
+    //           <p>Contract Type: {oneJob.contractType}</p>
+    //           <p>Location: {oneJob.location}</p>
+    //           <p>Deadline: {moment(oneJob.deadline).format("DD/MM/YYYY")}</p>
+    //         </ul>
+    //       </NavLink>
+    //     </div>
+    //   );
+    // });
+
     return (
       <section className="AllJobsSection">
-        <div className="row">{jobHTML}</div>
+        {data ? (
+          <div className="row">
+            <div key={data._id} className="AllJobsDiv col s4">
+              <NavLink to={getJobUrl(data)}>
+                <ul className="jobDescription">
+                  <li>
+                    <h3>{data.name}</h3>
+                  </li>
+                  <p>Contract Type: {data.contractType}</p>
+                  <p>Location: {data.location}</p>
+                  <p>Deadline: {moment(data.deadline).format("DD/MM/YYYY")}</p>
+                </ul>
+              </NavLink>
+            </div>
+          </div>
+        ) : (
+          <div className="row">Coucou</div>
+        )}
       </section>
     );
   }

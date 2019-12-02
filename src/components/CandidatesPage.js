@@ -76,7 +76,7 @@ class CandidatesPage extends Component {
             <div className="candidatesJobs">
               <h2>Welcome {this.props.currentUser.first_name}!</h2>
               <Search data={data} />
-              <AllJobs jobsData={data} />
+              {/* <AllJobs jobsData={data} /> */}
             </div>
           </div>
         ) : (

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import AllJobs from "./AllJobs";
 
 class Search extends Component {
   constructor(props) {
@@ -15,6 +16,15 @@ class Search extends Component {
   };
 
   render() {
+    const { data } = this.props;
+    const { userInput } = this.state;
+
+    const filteredArray = data.filter(dataFilter => {
+      return (
+        dataFilter.name.toLowerCase().indexOf(userInput.toLowerCase()) !== -1
+      );
+    });
+
     return (
       <div>
         <form action="search">
@@ -23,6 +33,10 @@ class Search extends Component {
             onChange={this.handleChange}
             placeholder="Search..."
           />
+          {userInput &&
+            filteredArray.map(oneData => {
+              return <AllJobs data={oneData} />;
+            })}
         </form>
       </div>
     );
