@@ -12,7 +12,8 @@ class CandidatesPage extends Component {
     this.state = {
       first_name: "",
       last_name: "",
-      data: []
+      data: [],
+      userInput: ""
     };
   }
 
@@ -47,8 +48,19 @@ class CandidatesPage extends Component {
       });
   }
 
+  handleChange = e => {
+    this.setState({ userInput: e.target.value });
+    console.log(e.target.value);
+  };
+
   render() {
-    const { data } = this.state;
+    const { data, userInput } = this.state;
+
+    const filteredArray = data.filter(dataFilter => {
+      return (
+        dataFilter.name.toLowerCase().indexOf(userInput.toLowerCase()) !== -1
+      );
+    });
 
     const additionalNav = () => (
       <nav>
@@ -75,8 +87,15 @@ class CandidatesPage extends Component {
 
             <div className="candidatesJobs">
               <h2>Welcome {this.props.currentUser.first_name}!</h2>
-              <Search data={data} />
-              {/* <AllJobs jobsData={data} /> */}
+
+              <Search onChange={this.handleChange} />
+
+              {userInput &&
+                filteredArray.map(oneData => {
+                  return <AllJobs data={oneData} />;
+                })}
+
+              {!userInput && <AllJobs jobsData={data} />}
             </div>
           </div>
         ) : (

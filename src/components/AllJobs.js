@@ -16,27 +16,28 @@ class AllJobs extends Component {
     const { jobsData, data } = this.props;
 
     console.log("pppppppp", data);
-
-    // const jobHTML = jobsData.map(oneJob => {
-    //   return (
-    //     <div key={oneJob._id} className="AllJobsDiv col s4">
-    //       <NavLink to={getJobUrl(oneJob)}>
-    //         <ul className="jobDescription">
-    //           <li>
-    //             <h3>{oneJob.name}</h3>
-    //           </li>
-    //           <p>Contract Type: {oneJob.contractType}</p>
-    //           <p>Location: {oneJob.location}</p>
-    //           <p>Deadline: {moment(oneJob.deadline).format("DD/MM/YYYY")}</p>
-    //         </ul>
-    //       </NavLink>
-    //     </div>
-    //   );
-    // });
+    if (jobsData) {
+      var jobHTML = jobsData.map(oneJob => {
+        return (
+          <div key={oneJob._id} className="AllJobsDiv col s4">
+            <NavLink to={getJobUrl(oneJob)}>
+              <ul className="jobDescription">
+                <li>
+                  <h3>{oneJob.name}</h3>
+                </li>
+                <p>Contract Type: {oneJob.contractType}</p>
+                <p>Location: {oneJob.location}</p>
+                <p>Deadline: {moment(oneJob.deadline).format("DD/MM/YYYY")}</p>
+              </ul>
+            </NavLink>
+          </div>
+        );
+      });
+    }
 
     return (
       <section className="AllJobsSection">
-        {data ? (
+        {!jobsData ? (
           <div className="row">
             <div key={data._id} className="AllJobsDiv col s4">
               <NavLink to={getJobUrl(data)}>
@@ -52,7 +53,7 @@ class AllJobs extends Component {
             </div>
           </div>
         ) : (
-          <div className="row">Coucou</div>
+          <div className="row">{jobHTML}</div>
         )}
       </section>
     );
