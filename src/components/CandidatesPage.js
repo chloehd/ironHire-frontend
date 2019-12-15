@@ -90,10 +90,18 @@ class CandidatesPage extends Component {
 
               <Search onChange={this.handleChange} />
 
-              {userInput &&
-                filteredArray.map(oneData => {
-                  return <AllJobs data={oneData} />;
-                })}
+              <div className="jobSearchDiv">
+                {userInput &&
+                  filteredArray.map(oneData => {
+                    return (
+                      <AllJobs
+                        key={oneData._id}
+                        data={oneData}
+                        className="searchJobs"
+                      />
+                    );
+                  })}
+              </div>
 
               {!userInput && <AllJobs jobsData={data} />}
             </div>

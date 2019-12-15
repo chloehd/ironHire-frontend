@@ -15,7 +15,6 @@ class AllJobs extends Component {
   render() {
     const { jobsData, data } = this.props;
 
-    console.log("pppppppp", data);
     if (jobsData) {
       var jobHTML = jobsData.map(oneJob => {
         return (
@@ -36,10 +35,10 @@ class AllJobs extends Component {
     }
 
     return (
-      <section className="AllJobsSection">
-        {!jobsData ? (
-          <div className="row">
-            <div key={data._id} className="AllJobsDiv col s4">
+      <div className="AllJobsSection">
+        <div className="row">
+          {!jobsData ? (
+            <div key={data._id} className="searchJobDiv col s4">
               <NavLink to={getJobUrl(data)}>
                 <ul className="jobDescription">
                   <li>
@@ -51,11 +50,11 @@ class AllJobs extends Component {
                 </ul>
               </NavLink>
             </div>
-          </div>
-        ) : (
-          <div className="row">{jobHTML}</div>
-        )}
-      </section>
+          ) : (
+            <div className="row">{jobHTML}</div>
+          )}
+        </div>
+      </div>
     );
   }
 }

@@ -116,7 +116,8 @@ form button {
   font-size: 13px;
 }
 
-.AllJobsDiv li {
+.AllJobsDiv li,
+.searchJobDiv li {
   list-style: none;
   display: inline-block;
   width: calc(70% / 3);
@@ -187,7 +188,8 @@ form button {
   display: inline;
 }
 
-.AllJobsDiv {
+.AllJobsDiv,
+.searchJobDiv {
   display: flex;
   background-color: #192231;
   border-radius: 1%;
@@ -237,7 +239,8 @@ form button {
   color: white;
 }
 
-.AllJobsDiv li {
+.AllJobsDiv li,
+.searchJobDiv li {
   width: 100%;
   height: 50px;
 }
@@ -326,7 +329,7 @@ form button {
   margin-bottom: 50px;
 }
 
-.recruiters .div-recruiters .container, 
+.recruiters .div-recruiters .container,
 .associations .container {
   margin: 0;
   width: 100%;
@@ -337,7 +340,28 @@ form button {
   position: initial !important;
 }
 
-.buttons-loginform .white{
+.buttons-loginform .white {
   color: #5c6bc0;
   margin-left: 10px;
+}
+
+.searchJobs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.jobSearchDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.jobSearchDiv .AllJobsSection {
+  width: 100%;
+}
+
+.signupLink {
+  text-decoration: none;
+  color: #5c6bc0;
 }

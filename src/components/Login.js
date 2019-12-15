@@ -69,18 +69,16 @@ class Login extends Component {
             />
           </label>
           <div className="buttons-loginform">
-          <button className="waves-effect waves-light btn-small indigo lighten-1">
-            Log In!
-          </button>
+            <button className="waves-effect waves-light btn-small indigo lighten-1">
+              Log In!
+            </button>
 
-          <button 
-            className="waves-effect waves-light btn-small white"
-            onClick={e => e.preventDefault()}
-          >
-            Sign up!
-          </button>
+            <button className="waves-effect waves-light btn-small white">
+              <a className="signupLink" href="/candidate/signup">
+                Sign up!
+              </a>
+            </button>
           </div>
-
         </form>
       </section>
     );
